@@ -123,6 +123,7 @@
       <path value="$PROJECT_DIR$/digikala-sample/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/digikala-sample/vendor/myclabs/php-enum" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

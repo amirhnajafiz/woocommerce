@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable(false)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone', 16)->nullable(false)->unique();
-            $table->string('role')->default('user');
+            $table->string('role')->default(\enum\Role::USER());
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

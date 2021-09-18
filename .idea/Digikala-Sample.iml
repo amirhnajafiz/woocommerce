@@ -129,6 +129,7 @@
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/fruitcake/laravel-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/myclabs/php-enum" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
