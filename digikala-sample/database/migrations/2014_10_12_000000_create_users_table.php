@@ -15,15 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false);
+            $table->string('name', \enum\Limit::NAME())->nullable(false);
             $table->string('email')->nullable(false)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone', 16)->nullable(false)->unique();
+            $table->string('phone', \enum\Limit::PHONE())->nullable(false)->unique();
             $table->string('role')->default(\enum\Role::USER());
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('profile_photo_path', \enum\Limit::COMMENT())->nullable();
             $table->timestamps();
         });
     }
