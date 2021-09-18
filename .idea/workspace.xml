@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/digikala-sample/enums/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Digikala-Sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Digikala-Sample.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +165,7 @@
       <updated>1631948096328</updated>
       <workItem from="1631948125690" duration="662000" />
       <workItem from="1631948816296" duration="35000" />
-      <workItem from="1631948889462" duration="780000" />
+      <workItem from="1631948889462" duration="1436000" />
     </task>
     <servers />
   </component>
