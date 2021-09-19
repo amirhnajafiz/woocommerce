@@ -25,7 +25,6 @@ class CreateCategoriesTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete();
-            $table->string('icon', \enum\Limit::LINK());
             $table->timestamps();
         });
     }
