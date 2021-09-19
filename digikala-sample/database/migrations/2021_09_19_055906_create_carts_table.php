@@ -23,7 +23,7 @@ class CreateCartsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->cascadeOnDelete();
-            $table->string('status', \enum\Limit::TITLE())->default(\enum\Status::ORDER());
+            $table->string('status', \App\Enums\Limit::TITLE())->default(\App\Enums\Status::ORDER());
             $table->timestamps();
         });
     }

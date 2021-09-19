@@ -23,7 +23,7 @@ class CreatePaymentsTable extends Migration
                 ->references('id')
                 ->on('carts');
             $table->float('amount')->default(0);
-            $table->string('bank', \enum\Limit::NAME());
+            $table->string('bank', \App\Enums\Limit::NAME());
             $table->timestamps();
         });
     }

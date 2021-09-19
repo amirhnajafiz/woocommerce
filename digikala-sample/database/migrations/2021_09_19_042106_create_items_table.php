@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name', \enum\Limit::NAME())->unique();
+            $table->string('name', \App\Enums\Limit::NAME())->unique();
             $table->integer('view')->default(0);
             $table->integer('sell')->default(0);
             $table->integer('favorite')->default(0);
@@ -34,7 +34,7 @@ class CreateItemsTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete();
-            $table->string('properties', \enum\Limit::COMMENT());
+            $table->string('properties', \App\Enums\Limit::COMMENT());
             $table->timestamps();
         });
     }

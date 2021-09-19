@@ -15,7 +15,7 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->string('code', \enum\Limit::NAME())->nullable(false);
+            $table->string('code', \App\Enums\Limit::NAME())->nullable(false);
             $table->integer('discount')->default(10);
             $table->timestamps();
         });

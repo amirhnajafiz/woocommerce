@@ -15,9 +15,9 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('title', \enum\Limit::NAME())->nullable(false);
-            $table->string('alt', \enum\Limit::NAME());
-            $table->string('path', \enum\Limit::LINK());
+            $table->string('title', \App\Enums\Limit::NAME())->nullable(false);
+            $table->string('alt', \App\Enums\Limit::NAME());
+            $table->string('path', \App\Enums\Limit::LINK());
             $table->foreignId('imageable_id')
                 ->references('id')
                 ->on('images')
