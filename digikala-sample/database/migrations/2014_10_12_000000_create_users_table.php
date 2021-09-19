@@ -25,9 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('phone', \App\Enums\Limit::PHONE())->nullable(false)->unique();
             $table->string('role')->default(\App\Enums\Role::USER());
             $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', \App\Enums\Limit::COMMENT())->nullable();
             $table->timestamps();
         });
     }

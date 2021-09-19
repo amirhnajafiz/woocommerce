@@ -11,7 +11,7 @@ use MyCLabs\Enum\Enum;
  */
 final class Limit extends Enum
 {
-    private const PHONE = 16;
+    private const PHONE = 32;
     private const TITLE = 32;
     private const NAME = 64;
     private const LINK = 1024;

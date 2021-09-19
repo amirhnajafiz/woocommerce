@@ -30,7 +30,6 @@ class UserFactory extends Factory
             'phone' => $this->faker->unique()->phoneNumber(),
             'email_verified_at' => now(),
             'password' => '1234', // password
-            'remember_token' => Str::random(10),
         ];
     }
 
