@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
- * Class CartController for controlling user cart.
+ * Class CommentController handles the comments.
  *
  * @package App\Http\Controllers
  */
-class CartController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
