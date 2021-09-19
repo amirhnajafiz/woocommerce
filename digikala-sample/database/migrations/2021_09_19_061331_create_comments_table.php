@@ -5,10 +5,10 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateCartsTable.
+ * Class CreateCommentsTable.
  *
  */
-class CreateCartsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,13 +17,19 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
                 ->references('id')
                 ->on('users')
                 ->cascadeOnDelete();
-            $table->string('status', \enum\Limit::TITLE())->default(\enum\Status::ORDER());
+            $table->foreignId('item_id')
+                ->references('id')
+                ->on('items')
+                ->cascadeOnDelete();
+            $table->float('rate')->default(0);
+            $table->integer('likes')->default(0);
+            $table->integer('dislikes')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +41,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('comments');
     }
 }
