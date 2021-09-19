@@ -165,7 +165,8 @@
       <updated>1631948096328</updated>
       <workItem from="1631948125690" duration="662000" />
       <workItem from="1631948816296" duration="35000" />
-      <workItem from="1631948889462" duration="1436000" />
+      <workItem from="1631948889462" duration="1926000" />
+      <workItem from="1631955814407" duration="135000" />
     </task>
     <servers />
   </component>
@@ -182,5 +183,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
