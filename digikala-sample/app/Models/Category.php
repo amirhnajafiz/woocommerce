@@ -57,4 +57,14 @@ class Category extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    /**
+     * Each category has items.
+     *
+     * @return HasMany
+     */
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
 }

@@ -30,6 +30,10 @@ class CreateItemsTable extends Migration
                 ->references('id')
                 ->on('brands')
                 ->cascadeOnDelete();
+            $table->foreignId('category_id')
+                ->references('id')
+                ->on('categories')
+                ->cascadeOnDelete();
             $table->string('properties', \enum\Limit::COMMENT());
             $table->timestamps();
         });
