@@ -58,6 +58,8 @@ Our models are the database main parts. The core models of our database.<br />
 
 - Payment
 	- Cart 
+	- Amount
+	- Bank
 	
 - Order
 	- Item 
