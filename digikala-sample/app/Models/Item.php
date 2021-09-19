@@ -55,4 +55,14 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Each item has a brand.
+     *
+     * @return BelongsTo
+     */
+    public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }
