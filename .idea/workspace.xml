@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_043105_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_041105_create_brands_table.php" afterDir="false" />
-    </list>
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +171,7 @@
       <workItem from="1631948889462" duration="1926000" />
       <workItem from="1631955814407" duration="135000" />
       <workItem from="1632025038347" duration="1540000" />
-      <workItem from="1632030380390" duration="5477000" />
+      <workItem from="1632030380390" duration="5777000" />
     </task>
     <servers />
   </component>
