@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class CreateItemsTable for items table in our database.
+ *
+ */
 class CreateItemsTable extends Migration
 {
     /**
@@ -22,6 +26,10 @@ class CreateItemsTable extends Migration
             $table->bigInteger('price')->nullable(false);
             $table->integer('number')->default(0);
             $table->bigInteger('score')->default(0);
+            $table->foreignId('brand_id')
+                ->references('id')
+                ->on('brands')
+                ->cascadeOnDelete();
             $table->string('properties', \enum\Limit::COMMENT());
             $table->timestamps();
         });

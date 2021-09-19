@@ -6,30 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Item for each shop item.
+ * Class Brand.
  *
  * @package App\Models
  */
-class Item extends Model
+class Brand extends Model
 {
     // Traits
     use HasFactory;
 
     /**
-     * Item fillable parts.
+     * Fallible of the brand model.
      *
      * @var string[]
      */
     protected $fillable = [
         'name',
         'slug',
-        'view',
-        'sell',
-        'favorite',
-        'price',
-        'number',
-        'score',
-        'brand_id',
-        'properties'
+        'description'
     ];
 }
