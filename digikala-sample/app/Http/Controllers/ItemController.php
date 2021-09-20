@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /**
  * Class ItemController for items management.
@@ -43,12 +42,22 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param CreateUpdateItemRequest $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(CreateUpdateItemRequest $request): JsonResponse
     {
-        //
+        $validated = $request->validated();
+        $item = Item::query()->create($validated);
+
+        if ($request->file('file')) {
+            // TODO: Store file in storage and database
+        }
+
+        return \response()->json([
+            'status' => 'OK',
+            'id' => $item->id
+        ]);
     }
 
     /**
@@ -83,13 +92,28 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param CreateUpdateItemRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateItemRequest $request, int $id): JsonResponse
     {
-        //
+        $item = Item::query()->findOrFail($id);
+        $validated = $request->validated();
+
+        $item->update($validated);
+
+        if ($request->file('file')) {
+            // TODO: Store file in storage and database
+        }
+
+        $item->save();
+
+        return \response()->json([
+            'status' => 'OK',
+            'id' => $item->id,
+            'change' => 'OK'
+        ]);
     }
 
     /**
