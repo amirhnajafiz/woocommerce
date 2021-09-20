@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Item;
-use Psy\Util\Str;
+use Illuminate\Support\Str;
 
 /**
  * Class ItemObserver.
@@ -18,10 +18,9 @@ class ItemObserver
      * @param Item $item
      * @return void
      */
-    public function created(Item $item)
+    public function creating(Item $item)
     {
-        $item->slug = \Illuminate\Support\Str::slug($item->name);
-        $item->save();
+        $item->slug = Str::slug($item->name);
     }
 
     /**
@@ -32,7 +31,7 @@ class ItemObserver
      */
     public function updated(Item $item)
     {
-        $item->slug = \Illuminate\Support\Str::slug($item->name);
+        $item->slug = Str::slug($item->name);
         $item->save();
     }
 

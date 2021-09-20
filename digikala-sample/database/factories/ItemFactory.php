@@ -28,7 +28,6 @@ class ItemFactory extends Factory
     {
         return [
             'name' => $this->faker->unique->word,
-            'slug' => $this->faker->unique->word,
             'price' => $this->faker->randomNumber(5),
             'number' => rand(10, 50),
             'properties' => $this->faker->text(30)
