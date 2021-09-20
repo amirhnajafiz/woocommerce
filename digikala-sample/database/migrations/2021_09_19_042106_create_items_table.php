@@ -27,10 +27,12 @@ class CreateItemsTable extends Migration
             $table->integer('number')->default(0);
             $table->bigInteger('score')->default(0);
             $table->foreignId('brand_id')
+                ->default(null)
                 ->references('id')
                 ->on('brands')
                 ->cascadeOnDelete();
             $table->foreignId('category_id')
+                ->default(null)
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete();
