@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,21 +17,27 @@ class BrandController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        $brands = Brand::all();
+        return \response()->json([
+            'brands' => $brands
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function create()
+    public function create(): JsonResponse
     {
-        //
+        return \response()->json([
+            'status' => 'OK',
+            'page' => 'Brand Create'
+        ]);
     }
 
     /**
@@ -46,23 +54,30 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(int $id): JsonResponse
     {
-        //
+        $brand = Brand::query()->findOrFail($id);
+        return \response()->json([
+            'brand' => $brand
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function edit($id)
+    public function edit(int $id): JsonResponse
     {
-        //
+        $brand = Brand::query()->findOrFail($id);
+        return \response()->json([
+            'brand' => $brand,
+            'page' => 'Update'
+        ]);
     }
 
     /**
@@ -80,11 +95,15 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        Brand::query()->findOrFail($id)->delete();
+        return \response()->json([
+            'status' => 'OK',
+            'item' => 'Delete'
+        ]);
     }
 }
