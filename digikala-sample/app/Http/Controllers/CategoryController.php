@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,21 +17,27 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        $categories = Category::all();
+        return \response()->json([
+            'categories' => $categories
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function create()
+    public function create(): JsonResponse
     {
-        //
+        return \response()->json([
+            'status' => 'OK',
+            'page' => 'Category Create'
+        ]);
     }
 
     /**
@@ -46,23 +54,30 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(int $id): JsonResponse
     {
-        //
+        $category = Category::query()->findOrFail($id);
+        return \response()->json([
+            'category' => $category
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function edit($id)
+    public function edit(int $id): JsonResponse
     {
-        //
+        $category = Category::query()->findOrFail($id);
+        return \response()->json([
+            'category' => $category,
+            'page' => 'Update'
+        ]);
     }
 
     /**
@@ -80,11 +95,15 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        Category::query()->findOrFail($id)->delete();
+        return \response()->json([
+            'status' => 'OK',
+            'item' => 'Delete'
+        ]);
     }
 }

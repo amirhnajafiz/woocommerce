@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /**
  * Class BrandController for managing brands of the shop.
