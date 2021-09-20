@@ -6,6 +6,11 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Database\Seeder;
 
+/**
+ * Class CategorySeeder.
+ *
+ * @package Database\Seeders
+ */
 class CategorySeeder extends Seeder
 {
     /**
