@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/database/factories/ImageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/factories/ImageFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_18_072707_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_18_072707_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_042106_create_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_042106_create_items_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/database/seeders/BrandSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/seeders/BrandSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/seeders/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/seeders/CategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +180,7 @@
       <workItem from="1632030380390" duration="5777000" />
       <workItem from="1632050165713" duration="921000" />
       <workItem from="1632112178462" duration="4026000" />
-      <workItem from="1632124453657" duration="1429000" />
+      <workItem from="1632124453657" duration="1790000" />
     </task>
     <servers />
   </component>

@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name', \App\Enums\Limit::NAME())->unique();
+            $table->string('slug', \App\Enums\Limit::NAME())->unique();
             $table->integer('view')->default(0);
             $table->integer('sell')->default(0);
             $table->integer('favorite')->default(0);
@@ -27,11 +28,13 @@ class CreateItemsTable extends Migration
             $table->integer('number')->default(0);
             $table->bigInteger('score')->default(0);
             $table->foreignId('brand_id')
+                ->nullable(true)
                 ->default(null)
                 ->references('id')
                 ->on('brands')
                 ->cascadeOnDelete();
             $table->foreignId('category_id')
+                ->nullable(true)
                 ->default(null)
                 ->references('id')
                 ->on('categories')

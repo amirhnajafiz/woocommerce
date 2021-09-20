@@ -25,8 +25,8 @@ class BrandSeeder extends Seeder
         Brand::factory(10)
             ->has(Image::factory(1))
             ->has(Item::factory(5)->has(Image::factory(1))->afterCreating(function ($item) {
-                $category = Category::all()->random(1);
-                $item->category_id = $category->id;
+                $category = Category::query()->pluck('id')->random();
+                $item->category_id = $category;
                 $item->save();
             }))
             ->create();
