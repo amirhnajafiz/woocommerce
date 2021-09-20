@@ -13,26 +13,13 @@ use Illuminate\Support\Str;
 class ItemObserver
 {
     /**
-     * Handle the Item "created" event.
+     * Handling creating event.
      *
      * @param Item $item
-     * @return void
      */
     public function creating(Item $item)
     {
         $item->slug = Str::slug($item->name);
-    }
-
-    /**
-     * Handle the Item "updated" event.
-     *
-     * @param Item $item
-     * @return void
-     */
-    public function updated(Item $item)
-    {
-        $item->slug = Str::slug($item->name);
-        $item->save();
     }
 
     /**
