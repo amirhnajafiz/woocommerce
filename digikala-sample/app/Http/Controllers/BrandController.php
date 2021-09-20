@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -43,12 +44,22 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param CreateUpdateBrandRequest $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(CreateUpdateBrandRequest $request): JsonResponse
     {
-        //
+        $validated = $request->validated();
+        $brand = Brand::query()->create($validated);
+
+        if ($request->file('file')) {
+            // TODO: Store file in storage and database
+        }
+
+        return \response()->json([
+            'status' => 'OK',
+            'id' => $brand->id
+        ]);
     }
 
     /**
@@ -83,13 +94,28 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param CreateUpdateBrandRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateBrandRequest $request, int $id): JsonResponse
     {
-        //
+        $brand = Brand::query()->findOrFail($id);
+        $validated = $request->validated();
+
+        $brand->update($validated);
+
+        if ($request->file('file')) {
+            // TODO: Store file in storage and database
+        }
+
+        $brand->save();
+
+        return \response()->json([
+            'status' => 'OK',
+            'id' => $brand->id,
+            'change' => 'OK'
+        ]);
     }
 
     /**
