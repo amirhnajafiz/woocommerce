@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class ItemController for items management.
+ * Class ItemController.
  *
- * @package App\Http\Controllers
+ * @package App\Http\Controllers\API
  */
 class ItemController extends Controller
 {
@@ -23,19 +24,6 @@ class ItemController extends Controller
         $items = Item::all();
         return \response()->json([
             'items' => $items
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return JsonResponse
-     */
-    public function create(): JsonResponse
-    {
-        return \response()->json([
-            'status' => 'OK',
-            'page' => 'Items Create'
         ]);
     }
 
@@ -71,21 +59,6 @@ class ItemController extends Controller
         $item = Item::query()->findOrFail($id);
         return \response()->json([
             'item' => $item
-        ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return JsonResponse
-     */
-    public function edit(int $id): JsonResponse
-    {
-        $item = Item::query()->findOrFail($id);
-        return \response()->json([
-            'item' => $item,
-            'page' => 'Update'
         ]);
     }
 

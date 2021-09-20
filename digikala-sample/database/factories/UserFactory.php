@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
+/**
+ * Class UserFactory.
+ *
+ * @package Database\Factories
+ */
 class UserFactory extends Factory
 {
     /**

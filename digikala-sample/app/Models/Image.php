@@ -22,7 +22,7 @@ class Image extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'title',
         'alt',
         'path'
     ];
