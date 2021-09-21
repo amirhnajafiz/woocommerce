@@ -12,8 +12,14 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * Class User.
+ *
+ * @package App\Models
+ */
 class User extends Authenticatable
 {
+    // Traits
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
