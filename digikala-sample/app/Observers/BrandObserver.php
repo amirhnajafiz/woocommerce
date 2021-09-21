@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Http\Files\FileManager;
 use App\Models\Brand;
 use Illuminate\Support\Str;
 
@@ -31,6 +32,9 @@ class BrandObserver
      */
     public function forceDeleted(Brand $brand)
     {
-        // TODO: Delete the brand image
+        if (isset($brand->image)) {
+            FileManager::instance()->removeFile($brand->image->path);
+            $brand->image()->delete();
+        }
     }
 }

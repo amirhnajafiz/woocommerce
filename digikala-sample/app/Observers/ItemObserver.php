@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Http\Files\FileManager;
 use App\Models\Item;
 use Illuminate\Support\Str;
 
@@ -30,6 +31,9 @@ class ItemObserver
      */
     public function forceDeleted(Item $item)
     {
-        // TODO: Delete image
+        if (isset($item->image)) {
+            FileManager::instance()->removeFile($item->image->path);
+            $item->image()->delete();
+        }
     }
 }
