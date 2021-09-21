@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Observers/ItemObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Observers/ItemObserver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +159,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Files\traits" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app" />
     </key>
   </component>
@@ -179,7 +180,10 @@
       <workItem from="1632050165713" duration="921000" />
       <workItem from="1632112178462" duration="4026000" />
       <workItem from="1632124453657" duration="2150000" />
-      <workItem from="1632150000319" duration="2313000" />
+      <workItem from="1632150000319" duration="2511000" />
+      <workItem from="1632205632161" duration="2531000" />
+      <workItem from="1632214747106" duration="2681000" />
+      <workItem from="1632233176320" duration="2446000" />
     </task>
     <servers />
   </component>

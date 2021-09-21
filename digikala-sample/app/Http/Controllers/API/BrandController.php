@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Files\FileManager;
-use App\Http\Requests\CreateUpdateItemRequest;
-use App\Models\Item;
+use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class ItemController.
+ * Class BrandController.
  *
  * @package App\Http\Controllers\API
  */
-class ItemController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +20,9 @@ class ItemController extends Controller
      */
     public function index(): JsonResponse
     {
-        $items = Item::all();
+        $brands = Brand::all();
         return \response()->json([
-            'items' => $items
+            'brands' => $brands
         ]);
     }
 
@@ -36,9 +34,9 @@ class ItemController extends Controller
      */
     public function show(int $id): JsonResponse
     {
-        $item = Item::query()->findOrFail($id);
+        $brand = Brand::query()->findOrFail($id);
         return \response()->json([
-            'item' => $item
+            'brand' => $brand
         ]);
     }
 }

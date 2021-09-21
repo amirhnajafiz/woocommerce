@@ -27,7 +27,7 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique->word,
+            'name' => $this->faker->unique->sentence(rand(1, 3)),
             'price' => $this->faker->randomNumber(5),
             'number' => rand(10, 50),
             'properties' => $this->faker->text(30)

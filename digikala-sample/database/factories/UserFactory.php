@@ -57,7 +57,7 @@ class UserFactory extends Factory
      *
      * @return $this
      */
-    public function withPersonalTeam()
+    public function withPersonalTeam(): UserFactory
     {
         if (! Features::hasTeamFeatures()) {
             return $this->state([]);
