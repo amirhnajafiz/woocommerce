@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
@@ -51,7 +52,15 @@ class BrandController extends Controller
         $brand = Brand::query()->create($validated);
 
         if ($request->file('file')) {
-            // TODO: Store file in storage and database
+            $name = $brand->id . "_image." . $request->file('file')->extension();
+            // Storage storing
+            FileManager::instance()->storeFile('brands', $name, $request->file('file'));
+            // Database storing
+            $brand->image()->create([
+                'title' => $brand->name,
+                'alt' => $brand->slug,
+                'path' => 'brands/' . $name
+            ]);
         }
 
         return \response()->json([
