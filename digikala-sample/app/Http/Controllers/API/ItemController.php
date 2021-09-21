@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
@@ -39,7 +40,15 @@ class ItemController extends Controller
         $item = Item::query()->create($validated);
 
         if ($request->file('file')) {
-            // TODO: Store file in storage and database
+            $name = $item->id . "_image." . $request->file('file')->extension();
+            // Storage storing
+            FileManager::instance()->storeFile('items', $name, $request->file('file'));
+            // Database storing
+            $item->image()->create([
+                'title' => $item->name,
+                'alt' => $item->slug,
+                'path' => 'items/' . $name
+            ]);
         }
 
         return \response()->json([
@@ -77,7 +86,17 @@ class ItemController extends Controller
         $item->update($validated);
 
         if ($request->file('file')) {
-            // TODO: Store file in storage and database
+            // Names
+            $oldName = $item->image->path ?? ' ';
+            $name = $item->id . "_image." . $request->file('file')->extension();
+            // Storage update
+            FileManager::instance()->replaceFile('items', $name, $request->file('file'), $oldName);
+            // Database update
+            $item->image()->updateOrCreate([], [
+                'title' => $item->name,
+                'alt' => $item->slug,
+                'path' => 'items/' . $name
+            ]);
         }
 
         $item->save();
