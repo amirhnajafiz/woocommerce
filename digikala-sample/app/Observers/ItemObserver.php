@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Http\Files\FileManager;
+use App\Jobs\ItemCreate;
 use App\Models\Item;
 use Illuminate\Support\Str;
 
@@ -21,6 +22,16 @@ class ItemObserver
     public function creating(Item $item)
     {
         $item->slug = Str::slug($item->name); // Slug creating
+    }
+
+    /**
+     * Handling created event.
+     *
+     * @param Item $item
+     */
+    public function created(Item $item)
+    {
+        ItemCreate::dispatch($item);
     }
 
     /**
