@@ -19,7 +19,7 @@ class ItemObserver
      */
     public function creating(Item $item)
     {
-        $item->slug = Str::slug($item->name);
+        $item->slug = Str::slug($item->name); // Slug creating
     }
 
     /**
