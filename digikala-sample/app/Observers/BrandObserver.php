@@ -25,6 +25,16 @@ class BrandObserver
     }
 
     /**
+     * Handling updated event.
+     *
+     * @param Brand $brand
+     */
+    public function updating(Brand $brand)
+    {
+        $brand->slug = Str::slug($brand->name); // Slug creating
+    }
+
+    /**
      * Handle the Brand "force deleted" event.
      *
      * @param Brand $brand

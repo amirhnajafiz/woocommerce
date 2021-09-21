@@ -24,6 +24,16 @@ class ItemObserver
     }
 
     /**
+     * Handling updated event.
+     *
+     * @param Item $item
+     */
+    public function updating(Item $item)
+    {
+        $item->slug = Str::slug($item->name); // Slug creating
+    }
+
+    /**
      * Handle the Item "force deleted" event.
      *
      * @param Item $item
