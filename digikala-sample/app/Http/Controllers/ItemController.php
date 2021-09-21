@@ -113,7 +113,17 @@ class ItemController extends Controller
         $item->update($validated);
 
         if ($request->file('file')) {
-           // TODO: Update image
+            // Names
+            $oldName = $item->image->path ?? ' ';
+            $name = $item->id . "_image." . $request->file('file')->extension();
+            // Storage update
+            FileManager::instance()->replaceFile('items', $name, $request->file('file'), $oldName);
+            // Database update
+            $item->image()->updateOrCreate([], [
+                'title' => $item->name,
+                'alt' => $item->slug,
+                'path' => 'items/' . $name
+            ]);
         }
 
         $item->save();

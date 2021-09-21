@@ -113,7 +113,17 @@ class BrandController extends Controller
         $brand->update($validated);
 
         if ($request->file('file')) {
-            // TODO: Store file in storage and database
+            // Names
+            $oldName = $brand->image->path ?? ' ';
+            $name = $brand->id . "_image." . $request->file('file')->extension();
+            // Storage update
+            FileManager::instance()->replaceFile('brands', $name, $request->file('file'), $oldName);
+            // Database update
+            $brand->image()->updateOrCreate([], [
+                'title' => $brand->name,
+                'alt' => $brand->slug,
+                'path' => 'brands/' . $name
+            ]);
         }
 
         $brand->save();
