@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class SpecialItem.
@@ -25,4 +26,14 @@ class SpecialItem extends Model
         'expire_date',
         'discount'
     ];
+
+    /**
+     * For every special item we have a item.
+     *
+     * @return HasOne
+     */
+    public function item(): HasOne
+    {
+        return $this->hasOne(Item::class);
+    }
 }
