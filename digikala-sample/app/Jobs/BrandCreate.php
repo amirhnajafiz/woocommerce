@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Item;
+use App\Models\Brand;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -11,30 +11,30 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class ItemCreate.
+ * Class BrandCreate.
  *
  * @package App\Jobs
  */
-class ItemCreate implements ShouldQueue
+class BrandCreate implements ShouldQueue
 {
     // Traits
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * Item of the queue.
+     * Brand of the Queue
      *
-     * @var Item
+     * @var Brand
      */
-    private $item;
+    private $brand;
 
     /**
      * Create a new job instance.
      *
-     * @param Item $item
+     * @param Brand $brand
      */
-    public function __construct(Item $item)
+    public function __construct(Brand $brand)
     {
-        $this->item = $item;
+        $this->brand = $brand;
     }
 
     /**
@@ -44,6 +44,6 @@ class ItemCreate implements ShouldQueue
      */
     public function handle()
     {
-        Log::info('Item created: ' . $this->item->id);
+        Log::info('Brand created: ' . $this->brand->id);
     }
 }
