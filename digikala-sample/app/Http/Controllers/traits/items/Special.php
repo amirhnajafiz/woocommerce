@@ -36,4 +36,19 @@ trait Special
             'status' => 'OK'
         ]);
     }
+
+    /**
+     * Handling the special item remove.
+     *
+     * @param int $id item id
+     * @return JsonResponse
+     */
+    public function removeSpecial(int $id): JsonResponse
+    {
+        SpecialItem::query()->where('item_id', '=', $id)->delete();
+
+        return response()->json([
+            'status' => 'OK'
+        ]);
+    }
 }
