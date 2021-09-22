@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\traits\items\Special;
 use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
@@ -14,6 +15,9 @@ use Illuminate\Http\JsonResponse;
  */
 class ItemController extends Controller
 {
+    // Traits
+    use Special;
+
     /**
      * Display a listing of the resource.
      *
