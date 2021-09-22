@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/seeders/BrandSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/seeders/BrandSeeder.php" afterDir="false" />
-    </list>
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +180,7 @@
       <workItem from="1632205632161" duration="2531000" />
       <workItem from="1632214747106" duration="2681000" />
       <workItem from="1632233176320" duration="3647000" />
-      <workItem from="1632315831490" duration="1164000" />
+      <workItem from="1632315831490" duration="1517000" />
     </task>
     <servers />
   </component>
