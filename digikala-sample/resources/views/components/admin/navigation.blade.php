@@ -2,7 +2,7 @@
     <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
         Brands / Companies
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-success">
+    <a href="{{ route('admin.category') }}" class="list-group-item list-group-item-action list-group-item-success">
         Categories
     </a>
     <a href="#" class="list-group-item list-group-item-action list-group-item-success">

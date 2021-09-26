@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Category;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Request;
 
 /**
  * Class AdminController for admin features.
@@ -22,5 +25,18 @@ class AdminController extends Controller
     {
         return view('admin.main')
             ->with('title', 'main-panel');
+    }
+
+    /**
+     * Categories panel view.
+     *
+     * @return Application|Factory|View
+     */
+    public function category()
+    {
+        $categories = Category::all();
+        return view('admin.route-views.categories')
+            ->with('title', 'categories')
+            ->with('categories', $categories->toJson(JSON_PRETTY_PRINT));
     }
 }

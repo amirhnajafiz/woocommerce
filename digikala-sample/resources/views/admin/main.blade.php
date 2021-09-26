@@ -6,7 +6,7 @@
             <x-admin.navigation></x-admin.navigation>
         </div>
         <div class="col-10">
-            Route views
+            @yield('view')
         </div>
     </div>
 @stop
