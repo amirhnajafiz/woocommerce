@@ -26,11 +26,29 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('admin', [\App\Http\Controllers\AdminController::class, 'index'])
     ->name('admin.main');
 
-Route::get('admin/categories', [\App\Http\Controllers\AdminController::class, 'category'])
+Route::get('admin/categories', [\App\Http\Controllers\AdminController::class, 'categories'])
     ->name('admin.category');
 
-Route::get('admin/brands', [\App\Http\Controllers\AdminController::class, 'brand'])
+Route::get('admin/brands', [\App\Http\Controllers\AdminController::class, 'brands'])
     ->name('admin.brand');
+
+Route::get('admin/items', [\App\Http\Controllers\AdminController::class, 'items'])
+    ->name('admin.item');
+
+Route::get('admin/specials', [\App\Http\Controllers\AdminController::class, 'specials'])
+    ->name('admin.special');
+
+Route::get('admin/users', [\App\Http\Controllers\AdminController::class, 'users'])
+    ->name('admin.user');
+
+Route::get('admin/orders', [\App\Http\Controllers\AdminController::class, 'orders'])
+    ->name('admin.order');
+
+Route::get('admin/payments', [\App\Http\Controllers\AdminController::class, 'payments'])
+    ->name('admin.payment');
+
+Route::get('admin/sales', [\App\Http\Controllers\AdminController::class, 'sales'])
+    ->name('admin.sale');
 
 // Admin middleware routes
 Route::middleware(['admin'])->group(function () {
