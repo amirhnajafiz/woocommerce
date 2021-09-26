@@ -61,7 +61,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Items panel view.
      *
      * @return Application|Factory|View
      */
@@ -74,7 +74,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Special items panel view.
      *
      * @return Application|Factory|View
      */
@@ -87,7 +87,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Users panel view.
      *
      * @return Application|Factory|View
      */
@@ -100,7 +100,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Orders panel view.
      *
      * @return Application|Factory|View
      */
@@ -113,7 +113,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Payments panel view.
      *
      * @return Application|Factory|View
      */
@@ -126,7 +126,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Brands panel view.
+     * Sales panel view.
      *
      * @return Application|Factory|View
      */
