@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// User
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // Items
+// TODO: Invokable
+// TODO: Routing with other methods
 Route::resource('items', \App\Http\Controllers\API\ItemController::class);
 
 Route::get('special', [\App\Http\Controllers\API\ItemController::class, 'getSpecialItems'])

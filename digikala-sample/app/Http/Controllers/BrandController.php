@@ -78,6 +78,7 @@ class BrandController extends Controller
     public function show(int $id): JsonResponse
     {
         $brand = Brand::query()->findOrFail($id);
+        // TODO: Test
         return \response()->json([
             'brand' => $brand
         ]);

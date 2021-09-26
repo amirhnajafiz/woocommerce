@@ -52,7 +52,7 @@ Route::get('admin/sales', [\App\Http\Controllers\AdminController::class, 'sales'
 
 // Admin middleware routes
 Route::middleware(['admin'])->group(function () {
-    // Items
+    // Items --> TODO: Item
     Route::resource('items', \App\Http\Controllers\ItemController::class);
 
     Route::post('items/special/{id}', [\App\Http\Controllers\ItemController::class, 'makeSpecial'])

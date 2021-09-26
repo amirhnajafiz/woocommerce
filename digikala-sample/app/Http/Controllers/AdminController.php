@@ -11,10 +11,12 @@ use App\Models\Payment;
 use App\Models\Sale;
 use App\Models\SpecialItem;
 use App\Models\User;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Client\Request;
+use Illuminate\Routing\Route;
 
 /**
  * Class AdminController for admin features.
@@ -38,13 +40,16 @@ class AdminController extends Controller
      * Brands panel view.
      *
      * @return Application|Factory|View
+     * @throws Exception
      */
     public function brands()
     {
-        $brands = Brand::query()->paginate(2);
+        $request = \Symfony\Component\HttpFoundation\Request::create('api/brands', 'get');
+        $brands = app()->handle($request)->getContent();
+        $brands = json_encode(json_decode($brands), JSON_PRETTY_PRINT);
         return view('admin.route-views.brands')
             ->with('title', 'brands')
-            ->with('brands', $brands->toJson(JSON_PRETTY_PRINT));
+            ->with('brands', $brands);
     }
 
     /**
