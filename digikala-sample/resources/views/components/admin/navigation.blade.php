@@ -1,29 +1,37 @@
 <div class="list-group">
-    <a href="{{ route('admin.brand') }}" class="list-group-item list-group-item-action list-group-item-dark">
+    <a href="{{ route('admin.brand') }}"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('admin.brand') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Brands / Companies
     </a>
-    <a href="{{ route('admin.category') }}" class="list-group-item list-group-item-action list-group-item-success">
+    <a href="{{ route('admin.category') }}"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('admin.category') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Categories
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-success">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Items
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-success">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Special Items
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Users
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Orders
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Payments
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+    <a href="#"
+       class="list-group-item list-group-item-action px-5 py-3 text-center {{ request()->routeIs('') ? 'bg-primary text-white' : 'bg-white text-dark' }}">
         Sale Codes
     </a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
+    <a href="#" class="list-group-item list-group-item-action px-5 py-3 text-center bg-danger text-white">
         Logout
     </a>
 </div>

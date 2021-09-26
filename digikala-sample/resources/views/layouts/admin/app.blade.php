@@ -26,7 +26,7 @@
             {{ "Digikala Admin " . $title }}
         </title>
     </head>
-    <body style="height: 100vh;">
+    <body class="bg-light">
         <div class="container-fluid">
             @yield('content')
         </div>

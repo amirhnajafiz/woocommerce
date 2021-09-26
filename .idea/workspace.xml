@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/admin/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/admin/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +188,8 @@
       <workItem from="1632315831490" duration="4189000" />
       <workItem from="1632396313820" duration="23000" />
       <workItem from="1632396401305" duration="5000" />
-      <workItem from="1632644337485" duration="2984000" />
+      <workItem from="1632644337485" duration="3054000" />
+      <workItem from="1632665522840" duration="1574000" />
     </task>
     <servers />
   </component>
