@@ -35,7 +35,7 @@ class AdminController extends Controller
      */
     public function category()
     {
-        $categories = Category::all();
+        $categories = Category::query()->paginate(2);
         return view('admin.route-views.categories')
             ->with('title', 'categories')
             ->with('categories', $categories->toJson(JSON_PRETTY_PRINT));
@@ -48,7 +48,7 @@ class AdminController extends Controller
      */
     public function brand()
     {
-        $brands = Brand::all();
+        $brands = Brand::query()->paginate(2);
         return view('admin.route-views.brands')
             ->with('title', 'brands')
             ->with('brands', $brands->toJson(JSON_PRETTY_PRINT));
