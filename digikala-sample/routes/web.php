@@ -23,6 +23,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('admin', [\App\Http\Controllers\AdminController::class, 'index'])
+    ->name('admin.main');
+
 // Admin middleware routes
 Route::middleware(['admin'])->group(function () {
     // Items

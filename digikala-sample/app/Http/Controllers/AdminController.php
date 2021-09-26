@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 /**
  * Class AdminController for admin features.
@@ -14,13 +16,11 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return JsonResponse
+     * @return Application|Factory|View
      */
-    public function index(): JsonResponse
+    public function index()
     {
-        return \response()->json([
-            'status' => 'OK',
-            'page' => 'admin'
-        ]);
+        return view('admin.main')
+            ->with('title', 'main-panel');
     }
 }
