@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -38,5 +39,18 @@ class AdminController extends Controller
         return view('admin.route-views.categories')
             ->with('title', 'categories')
             ->with('categories', $categories->toJson(JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Brands panel view.
+     *
+     * @return Application|Factory|View
+     */
+    public function brand()
+    {
+        $brands = Brand::all();
+        return view('admin.route-views.brands')
+            ->with('title', 'brands')
+            ->with('brands', $brands->toJson(JSON_PRETTY_PRINT));
     }
 }

@@ -29,6 +29,9 @@ Route::get('admin', [\App\Http\Controllers\AdminController::class, 'index'])
 Route::get('admin/categories', [\App\Http\Controllers\AdminController::class, 'category'])
     ->name('admin.category');
 
+Route::get('admin/brands', [\App\Http\Controllers\AdminController::class, 'brand'])
+    ->name('admin.brand');
+
 // Admin middleware routes
 Route::middleware(['admin'])->group(function () {
     // Items
