@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BrandResource;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
@@ -26,9 +27,10 @@ class BrandControllerAPI extends Controller
      * Show method handles a single brand showing.
      *
      * @param Brand $brand
+     * @return BrandResource
      */
-    public function show(Brand $brand)
+    public function show(Brand $brand): BrandResource
     {
-
+        return new BrandResource($brand);
     }
 }

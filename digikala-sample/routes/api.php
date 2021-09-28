@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TODO: API routes set
-// Brands => GET - SHOW
 // Categories => GET - SHOW
 
 // Item API routes
