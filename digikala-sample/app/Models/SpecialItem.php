@@ -34,6 +34,6 @@ class SpecialItem extends Model
      */
     public function item(): HasOne
     {
-        return $this->hasOne(Item::class);
+        return $this->hasOne(Item::class, 'id');
     }
 }
