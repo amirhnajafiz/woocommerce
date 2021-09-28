@@ -18,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 // Brands => GET - SHOW
 // Categories => GET - SHOW
 
-// Items API routes
+// Item API routes
 Route::get('item', [\App\Http\Controllers\API\ItemControllerAPI::class, 'index'])
     ->name('all.item');
 
 Route::get('item/{item}', [\App\Http\Controllers\API\ItemControllerAPI::class, 'show'])
     ->name('show.item');
+
+// Brand API routes
+Route::get('brand', [\App\Http\Controllers\API\BrandControllerAPI::class, 'index'])
+    ->name('all.brand');
+
+Route::get('brand/{brand}', [\App\Http\Controllers\API\BrandControllerAPI::class, 'show'])
+    ->name('show.brand');
