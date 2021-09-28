@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ItemResource;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
 
@@ -22,21 +23,17 @@ class ItemControllerAPI extends Controller
     {
         $items = Item::paginate(5);
 
-        return response()->json([
-            'items' => $items
-        ]);
+        return 0;
     }
 
     /**
      * Getting a single item data.
      *
      * @param Item $item user requested item
-     * @return JsonResponse
+     * @return ItemResource
      */
-    public function show(Item $item): JsonResponse
+    public function show(Item $item): ItemResource
     {
-        return response()->json([
-            'item' => $item
-        ]);
+        return new ItemResource($item);
     }
 }
