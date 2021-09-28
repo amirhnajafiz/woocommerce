@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
  * Class Item for each shop item.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Item extends Model
 {
