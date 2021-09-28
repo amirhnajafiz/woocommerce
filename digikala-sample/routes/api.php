@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TODO: API routes set
-// Items => GET - SHOW
 // Brands => GET - SHOW
 // Categories => GET - SHOW
+
+// Items API routes
+Route::get('item', [\App\Http\Controllers\API\ItemControllerAPI::class, 'index'])
+    ->name('all.item');
+
+Route::get('item/{item}', [\App\Http\Controllers\API\ItemControllerAPI::class, 'show'])
+    ->name('show.item');
