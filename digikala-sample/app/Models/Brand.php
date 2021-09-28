@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * Class Brand.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Brand extends Model
 {
