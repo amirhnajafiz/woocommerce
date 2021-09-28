@@ -47,7 +47,8 @@ class ItemResource extends JsonResource
                 'id' => $this->category_id,
                 'name' => $this->category->name
             ],
-            'properties' => $this->properties
+            'properties' => $this->properties,
+            'image' => new ImageResource($this->image)
         ];
     }
 }

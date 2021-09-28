@@ -34,11 +34,7 @@ class BrandResource extends JsonResource
                 'name' => $this->name,
                 'description' => $this->description
             ],
-            'image' => [
-                'title' => $this->image->title,
-                'alt' => $this->image->alt,
-                'path' => $this->image->path
-            ]
+            'image' => new ImageResource($this->image)
         ];
     }
 }
