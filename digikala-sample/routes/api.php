@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// TODO: API routes set
-// Categories => GET - SHOW
 
 // Item API routes
 Route::get('item', [\App\Http\Controllers\API\ItemControllerAPI::class, 'index'])
@@ -30,3 +28,9 @@ Route::get('brand', [\App\Http\Controllers\API\BrandControllerAPI::class, 'index
 
 Route::get('brand/{brand}', [\App\Http\Controllers\API\BrandControllerAPI::class, 'show'])
     ->name('show.brand');
+
+Route::get('category', [\App\Http\Controllers\API\CategoryControllerAPI::class, 'index'])
+    ->name('all.category');
+
+Route::get('category/{category}', [\App\Http\Controllers\API\CategoryControllerAPI::class, 'show'])
+    ->name('show.category');
