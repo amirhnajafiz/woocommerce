@@ -14,13 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Items
-// TODO: Invokable
-// TODO: Routing with other methods
-Route::resource('items', \App\Http\Controllers\API\ItemController::class);
-
-Route::get('special', [\App\Http\Controllers\API\ItemController::class, 'getSpecialItems'])
-    ->name('items.special');
-
-// Brands
-Route::resource('brands', \App\Http\Controllers\API\ItemController::class);
+// TODO: API routes set
+// Items => GET - SHOW
+// Brands => GET - SHOW
+// Categories => GET - SHOW
