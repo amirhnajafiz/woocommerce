@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ItemCollection;
 use App\Http\Resources\ItemResource;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
@@ -17,13 +18,11 @@ class ItemControllerAPI extends Controller
     /**
      * Getting all of the items in paginate format.
      *
-     * @return JsonResponse
+     * @return ItemCollection
      */
-    public function index(): JsonResponse
+    public function index(): ItemCollection
     {
-        $items = Item::paginate(5);
-
-        return 0;
+        return new ItemCollection(Item::paginate(5));
     }
 
     /**
