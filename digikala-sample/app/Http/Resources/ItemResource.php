@@ -3,7 +3,6 @@
 namespace App\Http\Resources;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use JsonSerializable;
 
@@ -14,6 +13,13 @@ use JsonSerializable;
  */
 class ItemResource extends JsonResource
 {
+    /**
+     * The wrap string handles the wrapping key.
+     *
+     * @var string wrap key
+     */
+    public static $wrap = 'item';
+
     /**
      * Transform the resource into an array.
      *
@@ -41,7 +47,7 @@ class ItemResource extends JsonResource
                 'id' => $this->category_id,
                 'name' => $this->category->name
             ],
-            'properties' => json_encode($this->properties)
+            'properties' => $this->properties
         ];
     }
 }
