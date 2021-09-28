@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BrandCollection;
 use App\Http\Resources\BrandResource;
+use App\Http\Resources\ItemCollection;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,7 @@ class BrandControllerAPI extends Controller
     /**
      * The index method returns brands in paginate format.
      *
+     * @return BrandCollection
      */
     public function index(): BrandCollection
     {
