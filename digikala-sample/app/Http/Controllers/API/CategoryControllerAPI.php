@@ -5,9 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryCollection;
 use App\Http\Resources\CategoryResource;
-use App\Http\Resources\ItemCollection;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 /**
  * Class CategoryControllerAPI for Category API methods.

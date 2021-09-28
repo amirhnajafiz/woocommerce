@@ -5,9 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BrandCollection;
 use App\Http\Resources\BrandResource;
-use App\Http\Resources\ItemCollection;
 use App\Models\Brand;
-use Illuminate\Http\Request;
 
 /**
  * Class BrandControllerAPI for Brand API methods.
