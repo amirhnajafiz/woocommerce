@@ -20,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 // Admin panel
 // User
 // Items / Categories / Brands View
+
+// Admin panels
+Route::resource('item', \App\Http\Controllers\Web\ItemController::class);

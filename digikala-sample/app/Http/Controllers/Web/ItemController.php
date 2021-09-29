@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
+use PHPUnit\Util\Json;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -20,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ItemController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the items resource.
      *
      * @return Application|Factory|View|Response
      * @throws Exception
@@ -28,22 +29,23 @@ class ItemController extends Controller
     public function index()
     {
         $request = Request::create(route('api.all.item'), 'get');
-        $brands = app()->handle($request)->getContent();
-        $brands = json_encode(json_decode($brands), JSON_PRETTY_PRINT);
+        $items = app()->handle($request)->getContent();
+        $items = Json::prettify($items);
 
-        return view('all-item-panel') // TODO: Create all items view
-            ->with('brands', $brands)
+        return view('admin.route-views.items') // TODO: Create all items view
+            ->with('items', $items)
             ->with('title', '-all-brands');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
-        // TODO: Create item page
+        return view('create-item-panel') // TODO: Create item page
+            ->with('title', '-create-item');
     }
 
     /**
