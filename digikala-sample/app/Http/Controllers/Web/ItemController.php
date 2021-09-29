@@ -33,7 +33,7 @@ class ItemController extends Controller
 
         return view('admin.route-views.items')
             ->with('items', $items)
-            ->with('title', '-all-brands');
+            ->with('title', '-all-items');
     }
 
     /**
@@ -73,7 +73,7 @@ class ItemController extends Controller
     {
         return view('show-item')
             ->with('item', $item)
-            ->with('title', 'item-' . $item->id);
+            ->with('title', '-item-' . $item->id);
     }
 
     /**
@@ -86,7 +86,7 @@ class ItemController extends Controller
     {
         return view('edit-item')
             ->with('item', $item)
-            ->with('title', 'edit-item-' . $item->id);
+            ->with('title', '-edit-item-' . $item->id);
     }
 
     /**
@@ -105,7 +105,7 @@ class ItemController extends Controller
 
         $item->save();
 
-        return redirect()->route('item.update', $item);
+        return redirect()->route('item.show', $item);
     }
 
     /**
