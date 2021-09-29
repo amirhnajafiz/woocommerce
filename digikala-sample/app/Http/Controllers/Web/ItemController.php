@@ -10,9 +10,9 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use PHPUnit\Util\Json;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ItemController will handle the items methods.
@@ -31,13 +31,13 @@ class ItemController extends Controller
     {
         $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
-        return view('admin.route-views.items') // TODO: Create all items view
+        return view('admin.route-views.items')
             ->with('items', $items)
             ->with('title', '-all-brands');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new item resource.
      *
      * @return Application|Factory|View|Response
      */
@@ -48,58 +48,78 @@ class ItemController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created item resource in storage.
      *
      * @param CreateUpdateItemRequest $request
-     * @return Response
+     * @return RedirectResponse|Response
      */
     public function store(CreateUpdateItemRequest $request)
     {
-        // TODO: Do the item creation
+        $validated = $request->validated();
+        Item::query()->create($validated);
+
+        // TODO: Insert image adding feature
+
+        return redirect()->route('item');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified item resource.
      *
      * @param Item $item
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function show(Item $item)
     {
-        // TODO: Create single item page
+        return view('show-item')
+            ->with('item', $item)
+            ->with('title', 'item-' . $item->id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param Item $item
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function edit(Item $item)
     {
-        // TODO: Create item edit page
+        return view('edit-item')
+            ->with('item', $item)
+            ->with('title', 'edit-item-' . $item->id);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified item resource in storage.
      *
      * @param CreateUpdateItemRequest $request
      * @param Item $item
-     * @return Response
+     * @return RedirectResponse|Response
      */
     public function update(CreateUpdateItemRequest $request, Item $item)
     {
-        // TODO: Do the updating
+        $validated = $request->validated();
+        $item->update($validated);
+
+        // TODO: Add the photo updating feature
+
+        $item->save();
+
+        return redirect()->route('item.update', $item);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Item $item
-     * @return Response
+     * @return RedirectResponse|Response
      */
     public function destroy(Item $item)
     {
-        // TODO: Do the item deleting
+        $item->delete();
+
+        // TODO: Photo remove from storage
+
+        return redirect()->route('item');
     }
 }
