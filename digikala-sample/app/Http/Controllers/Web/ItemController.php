@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ItemController will handle the items methods.
@@ -18,11 +22,18 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View|Response
+     * @throws Exception
      */
     public function index()
     {
-        // TODO: Items page
+        $request = Request::create(route('api.all.item'), 'get');
+        $brands = app()->handle($request)->getContent();
+        $brands = json_encode(json_decode($brands), JSON_PRETTY_PRINT);
+
+        return view('all-item-panel') // TODO: Create all items view
+            ->with('brands', $brands)
+            ->with('title', '-all-brands');
     }
 
     /**
