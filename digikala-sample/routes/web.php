@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Route;
 // Register
 // Admin panel
 // User
-// Items / Categories / Brands View
+// Categories / Brands View
 
-// Admin panels
+// Item resource controller
 Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
+
+// Admin routes
+Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'])
+    ->name('admin.panel');

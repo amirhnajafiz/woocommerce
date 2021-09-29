@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 /**
  * Class AdminController will manage the admin features.
@@ -12,5 +11,13 @@ use Illuminate\Http\Request;
  */
 class AdminController extends Controller
 {
-    //
+    /**
+     * Handling admin homepage.
+     *
+     */
+    public function index()
+    {
+        return view('admin.route-views.welcome')
+            ->with('title', '-admin-panel');
+    }
 }
