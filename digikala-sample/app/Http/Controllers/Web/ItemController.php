@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Exception;
@@ -28,9 +29,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $request = Request::create(route('api.all.item'), 'get');
-        $items = app()->handle($request)->getContent();
-        $items = Json::prettify($items);
+        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
         return view('admin.route-views.items') // TODO: Create all items view
             ->with('items', $items)
