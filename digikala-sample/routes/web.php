@@ -19,13 +19,15 @@ use Illuminate\Support\Facades\Route;
 // Register
 // Admin panel
 // User
-// Categories / Brands View
 
 // Item resource controller
 Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
 
 // Brand resource controller
 Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
+
+// Category resource controller
+Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
 
 // Admin routes
 Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'])
