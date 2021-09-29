@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Exception;
@@ -11,7 +10,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PHPUnit\Util\Json;
 
@@ -30,7 +28,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Json::prettify(APIRequest::handle(route('api.all.brand')));
+        $brands = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.brand')));
 
         return view('admin.route-views.brands')
             ->with('brands', $brands)
