@@ -43,7 +43,7 @@ class BrandController extends Controller
     public function create()
     {
         return view('create-brand-panel') // TODO: Create brand page
-        ->with('title', '-create-brand');
+            ->with('title', '-create-brand');
     }
 
     /**
@@ -55,11 +55,11 @@ class BrandController extends Controller
     public function store(CreateUpdateBrandRequest $request)
     {
         $validated = $request->validated();
-        Brand::query()->create($validated);
+        $brand = Brand::query()->create($validated);
 
         // TODO: Insert image adding feature
 
-        return redirect()->route('brand');
+        return redirect()->route('brand.show', $brand);
     }
 
     /**
@@ -119,6 +119,6 @@ class BrandController extends Controller
 
         // TODO: Photo remove from storage
 
-        return redirect()->route('brand');
+        return redirect()->route('brand.index');
     }
 }

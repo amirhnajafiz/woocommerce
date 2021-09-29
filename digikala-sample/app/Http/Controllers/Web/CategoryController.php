@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Internal\APIRequest;
+use App\Http\Requests\CreateUpdateCategoryRequest;
+use App\Models\Category;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use PHPUnit\Util\Json;
 
@@ -20,14 +21,14 @@ use PHPUnit\Util\Json;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the categories resource.
      *
      * @return Application|Factory|View|Response
      * @throws Exception
      */
     public function index()
     {
-        $categories = Json::prettify(APIRequest::handle(route('api.all.category')));
+        $categories = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.category')));
 
         return view('admin.route-views.categories')
             ->with('categories', $categories)
@@ -35,68 +36,89 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new category resource.
      *
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
-        //
+        return view('create-category-panel') // TODO: Create category page
+            ->with('title', '-create-category');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created category resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param CreateUpdateCategoryRequest $request
+     * @return RedirectResponse|Response
      */
-    public function store(Request $request)
+    public function store(CreateUpdateCategoryRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $category = Category::query()->create($validated);
+
+        // TODO: Insert image adding feature
+
+        return redirect()->route('category.show', $category);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified category resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Category $category
+     * @return Application|Factory|View|Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        return view('show-category')
+            ->with('category', $category)
+            ->with('title', '-category-' . $category->id);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified category resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Category $category
+     * @return Application|Factory|View|Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('edit-category')
+            ->with('category', $category)
+            ->with('title', '-edit-category-' . $category->id);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified category resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param CreateUpdateCategoryRequest $request
+     * @param Category $category
+     * @return RedirectResponse|Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateCategoryRequest $request, Category $category)
     {
-        //
+        $validated = $request->validated();
+        $category->update($validated);
+
+        // TODO: Add the photo updating feature
+
+        $category->save();
+
+        return redirect()->route('category.show', $category);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified category resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Category $category
+     * @return RedirectResponse|Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        // TODO: Photo remove from storage
+
+        return redirect()->route('category.index');
     }
 }
