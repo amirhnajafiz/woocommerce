@@ -1,9 +1,7 @@
 @extends('web.layouts.main.app')
 
 @section('content')
-    <pre>
-        {{ $categories }}
-    </pre>
+    <x-web.nav-bar></x-web.nav-bar>
     <pre>
         {{ $items }}
     </pre>

@@ -24,12 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Json::prettify(APIRequest::handle(route('api.all.brand')));
         $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
         return view('web.home')
             ->with('title', 'home')
-            ->with('categories', $categories)
             ->with('items', $items);
     }
 
