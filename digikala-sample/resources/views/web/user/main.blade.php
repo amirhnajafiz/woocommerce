@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>
-        Register page
+        User panel
     </h1>
 @stop
+
