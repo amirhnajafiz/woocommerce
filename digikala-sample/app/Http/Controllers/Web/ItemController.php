@@ -35,7 +35,7 @@ class ItemController extends Controller
     {
         $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
-        return view('admin.route-views.items')
+        return view('web.admin.route-views.items')
             ->with('items', $items)
             ->with('title', '-all-items');
     }
@@ -47,7 +47,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('create-item-panel') // TODO: Create item page
+        return view('web.utils.item.create-item-panel')
             ->with('title', '-create-item');
     }
 
@@ -75,7 +75,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('show-item')
+        return view('web.utils.item.show-item')
             ->with('item', $item)
             ->with('title', '-item-' . $item->id);
     }
@@ -88,7 +88,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('edit-item')
+        return view('web.utils.item.edit-item')
             ->with('item', $item)
             ->with('title', '-edit-item-' . $item->id);
     }

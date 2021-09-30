@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Jobs/BrandCreate.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Jobs/BrandCreate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Jobs/ItemCreate.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Jobs/ItemCreate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/confirm-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/forgot-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/reset-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/two-factor-challenge.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/verify-email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,12 +160,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/digikala-sample/resources/views/web/utils/category" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\category" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\brand" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Files\traits" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app" />
     </key>
@@ -193,7 +205,9 @@
       <workItem from="1632819762749" duration="1327000" />
       <workItem from="1632842282232" duration="5042000" />
       <workItem from="1632933136178" duration="6724000" />
-      <workItem from="1632980456056" duration="6083000" />
+      <workItem from="1632980456056" duration="6337000" />
+      <workItem from="1632992979248" duration="1146000" />
+      <workItem from="1633005718815" duration="5531000" />
     </task>
     <servers />
   </component>

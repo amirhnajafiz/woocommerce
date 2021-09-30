@@ -24,12 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Json::prettify(APIRequest::handle(route('api.all.brand')));
         $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
-        return view('') // TODO: Create welcome page
+        return view('web.home')
             ->with('title', 'home')
-            ->with('categories', $categories)
             ->with('items', $items);
     }
 
@@ -40,7 +38,7 @@ class HomeController extends Controller
      */
     public function login()
     {
-        return view('') // TODO: Create login view
+        return view('web.auth.login')
             ->with('title', '-login-page');
     }
 
@@ -51,7 +49,7 @@ class HomeController extends Controller
      */
     public function register()
     {
-        return view('') // TODO: Create register view
+        return view('web.auth.register')
             ->with('title', '-register-page');
     }
 
@@ -62,7 +60,7 @@ class HomeController extends Controller
      */
     public function userPanel()
     {
-        return view('') // TODO: Create user panel view
+        return view('web.user.main')
             ->with('title', '-user-panel')
             ->with('user', Auth::user());
     }
