@@ -42,7 +42,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('create-brand-panel') // TODO: Create brand page
+        return view('web.utils.brand.create-brand-panel')
             ->with('title', '-create-brand');
     }
 
@@ -70,7 +70,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        return view('show-brand')
+        return view('web.utils.brand.show-brand')
             ->with('item', $brand)
             ->with('title', '-brand-' . $brand->id);
     }
@@ -83,7 +83,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('edit-brand')
+        return view('web.utils.brand.edit-brand')
             ->with('brand', $brand)
             ->with('title', '-edit-brand-' . $brand->id);
     }
