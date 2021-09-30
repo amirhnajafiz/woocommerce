@@ -17,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.route-views.welcome')
+        return view('web.admin.route-views.welcome')
             ->with('title', '-admin-panel');
     }
 }

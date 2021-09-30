@@ -30,7 +30,7 @@ class CategoryController extends Controller
     {
         $categories = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.category')));
 
-        return view('admin.route-views.categories')
+        return view('web.admin.route-views.categories')
             ->with('categories', $categories)
             ->with('title', '-all-categories');
     }

@@ -35,7 +35,7 @@ class ItemController extends Controller
     {
         $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
-        return view('admin.route-views.items')
+        return view('web.admin.route-views.items')
             ->with('items', $items)
             ->with('title', '-all-items');
     }

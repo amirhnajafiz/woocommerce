@@ -30,7 +30,7 @@ class BrandController extends Controller
     {
         $brands = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.brand')));
 
-        return view('admin.route-views.brands')
+        return view('web.admin.route-views.brands')
             ->with('brands', $brands)
             ->with('title', '-all-brands');
     }
