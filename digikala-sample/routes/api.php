@@ -22,6 +22,9 @@ Route::get('item', [\App\Http\Controllers\API\ItemControllerAPI::class, 'index']
 Route::get('item/{item}', [\App\Http\Controllers\API\ItemControllerAPI::class, 'show'])
     ->name('show.item');
 
+Route::get('special', [\App\Http\Controllers\API\ItemControllerAPI::class, 'special'])
+    ->name('all.special');
+
 // Brand API routes
 Route::get('brand', [\App\Http\Controllers\API\BrandControllerAPI::class, 'index'])
     ->name('all.brand');
