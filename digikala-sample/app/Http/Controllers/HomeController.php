@@ -7,7 +7,7 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\Util\Json;
 
 /**
@@ -17,7 +17,6 @@ use PHPUnit\Util\Json;
  */
 class HomeController extends Controller
 {
-    // TODO: Index page - User panel
     /**
      * Home page of the website.
      *
@@ -54,5 +53,17 @@ class HomeController extends Controller
     {
         return view('') // TODO: Create register view
             ->with('title', '-register-page');
+    }
+
+    /**
+     * User panel view.
+     *
+     * @return Application|Factory|View
+     */
+    public function userPanel()
+    {
+        return view('') // TODO: Create user panel view
+            ->with('title', '-user-panel')
+            ->with('user', Auth::user());
     }
 }

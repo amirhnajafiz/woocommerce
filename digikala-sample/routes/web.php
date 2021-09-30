@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// TODO: Set Web routes
-// User
-
 // Home routes
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
@@ -44,6 +41,9 @@ Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'
     ->name('admin.panel');
 
 // User routes
+Route::get('dashboard', [\App\Http\Controllers\HomeController::class, 'userPanel'])
+    ->name('user.panel');
+
 Route::get('login', [\App\Http\Controllers\HomeController::class, 'login'])
     ->name('view.login');
 

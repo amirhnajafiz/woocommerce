@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PHPUnit\Util\Json;
 
+/**
+ * Trait Specialize for managing special items methods.
+ *
+ * @package App\Http\Controllers\Web\traits\Item
+ */
 trait Specialize
 {
     /**
