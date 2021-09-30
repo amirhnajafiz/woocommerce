@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/confirm-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/forgot-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/reset-password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/two-factor-challenge.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/verify-email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +207,7 @@
       <workItem from="1632933136178" duration="6724000" />
       <workItem from="1632980456056" duration="6337000" />
       <workItem from="1632992979248" duration="1146000" />
-      <workItem from="1633005718815" duration="2217000" />
+      <workItem from="1633005718815" duration="5531000" />
     </task>
     <servers />
   </component>

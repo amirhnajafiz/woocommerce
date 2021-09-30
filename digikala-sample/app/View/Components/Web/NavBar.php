@@ -11,6 +11,7 @@ use PHPUnit\Util\Json;
 
 /**
  * Class NavBar for our website navigation bar.
+ *
  * @package App\View\Components\Web
  */
 class NavBar extends Component
@@ -25,7 +26,7 @@ class NavBar extends Component
      */
     public function __construct()
     {
-        $this->categories = Json::prettify(APIRequest::handle(route('api.all.brand')));
+        $this->categories = APIRequest::handle(route('api.all.category'));
     }
 
     /**
