@@ -23,8 +23,15 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
 // Item resource controller
 Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
 
+// Special item routes
 Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
     ->name('all.special');
+
+Route::post('special', [\App\Http\Controllers\Web\ItemController::class, 'makeSpecial'])
+    ->name('create.special');
+
+Route::delete('special', [\App\Http\Controllers\Web\ItemController::class, 'removeSpecial'])
+    ->name('remove.special');
 
 // Brand resource controller
 Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
