@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Web\traits\Item\Specialize;
+use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Exception;
@@ -20,6 +22,9 @@ use PHPUnit\Util\Json;
  */
 class ItemController extends Controller
 {
+    // Traits
+    use Specialize;
+
     /**
      * Display a listing of the items resource.
      *
@@ -28,7 +33,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.item')));
+        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
         return view('admin.route-views.items')
             ->with('items', $items)

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * Class SpecialItem.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class SpecialItem extends Model
 {

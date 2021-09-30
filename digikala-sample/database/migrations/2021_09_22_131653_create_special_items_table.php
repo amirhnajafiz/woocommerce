@@ -20,6 +20,7 @@ class CreateSpecialItemsTable extends Migration
         Schema::create('special_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_id')
+                ->unique()
                 ->nullable(false)
                 ->references('id')
                 ->on('items')

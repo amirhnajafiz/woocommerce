@@ -44,6 +44,7 @@ class ItemCreate implements ShouldQueue
      */
     public function handle()
     {
+        // TODO: Email sender with Channel
         Log::info('Item created: ' . $this->item->id);
     }
 }
