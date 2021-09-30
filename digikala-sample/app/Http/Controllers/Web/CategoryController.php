@@ -42,7 +42,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('create-category-panel') // TODO: Create category page
+        return view('web.utils.category.create-category-panel')
             ->with('title', '-create-category');
     }
 
@@ -70,7 +70,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('show-category')
+        return view('web.utils.category.show-category')
             ->with('category', $category)
             ->with('title', '-category-' . $category->id);
     }
@@ -83,7 +83,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('edit-category')
+        return view('web.utils.category.edit-category')
             ->with('category', $category)
             ->with('title', '-edit-category-' . $category->id);
     }
