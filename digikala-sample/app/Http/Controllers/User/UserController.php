@@ -33,8 +33,7 @@ class UserController extends Controller
             return redirect()->intended('dashboard');
         }
 
-        // TODO: If failed return to login
-        return redirect();
+        return redirect()->route('login');
     }
 
     /**
@@ -46,9 +45,7 @@ class UserController extends Controller
     public function register(CreateUpdateUserRequest $request)
     {
         User::query()->create($request->validated());
-
-        // TODO: If success redirect to login
-        return redirect();
+        return redirect()->route('login');
     }
 
     /**
