@@ -44,6 +44,7 @@ class BrandCreate implements ShouldQueue
      */
     public function handle()
     {
+        // TODO: Email sender with Channel
         Log::info('Brand created: ' . $this->brand->id);
     }
 }

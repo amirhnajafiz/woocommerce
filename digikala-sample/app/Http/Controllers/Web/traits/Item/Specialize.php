@@ -51,6 +51,8 @@ trait Specialize
             'discount' => $request->get('amount')
         ]);
 
+        // TODO: Add a job for removing the Item in expire date
+
         // TODO: Use a json response
         return response();
     }
