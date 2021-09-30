@@ -37,8 +37,14 @@ Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'
     ->name('admin.panel');
 
 // User routes
+Route::get('login', [\App\Http\Controllers\HomeController::class, 'login'])
+    ->name('view.login');
+
 Route::post('login', [\App\Http\Controllers\User\UserController::class, 'login'])
     ->name('user.login');
+
+Route::get('register', [\App\Http\Controllers\HomeController::class, 'register'])
+    ->name('view.register');
 
 Route::post('register', [\App\Http\Controllers\User\UserController::class, 'register'])
     ->name('user.register');
