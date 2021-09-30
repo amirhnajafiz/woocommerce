@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUpdateUserRequest;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -17,19 +18,17 @@ use Illuminate\Support\Facades\Auth;
  */
 class UserController extends Controller
 {
-    // TODO: Login - Register - Logout
     /**
      * Handles the user login.
      *
-     * @param Request $request
+     * @param CreateUpdateUserRequest $request
      * @return RedirectResponse
      */
-    public function login(Request $request): RedirectResponse
+    public function login(CreateUpdateUserRequest $request): RedirectResponse
     {
-        // TODO: Request validation
-        $credentials = $request->only('email', 'password');
+        $validated = $request->validated();
+        $credentials = $validated('phone', 'password');
 
-        // TODO: Login by Phone
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard');
         }
@@ -41,13 +40,12 @@ class UserController extends Controller
     /**
      * Handles the user registration.
      *
-     * @param Request $request
+     * @param CreateUpdateUserRequest $request
      * @return Application|RedirectResponse|Redirector
      */
-    public function register(Request $request)
+    public function register(CreateUpdateUserRequest $request)
     {
-        // TODO: Request Validate
-        User::query()->create($request->all());
+        User::query()->create($request->validated());
 
         // TODO: If success redirect to login
         return redirect();
