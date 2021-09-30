@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 // Item resource controller
 Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
 
+Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
+    ->name('all.special');
+
 // Brand resource controller
 Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
 

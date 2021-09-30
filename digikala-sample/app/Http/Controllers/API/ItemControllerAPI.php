@@ -44,8 +44,6 @@ class ItemControllerAPI extends Controller
      */
     public function special()
     {
-        $items = SpecialItem::query()->paginate(5);
-
-        return new SpecialItemCollection($items);
+        return new SpecialItemCollection(SpecialItem::paginate(5));
     }
 }

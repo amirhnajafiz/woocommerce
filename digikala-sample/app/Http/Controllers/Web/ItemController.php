@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
 use Exception;
@@ -28,7 +29,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.item')));
+        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
 
         return view('admin.route-views.items')
             ->with('items', $items)
@@ -120,5 +121,19 @@ class ItemController extends Controller
         // TODO: Photo remove from storage
 
         return redirect()->route('item.index');
+    }
+
+    /**
+     * Handles the special items view.
+     *
+     * @throws Exception
+     */
+    public function special()
+    {
+        $items = Json::prettify(APIRequest::handle(route('api.all.special')));
+
+        return view('admin.route-views.specials')
+            ->with('items', $items)
+            ->with('title', '-special-items');
     }
 }
