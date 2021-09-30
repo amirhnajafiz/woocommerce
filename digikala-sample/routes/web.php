@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TODO: Set Web routes
-// Home / Welcome page
-// Login
-// Register
-// Admin panel
 // User
+
+// Home routes
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
 // Item resource controller
 Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
