@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/View/Components/Web/NavBar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/web/nav-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/confirm-password.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/forgot-password.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/reset-password.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/two-factor-challenge.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/auth/verify-email.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +144,7 @@
       <path value="$PROJECT_DIR$/digikala-sample/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/fruitcake/laravel-cors" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/digikala-sample/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="ProjectId" id="1yInhLiHF5UtFzMMVKfpYBN94lC" />
@@ -207,7 +203,12 @@
       <workItem from="1632933136178" duration="6724000" />
       <workItem from="1632980456056" duration="6337000" />
       <workItem from="1632992979248" duration="1146000" />
-      <workItem from="1633005718815" duration="5531000" />
+      <workItem from="1633005718815" duration="5762000" />
+      <workItem from="1633020512032" duration="600000" />
+      <workItem from="1633032858171" duration="1562000" />
+      <workItem from="1633071314199" duration="4000" />
+      <workItem from="1633088881337" duration="22000" />
+      <workItem from="1633104201820" duration="934000" />
     </task>
     <servers />
   </component>
