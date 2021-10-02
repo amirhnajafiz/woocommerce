@@ -17,31 +17,34 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 
-// Item resource controller
-Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
+Route::middleware(['auth', 'can:admin-panel'])->group(function () {
+    // Admin routes
+    Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])
+        ->name('admin');
 
-// Special item routes
-Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
-    ->name('all.special');
+    // Item resource controller
+    Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
 
-Route::post('special', [\App\Http\Controllers\Web\ItemController::class, 'makeSpecial'])
-    ->name('create.special');
+    // Special item routes
+    Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
+        ->name('all.special');
 
-Route::delete('special', [\App\Http\Controllers\Web\ItemController::class, 'removeSpecial'])
-    ->name('remove.special');
+    Route::post('special', [\App\Http\Controllers\Web\ItemController::class, 'makeSpecial'])
+        ->name('create.special');
 
-// Brand resource controller
-Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
+    Route::delete('special', [\App\Http\Controllers\Web\ItemController::class, 'removeSpecial'])
+        ->name('remove.special');
 
-// Category resource controller
-Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
+    // Brand resource controller
+    Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
 
-// Admin routes
-Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])
-    ->name('admin');
+    // Category resource controller
+    Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
+});
 
 // User routes
 Route::get('dashboard', [\App\Http\Controllers\HomeController::class, 'userPanel'])
+    ->middleware(['auth'])
     ->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

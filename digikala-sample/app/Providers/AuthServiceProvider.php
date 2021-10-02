@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Enums\Role;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +27,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Admin panel access gate
+        Gate::define('admin-panel', function (User $user) {
+            return $user->role == Role::ADMIN();
+        });
     }
 }
