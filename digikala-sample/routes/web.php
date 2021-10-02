@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Web\BrandController;
+use App\Http\Controllers\Web\CategoryController;
+use App\Http\Controllers\Web\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,41 +14,41 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group.
 |
 */
 
 // Home routes
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 Route::middleware(['auth', 'can:admin-panel'])->group(function () {
     // Admin routes
-    Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])
+    Route::get('/admin', [AdminController::class, 'index'])
         ->name('admin');
 
     // Item resource controller
-    Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
+    Route::resource('item', ItemController::class);
 
     // Special item routes
-    Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
+    Route::get('special', [ItemController::class, 'special'])
         ->name('all.special');
 
-    Route::post('special', [\App\Http\Controllers\Web\ItemController::class, 'makeSpecial'])
+    Route::post('special', [ItemController::class, 'makeSpecial'])
         ->name('create.special');
 
-    Route::delete('special', [\App\Http\Controllers\Web\ItemController::class, 'removeSpecial'])
+    Route::delete('special', [ItemController::class, 'removeSpecial'])
         ->name('remove.special');
 
     // Brand resource controller
-    Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
+    Route::resource('brand', BrandController::class);
 
     // Category resource controller
-    Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
+    Route::resource('category', CategoryController::class);
 });
 
 // User routes
-Route::get('dashboard', [\App\Http\Controllers\HomeController::class, 'userPanel'])
+Route::get('dashboard', [HomeController::class, 'userPanel'])
     ->middleware(['auth'])
     ->name('dashboard');
 
