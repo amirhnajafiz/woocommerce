@@ -39,7 +39,7 @@ class HomeController extends Controller
      */
     public function userPanel()
     {
-        return view('web.user.main')
+        return view('dashboard')
             ->with('title', '-user-panel')
             ->with('user', Auth::user());
     }
