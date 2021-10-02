@@ -24,9 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
+        $items = APIRequest::handle(route('api.all.item'));
 
-        return view('web.home')
+        return view('welcome')
             ->with('title', 'home')
             ->with('items', $items);
     }

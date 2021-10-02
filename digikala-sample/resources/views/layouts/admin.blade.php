@@ -23,7 +23,7 @@
         @yield('style')
 
         <title>
-            {{ "Digikala Admin " . $title }}
+            {{ "Digikala-" . $title }}
         </title>
     </head>
     <body class="bg-light">
