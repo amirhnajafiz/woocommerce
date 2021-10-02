@@ -3,15 +3,25 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
+/**
+ * Class PasswordResetLinkController.
+ *
+ * @package App\Http\Controllers\Auth
+ */
 class PasswordResetLinkController extends Controller
 {
     /**
      * Display the password reset link request view.
      *
-     * @return \Illuminate\View\View
+     * @return Application|Factory|\Illuminate\Contracts\View\View|View
      */
     public function create()
     {
@@ -21,12 +31,10 @@ class PasswordResetLinkController extends Controller
     /**
      * Handle an incoming password reset link request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => ['required', 'email'],

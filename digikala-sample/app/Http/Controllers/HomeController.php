@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Internal\APIRequest;
+use App\Models\Item;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -24,33 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
+        $items = Item::paginate(5);
 
-        return view('web.home')
+        return view('welcome')
             ->with('title', 'home')
             ->with('items', $items);
-    }
-
-    /**
-     * Returning the login view.
-     *
-     * @return Application|Factory|View
-     */
-    public function login()
-    {
-        return view('web.auth.login')
-            ->with('title', '-login-page');
-    }
-
-    /**
-     * Returning the register view.
-     *
-     * @return Application|Factory|View
-     */
-    public function register()
-    {
-        return view('web.auth.register')
-            ->with('title', '-register-page');
     }
 
     /**
@@ -60,7 +39,7 @@ class HomeController extends Controller
      */
     public function userPanel()
     {
-        return view('web.user.main')
+        return view('dashboard')
             ->with('title', '-user-panel')
             ->with('user', Auth::user());
     }

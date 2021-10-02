@@ -6,10 +6,22 @@
         <language minSize="89" name="PHP" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="x-data" />
+            <item index="1" class="java.lang.String" itemvalue="@click" />
+            <item index="2" class="java.lang.String" itemvalue=":class" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="10">
+          <list size="21">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -20,6 +32,17 @@
             <item index="7" class="java.lang.String" itemvalue="x-web.nav-bar" />
             <item index="8" class="java.lang.String" itemvalue="x-app-layout" />
             <item index="9" class="java.lang.String" itemvalue="x-slot" />
+            <item index="10" class="java.lang.String" itemvalue="x-guest-layout" />
+            <item index="11" class="java.lang.String" itemvalue="x-auth-card" />
+            <item index="12" class="java.lang.String" itemvalue="x-application-logo" />
+            <item index="13" class="java.lang.String" itemvalue="x-auth-session-status" />
+            <item index="14" class="java.lang.String" itemvalue="x-auth-validation-errors" />
+            <item index="15" class="java.lang.String" itemvalue="x-label" />
+            <item index="16" class="java.lang.String" itemvalue="x-input" />
+            <item index="17" class="java.lang.String" itemvalue="x-nav-link" />
+            <item index="18" class="java.lang.String" itemvalue="x-dropdown" />
+            <item index="19" class="java.lang.String" itemvalue="div" />
+            <item index="20" class="java.lang.String" itemvalue="x-responsive-nav-link" />
           </list>
         </value>
       </option>

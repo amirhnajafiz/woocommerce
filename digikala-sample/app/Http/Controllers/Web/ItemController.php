@@ -33,7 +33,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Json::prettify(APIRequest::handle(route('api.all.item')));
+        $items = Item::paginate(2);
 
         return view('web.admin.route-views.items')
             ->with('items', $items)

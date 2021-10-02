@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\BrandControllerAPI;
+use App\Http\Controllers\API\CategoryControllerAPI;
+use App\Http\Controllers\API\ItemControllerAPI;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,24 +18,24 @@ use Illuminate\Support\Facades\Route;
 
 
 // Item API routes
-Route::get('item', [\App\Http\Controllers\API\ItemControllerAPI::class, 'index'])
+Route::get('item', [ItemControllerAPI::class, 'index'])
     ->name('all.item');
 
-Route::get('item/{item}', [\App\Http\Controllers\API\ItemControllerAPI::class, 'show'])
+Route::get('item/{item}', [ItemControllerAPI::class, 'show'])
     ->name('show.item');
 
-Route::get('special', [\App\Http\Controllers\API\ItemControllerAPI::class, 'special'])
+Route::get('special', [ItemControllerAPI::class, 'special'])
     ->name('all.special');
 
 // Brand API routes
-Route::get('brand', [\App\Http\Controllers\API\BrandControllerAPI::class, 'index'])
+Route::get('brand', [BrandControllerAPI::class, 'index'])
     ->name('all.brand');
 
-Route::get('brand/{brand}', [\App\Http\Controllers\API\BrandControllerAPI::class, 'show'])
+Route::get('brand/{brand}', [BrandControllerAPI::class, 'show'])
     ->name('show.brand');
 
-Route::get('category', [\App\Http\Controllers\API\CategoryControllerAPI::class, 'index'])
+Route::get('category', [CategoryControllerAPI::class, 'index'])
     ->name('all.category');
 
-Route::get('category/{category}', [\App\Http\Controllers\API\CategoryControllerAPI::class, 'show'])
+Route::get('category/{category}', [CategoryControllerAPI::class, 'show'])
     ->name('show.category');

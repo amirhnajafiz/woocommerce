@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CheckUserAdministration for administration check.
+ *
  * @package App\Http\Middleware
  */
 class CheckUserAdministration

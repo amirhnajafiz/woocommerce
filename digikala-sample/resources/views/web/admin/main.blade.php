@@ -1,4 +1,4 @@
-@extends('web.layouts.admin.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="row w-75 mt-5 pt-5 mx-auto" style="height: 516px !important;">

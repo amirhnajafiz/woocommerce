@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * Class Category for items grouping.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Category extends Model
 {
