@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.category')));
+        $categories = Category::paginate(2);
 
         return view('web.admin.route-views.categories')
             ->with('categories', $categories)

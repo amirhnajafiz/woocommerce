@@ -31,7 +31,7 @@
        class="list-group-item list-group-item-action px-5 py-3 text-center bg-white text-dark disabled">
         <del> Sale Codes</del>
     </a>
-    <a href="#" class="list-group-item list-group-item-action px-5 py-3 text-center bg-danger text-white disabled">
-        <del> Logout</del>
+    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action px-5 py-3 text-center bg-danger text-white">
+        Exit
     </a>
 </div>

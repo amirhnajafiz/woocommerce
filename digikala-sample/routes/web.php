@@ -37,8 +37,8 @@ Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
 Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
 
 // Admin routes
-Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'])
-    ->name('admin.panel');
+Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])
+    ->name('admin');
 
 // User routes
 Route::get('dashboard', [\App\Http\Controllers\HomeController::class, 'userPanel'])

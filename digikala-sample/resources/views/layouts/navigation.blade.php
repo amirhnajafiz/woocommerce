@@ -28,6 +28,13 @@
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     </div>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN())
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                                {{ __('Admin Panel') }}
+                            </x-nav-link>
+                        </div>
+                    @endif
                 @endif
 
             </div>

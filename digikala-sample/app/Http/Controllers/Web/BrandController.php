@@ -28,7 +28,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Json::prettify(\App\Http\Internal\APIRequest::handle(route('api.all.brand')));
+        $brands = Brand::paginate(2);
 
         return view('web.admin.route-views.brands')
             ->with('brands', $brands)
