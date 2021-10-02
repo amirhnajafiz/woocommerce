@@ -33,28 +33,6 @@ class HomeController extends Controller
     }
 
     /**
-     * Returning the login view.
-     *
-     * @return Application|Factory|View
-     */
-    public function login()
-    {
-        return view('web.auth.login')
-            ->with('title', '-login-page');
-    }
-
-    /**
-     * Returning the register view.
-     *
-     * @return Application|Factory|View
-     */
-    public function register()
-    {
-        return view('web.auth.register')
-            ->with('title', '-register-page');
-    }
-
-    /**
      * User panel view.
      *
      * @return Application|Factory|View
