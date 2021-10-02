@@ -30,9 +30,9 @@ trait Specialize
      */
     public function special()
     {
-        $items = Json::prettify(APIRequest::handle(route('api.all.special')));
+        $items = SpecialItem::paginate(2);
 
-        return view('admin.route-views.specials')
+        return view('web.admin.route-views.specials')
             ->with('items', $items)
             ->with('title', '-special-items');
     }

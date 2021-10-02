@@ -2,8 +2,13 @@
 
 @section('view')
     <div>
-        <pre>
-            {{ $items }}
-        </pre>
+        @forelse($items as $item)
+            {{ $item->name }}
+        @empty
+            <span class="bg-danger text-white">
+                Empty
+            </span>
+        @endforelse
+        {{ $items->links() }}
     </div>
 @stop

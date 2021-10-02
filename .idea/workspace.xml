@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/User/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/User/UserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/ItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/admin/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/admin/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/traits/Item/Specialize.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Web/traits/Item/Specialize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/brands.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/brands.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/items.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/specials.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/web/admin/route-views/specials.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +212,7 @@
       <workItem from="1633088881337" duration="22000" />
       <workItem from="1633104201820" duration="1205000" />
       <workItem from="1633105469946" duration="22000" />
-      <workItem from="1633153969412" duration="5839000" />
+      <workItem from="1633153969412" duration="6146000" />
     </task>
     <servers />
   </component>
