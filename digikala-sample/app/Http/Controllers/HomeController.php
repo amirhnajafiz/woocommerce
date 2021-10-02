@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Internal\APIRequest;
+use App\Models\Item;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = APIRequest::handle(route('api.all.item'));
+        $items = Item::paginate(5);
 
         return view('welcome')
             ->with('title', 'home')
