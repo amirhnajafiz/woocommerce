@@ -13,12 +13,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home routes
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Item resource controller
+Route::resource('item', \App\Http\Controllers\Web\ItemController::class);
+
+// Special item routes
+Route::get('special', [\App\Http\Controllers\Web\ItemController::class, 'special'])
+    ->name('all.special');
+
+Route::post('special', [\App\Http\Controllers\Web\ItemController::class, 'makeSpecial'])
+    ->name('create.special');
+
+Route::delete('special', [\App\Http\Controllers\Web\ItemController::class, 'removeSpecial'])
+    ->name('remove.special');
+
+// Brand resource controller
+Route::resource('brand', \App\Http\Controllers\Web\BrandController::class);
+
+// Category resource controller
+Route::resource('category', \App\Http\Controllers\Web\CategoryController::class);
+
+// Admin routes
+Route::get('/admin', [\App\Http\Controllers\User\AdminController::class, 'index'])
+    ->name('admin.panel');
+
+// User routes
+Route::get('dashboard', [\App\Http\Controllers\HomeController::class, 'userPanel'])
+    ->name('user.panel');
+
+Route::get('login', [\App\Http\Controllers\HomeController::class, 'login'])
+    ->name('view.login');
+
+Route::post('login', [\App\Http\Controllers\User\UserController::class, 'login'])
+    ->name('user.login');
+
+Route::get('register', [\App\Http\Controllers\HomeController::class, 'register'])
+    ->name('view.register');
+
+Route::post('register', [\App\Http\Controllers\User\UserController::class, 'register'])
+    ->name('user.register');
+
+Route::post('logout', [\App\Http\Controllers\User\UserController::class, 'logout'])
+    ->name('user.logout');
 
 require __DIR__.'/auth.php';
