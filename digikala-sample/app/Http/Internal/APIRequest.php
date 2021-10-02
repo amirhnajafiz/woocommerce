@@ -23,6 +23,6 @@ class APIRequest
     public static function handle(string $route, string $method = 'get')
     {
         $request = Request::create($route, $method);
-        return collect(json_decode(app()->handle($request)->getContent(), true));
+        return json_decode(app()->handle($request)->getContent(), true);
     }
 }
