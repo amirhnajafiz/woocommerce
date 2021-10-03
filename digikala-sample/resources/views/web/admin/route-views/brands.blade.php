@@ -5,7 +5,7 @@
         <div class="row m-0 my-3">
             @forelse($brands as $brand)
                 <div class="col-4 m-auto">
-                    <div class="card" style="height: 400px;">
+                    <div class="card">
                         <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -36,8 +36,8 @@
         <div class="mt-5">
             {{ $brands->links() }}
         </div>
-        <a href="#" class="d-block w-25 btn-lg btn-success m-auto my-4 disabled">
-            Create new brand
+        <a href="#" class="d-block w-25 btn btn-success m-auto my-4 disabled">
+            Create
         </a>
     </div>
 @stop
