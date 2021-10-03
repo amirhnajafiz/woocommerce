@@ -13,13 +13,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <style>
-            * {
-                font-family: 'Nunito', sans-serif !important;
-                direction: rtl;
-            }
-        </style>
-
         @yield('style')
 
         <title>

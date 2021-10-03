@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Internal\APIRequest;
 use App\Models\Item;
-use Exception;
+use App\Models\SpecialItem;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PHPUnit\Util\Json;
 
 /**
  * Class HomeController handles the home routes views.
@@ -21,14 +20,17 @@ class HomeController extends Controller
     /**
      * Home page of the website.
      *
-     * @throws Exception
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::paginate(5);
+        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(5);
+        $specials = SpecialItem::query()->get()->random(5);
 
         return view('welcome')
             ->with('title', 'home')
+            ->with('specials', $specials)
             ->with('items', $items);
     }
 
