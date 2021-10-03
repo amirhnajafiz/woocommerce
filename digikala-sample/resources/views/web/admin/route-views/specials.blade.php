@@ -2,17 +2,45 @@
 
 @section('view')
     <div>
-        <ul>
+        <div class="row m-0 my-3">
             @forelse($items as $item)
-                <li>
-                    {{ $item->item->name }}
-                </li>
+                <div class="col-4 m-auto">
+                    <div class="card">
+                        <img src="{{ $item->item->image->path }}" class="card-img-top" alt="{{ $item->item->image->alt }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ $item->item->name }}
+                            </h5>
+                            <p class="card-text">
+                                Category: {{ $item->item->category->name }}<br />
+                                By: {{ $item->item->brand->name }}<br />
+                                Left: {{ $item->item->number }}
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Price: {{ $item->item->price }}
+                            </li>
+                            <li class="list-group-item">
+                                Score: {{ $item->item->score }}
+                            </li>
+                            <li class="list-group-item">
+                                View: {{ $item->item->view }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             @empty
-                <span class="bg-danger text-white">
-                Empty
-            </span>
+                <div class="col-12">
+                    <span class="bg-danger text-white">
+                        Empty
+                    </span>
+                </div>
             @endforelse
-        </ul>
-        {{ $items->links() }}
+        </div>
+        <div class="mt-5">
+            {{ $items->links() }}
+        </div>
     </div>
 @stop
+
