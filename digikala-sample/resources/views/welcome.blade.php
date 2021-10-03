@@ -5,7 +5,7 @@
             Special items
         </h1>
         @foreach($specials as $special)
-            <div class="col-2 card mx-auto p-1">
+            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow">
                 <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                 <div class="card-body">
                     <h5 class="card-title">
@@ -15,9 +15,14 @@
                         {{ $special->item->brand->name }}
                     </p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex justify-between">
                     <small class="text-muted">
                         Price: {{ $special->item->price }}$
+                    </small>
+                    <small style="color: #fd5a24;">
+                        <a href="#">
+                            Add +
+                        </a>
                     </small>
                 </div>
             </div>
@@ -50,7 +55,7 @@
             </h2>
         </div>
         @foreach($items as $item)
-            <div class="col-2 card mx-auto p-2">
+            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-2 shadow">
                 <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" />
                 <div class="card-body">
                     <h5 class="card-title">
@@ -60,9 +65,14 @@
                         {{ $item->brand->name }}
                     </p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex justify-between">
                     <small class="text-muted">
                         Price: {{ $item->price }}$
+                    </small>
+                    <small style="color: #fd5a24;">
+                        <a href="#">
+                            Add +
+                        </a>
                     </small>
                 </div>
             </div>
