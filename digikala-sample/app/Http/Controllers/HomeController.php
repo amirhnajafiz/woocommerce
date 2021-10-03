@@ -21,11 +21,13 @@ class HomeController extends Controller
     /**
      * Home page of the website.
      *
-     * @throws Exception
+     * @param string $filter
+     * @param string $mode
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(string $filter='id', string $mode='asc')
     {
-        $items = Item::paginate(5);
+        $items = Item::query()->orderBy($filter, $mode)->paginate(5);
 
         return view('welcome')
             ->with('title', 'home')
