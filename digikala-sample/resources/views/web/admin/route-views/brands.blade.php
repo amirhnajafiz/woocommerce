@@ -2,17 +2,39 @@
 
 @section('view')
     <div>
-        <ul>
+        <div class="row m-0 my-3">
             @forelse($brands as $brand)
-                <li>
-                    {{ $brand->name }}
-                </li>
+                <div class="col-4 m-auto">
+                    <div class="card" style="height: 400px;">
+                        <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ $brand->name }}
+                            </h5>
+                            <p class="card-text">
+                                {{ $brand->description }}
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Items: {{ $brand->items->count() }}
+                            </li>
+                            <li class="list-group-item">
+                                Accepted by Digi Company
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             @empty
-                <span class="bg-danger text-white">
-                    Empty
-                </span>
+                <div class="col-12">
+                    <span class="bg-danger text-white">
+                        Empty
+                    </span>
+                </div>
             @endforelse
-        </ul>
-        {{ $brands->links() }}
+        </div>
+        <div class="mt-4">
+            {{ $brands->links() }}
+        </div>
     </div>
 @stop
