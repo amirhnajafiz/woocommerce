@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home routes
-Route::get('/{filter?}/{mode?}', [HomeController::class, 'index'])
+Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 Route::middleware(['auth', 'can:admin-panel'])->group(function () {

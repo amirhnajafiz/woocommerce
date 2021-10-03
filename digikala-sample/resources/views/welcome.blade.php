@@ -29,27 +29,27 @@
         </h1>
         <div class="bg-white d-flex justify-evenly py-2">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('home', 'id') }}">
+                <a href="{{ route('home') . '?filter=id' }}">
                     Normal
                 </a>
             </h2>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('home', ['price', 'desc']) }}">
+                <a href="{{ route('home') . '?filter=price&mode=desc' }}">
                     High Price
                 </a>
             </h2>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('home', ['score', 'desc']) }}">
+                <a href="{{ route('home') . '?filter=price&mode=desc' }}">
                     High Score
                 </a>
             </h2>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('home', 'price') }}">
+                <a href="{{ route('home') . '?filter=price' }}">
                     Low Price
                 </a>
             </h2>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('home', 'score') }}">
+                <a href="{{ route('home') . '?filter=score' }}">
                     Low Score
                 </a>
             </h2>
