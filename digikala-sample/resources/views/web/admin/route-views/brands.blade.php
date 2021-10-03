@@ -33,8 +33,11 @@
                 </div>
             @endforelse
         </div>
-        <div class="mt-4">
+        <div class="mt-5">
             {{ $brands->links() }}
         </div>
+        <a href="#" class="d-block w-25 btn-lg btn-success m-auto my-4 disabled">
+            Create new brand
+        </a>
     </div>
 @stop
