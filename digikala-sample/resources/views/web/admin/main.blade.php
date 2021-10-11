@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="row w-75 mt-5 pt-5 mx-auto" style="height: 516px !important;">
+    <div class="row w-75 mt-5 pt-5 mx-auto shadow" style="height: 516px !important;">
         <div class="col-3">
             <x-admin.navigation></x-admin.navigation>
         </div>
