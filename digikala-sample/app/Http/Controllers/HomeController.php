@@ -45,4 +45,16 @@ class HomeController extends Controller
             ->with('title', '-user-panel')
             ->with('user', Auth::user());
     }
+
+    /**
+     * User cart view.
+     *
+     * @return Application|Factory|View
+     */
+    public function userCart()
+    {
+        return view('web.user.cart')
+            ->with('title', '-user-cart')
+            ->with('user', Auth::user());
+    }
 }

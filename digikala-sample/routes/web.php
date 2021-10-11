@@ -52,4 +52,8 @@ Route::get('dashboard', [HomeController::class, 'userPanel'])
     ->middleware(['auth'])
     ->name('dashboard');
 
+Route::get('cart', [HomeController::class, 'userCart'])
+    ->middleware(['auth'])
+    ->name('cart');
+
 require __DIR__ . '/auth.php';
