@@ -15,7 +15,7 @@
     @section('title', $title)
     <div class="row m-0 w-75 m-auto my-3">
         <div class="col-12 my-5">
-            <span class="h4 p-3 rounded" style="color: #000000; background-color: rgba(255,124,80,0.7)">
+            <span class="h4 p-3 rounded" style="color: #000000; background-color: rgba(255,77,28,0.7)">
                 Special items
             </span>
         </div>
@@ -35,7 +35,7 @@
                         Price: {{ $special->item->price }}$
                     </small>
                     <small style="color: #000000;">
-                        <a href="#">
+                        <a href="#" class="rounded bg-light p-1">
                             Add +
                         </a>
                     </small>
@@ -90,7 +90,7 @@
                             Price: {{ $item->price }}$
                         </small>
                         <small style="color: #fd5a24;">
-                            <a href="#">
+                            <a href="#" class="rounded bg-dark p-1">
                                 Add +
                             </a>
                         </small>
