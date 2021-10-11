@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed-top">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -9,6 +9,11 @@
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600"
                                             width="50px"></x-application-logo>
                     </a>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('specials')" :active="request()->routeIs('specials')">
+                        {{ __('Specials') }}
+                    </x-nav-link>
                 </div>
 
                 @if(!\Illuminate\Support\Facades\Auth::check())
@@ -29,6 +34,11 @@
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')">
+                            {{ __('Cart') }}
+                        </x-nav-link>
+                    </div>
                     @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN())
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')" style="color: #fd5a24;">
@@ -37,7 +47,6 @@
                         </div>
                     @endif
                 @endif
-
             </div>
 
             <!-- Settings Dropdown -->
@@ -62,8 +71,10 @@
                                 </div>
                             </button>
                         </x-slot>
-
                         <x-slot name="content">
+                            <x-dropdown-link>
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

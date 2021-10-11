@@ -25,13 +25,28 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(5);
+        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(10);
         $specials = SpecialItem::query()->get()->random(5);
 
         return view('welcome')
             ->with('title', 'home')
             ->with('specials', $specials)
             ->with('items', $items);
+    }
+
+    /**
+     * Special items view.
+     *
+     * @return Application|Factory|View
+     */
+    public function specials()
+    {
+        $specials = SpecialItem::paginate(10);
+
+        return view('web.specials')
+            ->with('title', 'specials')
+            ->with('specials', $specials)
+            ->with('items', $specials);
     }
 
     /**
@@ -43,6 +58,18 @@ class HomeController extends Controller
     {
         return view('dashboard')
             ->with('title', '-user-panel')
+            ->with('user', Auth::user());
+    }
+
+    /**
+     * User cart view.
+     *
+     * @return Application|Factory|View
+     */
+    public function userCart()
+    {
+        return view('web.user.cart')
+            ->with('title', '-user-cart')
             ->with('user', Auth::user());
     }
 }
