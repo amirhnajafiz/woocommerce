@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,9 @@
       <workItem from="1633105469946" duration="22000" />
       <workItem from="1633153969412" duration="7146000" />
       <workItem from="1633238945401" duration="216000" />
-      <workItem from="1633269074541" duration="5954000" />
+      <workItem from="1633269074541" duration="6279000" />
+      <workItem from="1633279114977" duration="530000" />
+      <workItem from="1633948847251" duration="2587000" />
     </task>
     <servers />
   </component>

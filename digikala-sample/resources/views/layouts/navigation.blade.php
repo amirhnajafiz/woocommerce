@@ -10,6 +10,11 @@
                                             width="50px"></x-application-logo>
                     </a>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link>
+                        {{ __('Special items') }}
+                    </x-nav-link>
+                </div>
 
                 @if(!\Illuminate\Support\Facades\Auth::check())
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -29,6 +34,11 @@
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link>
+                            {{ __('Cart') }}
+                        </x-nav-link>
+                    </div>
                     @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN())
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')" style="color: #fd5a24;">
@@ -37,7 +47,6 @@
                         </div>
                     @endif
                 @endif
-
             </div>
 
             <!-- Settings Dropdown -->
@@ -62,8 +71,10 @@
                                 </div>
                             </button>
                         </x-slot>
-
                         <x-slot name="content">
+                            <x-dropdown-link>
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
