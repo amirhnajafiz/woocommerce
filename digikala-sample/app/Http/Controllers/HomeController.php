@@ -35,6 +35,21 @@ class HomeController extends Controller
     }
 
     /**
+     * Special items view.
+     *
+     * @return Application|Factory|View
+     */
+    public function specials()
+    {
+        $specials = SpecialItem::paginate(10);
+
+        return view('web.specials')
+            ->with('title', 'specials')
+            ->with('specials', $specials)
+            ->with('items', $specials);
+    }
+
+    /**
      * User panel view.
      *
      * @return Application|Factory|View

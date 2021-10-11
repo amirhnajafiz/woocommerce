@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
+Route::get('specials', [HomeController::class, 'specials'])
+    ->name('specials');
+
 Route::middleware(['auth', 'can:admin-panel'])->group(function () {
     // Admin routes
     Route::get('/admin', [AdminController::class, 'index'])
