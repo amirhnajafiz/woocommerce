@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(5);
+        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(10);
         $specials = SpecialItem::query()->get()->random(5);
 
         return view('welcome')

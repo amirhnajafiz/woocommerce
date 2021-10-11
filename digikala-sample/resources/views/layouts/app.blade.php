@@ -61,7 +61,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen">
+        <div class="min-h-screen" style="padding-bottom: 10px;">
             <div style="margin-bottom: 100px !important;">
                 @include('layouts.navigation')
             </div>
@@ -70,7 +70,7 @@
             <div class="bg"></div>
             <div class="bg bg2"></div>
             <div class="bg bg3"></div>
-            <div>
+            <div class="mb-3">
                 <main>
                     {{ $slot }}
                 </main>

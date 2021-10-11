@@ -1,11 +1,26 @@
+@section('style')
+    <style>
+        .card {
+            position: relative;
+            top: 0;
+            transition: top 0.5s;
+        }
+
+        .card:hover {
+            top: -20px;
+        }
+    </style>
+@stop
 <x-app-layout>
     @section('title', $title)
     <div class="row m-0 w-75 m-auto my-3">
-        <h1 class="p-3" style="color: #fd5a24;">
-            Special items
-        </h1>
+        <div class="col-12 my-5">
+            <span class="h4 p-3 rounded" style="color: #000000; background-color: rgba(255,124,80,0.7)">
+                Special items
+            </span>
+        </div>
         @foreach($specials as $special)
-            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow">
+            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow" style="background-color: #ff7c50; color: #ffffff">
                 <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                 <div class="card-body">
                     <h5 class="card-title">
@@ -16,10 +31,10 @@
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-between">
-                    <small class="text-muted">
+                    <small>
                         Price: {{ $special->item->price }}$
                     </small>
-                    <small style="color: #fd5a24;">
+                    <small style="color: #000000;">
                         <a href="#">
                             Add +
                         </a>
@@ -28,57 +43,63 @@
             </div>
         @endforeach
     </div>
-    <div class="row m-0 w-75 m-auto">
-        <h1 class="p-3" style="color: #fd5a24;">
-            Items
-        </h1>
-        <div class="bg-white d-flex justify-evenly p-3 rounded mb-4">
-            <h2 class="font-semibold text-gray-800 leading-tight" style="color: #fd5a24">
-                <a href="{{ route('home') . '?filter=id' }}">
-                    Normal
-                </a>
-            </h2>
-            <h2 class="font-semibold text-gray-800 leading-tight" style="color: #fd5a24">
-                <a href="{{ route('home') . '?filter=price&mode=desc' }}">
-                    High Price
-                </a>
-            </h2>
-            <h2 class="font-semibold text-gray-800 leading-tight" style="color: #fd5a24">
-                <a href="{{ route('home') . '?filter=price&mode=desc' }}">
-                    High Score
-                </a>
-            </h2>
-            <h2 class="font-semibold text-gray-800 leading-tight" style="color: #fd5a24">
-                <a href="{{ route('home') . '?filter=price' }}">
-                    Low Price
-                </a>
-            </h2>
+    <div class="row m-0 w-75 m-auto mt-5">
+        <div class="row m-0 p-3 rounded my-5" style="background-color: rgba(255,255,255,0.7)">
+            <div class="col-6">
+                <span class="h4 rounded" style="color: #000000;">
+                    Items
+                </span>
+            </div>
+            <div class="col-6 d-flex justify-evenly align-bottom">
+                <span class="font-semibold text-gray-800 leading-tight">
+                    <a href="{{ route('home') . '?filter=id' }}">
+                        Normal
+                    </a>
+                </span>
+                <span class="font-semibold text-gray-800 leading-tight">
+                    <a href="{{ route('home') . '?filter=price&mode=desc' }}">
+                        High Price
+                    </a>
+                </span>
+                <span class="font-semibold text-gray-800 leading-tight">
+                    <a href="{{ route('home') . '?filter=price&mode=desc' }}">
+                        High Score
+                    </a>
+                </span>
+                <span class="font-semibold text-gray-800 leading-tight">
+                    <a href="{{ route('home') . '?filter=price' }}">
+                        Low Price
+                    </a>
+                </span>
+            </div>
         </div>
-        @foreach($items as $item)
-            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-2 shadow">
-                <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" />
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{ $item->name }}
-                    </h5>
-                    <p class="card-text">
-                        {{ $item->brand->name }}
-                    </p>
+        <div class="row m-0 gap-x-10 gap-y-10">
+            @foreach($items as $item)
+                <div class="col-lg-2 col-md-6 col-sm-12 mx-auto card p-1 shadow">
+                    <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ $item->name }}
+                        </h5>
+                        <p class="card-text">
+                            {{ $item->brand->name }}
+                        </p>
+                    </div>
+                    <div class="card-footer d-flex justify-between">
+                        <small class="text-muted">
+                            Price: {{ $item->price }}$
+                        </small>
+                        <small style="color: #fd5a24;">
+                            <a href="#">
+                                Add +
+                            </a>
+                        </small>
+                    </div>
                 </div>
-                <div class="card-footer d-flex justify-between">
-                    <small class="text-muted">
-                        Price: {{ $item->price }}$
-                    </small>
-                    <small style="color: #fd5a24;">
-                        <a href="#">
-                            Add +
-                        </a>
-                    </small>
-                </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
-    <div class="mt-5">
+    <div style="margin-top: 100px;">
         {{ $items->links() }}
     </div>
 </x-app-layout>
