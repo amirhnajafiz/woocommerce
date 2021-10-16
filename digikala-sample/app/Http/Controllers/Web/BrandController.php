@@ -62,7 +62,7 @@ class BrandController extends Controller
         FileManager::instance()->storeFile('store/', $brand->id, $request->file('file'));
         $brand->image()->create([
             'title' => $brand->name,
-            'slug' => Str::slug($brand->name),
+            'slug' => $brand->slug,
             'path' => 'store/' . $brand->id
         ]);
 
