@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateCategoryRequest;
 use App\Models\Category;
 use Exception;
@@ -11,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use PHPUnit\Util\Json;
 
 /**
@@ -57,7 +59,12 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category = Category::query()->create($validated);
 
-        // TODO: Insert image adding feature
+        FileManager::instance()->storeFile('store/', $category->id, $request->file('file'));
+        $category->image()->create([
+            'title' => $category->name,
+            'slug' => Str::slug($category->name),
+            'path' => 'store/' . $category->id
+        ]);
 
         return redirect()->route('category.show', $category);
     }

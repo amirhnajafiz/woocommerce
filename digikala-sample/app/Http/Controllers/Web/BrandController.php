@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Exception;
@@ -11,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use PHPUnit\Util\Json;
 
 /**
@@ -57,7 +59,12 @@ class BrandController extends Controller
         $validated = $request->validated();
         $brand = Brand::query()->create($validated);
 
-        // TODO: Insert image adding feature
+        FileManager::instance()->storeFile('store/', $brand->id, $request->file('file'));
+        $brand->image()->create([
+            'title' => $brand->name,
+            'slug' => Str::slug($brand->name),
+            'path' => 'store/' . $brand->id
+        ]);
 
         return redirect()->route('brand.show', $brand);
     }

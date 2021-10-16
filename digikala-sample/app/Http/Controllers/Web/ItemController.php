@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\traits\Item\Specialize;
+use App\Http\Files\FileManager;
 use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
@@ -62,7 +63,12 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item = Item::query()->create($validated);
 
-        // TODO: Insert image adding feature
+        FileManager::instance()->storeFile('store/', $item->id, $request->file('file'));
+        $item->image()->create([
+            'title' => $item->name,
+            'slug' => $item->slug,
+            'path' => 'store/' . $item->id
+        ]);
 
         return redirect()->route('item.show', $item);
     }
