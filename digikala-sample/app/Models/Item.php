@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
 
@@ -51,11 +52,11 @@ class Item extends Model
     /**
      * Each item has a category.
      *
-     * @return BelongsTo
+     * @return BelongsToMany
      */
-    public function category(): BelongsTo
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     /**
@@ -66,5 +67,15 @@ class Item extends Model
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    /**
+     * Check if one item is special.
+     *
+     * @return bool true or false
+     */
+    public function isSpecial(): bool
+    {
+        return SpecialItem::query()->where('item_id', '=', $this->id)->exists();
     }
 }

@@ -51,12 +51,15 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
 });
 
 // User routes
-Route::get('dashboard', [HomeController::class, 'userPanel'])
-    ->middleware(['auth'])
-    ->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', [HomeController::class, 'userPanel'])
+        ->name('dashboard');
 
-Route::get('cart', [HomeController::class, 'userCart'])
-    ->middleware(['auth'])
-    ->name('cart');
+    Route::get('cart', [HomeController::class, 'userCart'])
+        ->name('cart');
+
+    Route::get('view/{item}', [\App\Http\Controllers\UserController::class, 'showItem'])
+        ->name('show.item');
+});
 
 require __DIR__ . '/auth.php';

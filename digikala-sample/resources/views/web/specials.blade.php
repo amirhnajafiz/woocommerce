@@ -20,7 +20,9 @@
                     <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                     <div class="card-body">
                         <h5 class="card-title">
-                            {{ $special->item->name }}
+                            <a href="{{ route('show.item', $special->item->id) }}">
+                                {{ $special->item->name }}
+                            </a>
                         </h5>
                         <p class="card-text">
                             {{ $special->item->brand->name }}

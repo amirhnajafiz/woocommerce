@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\traits\Item\Specialize;
+use App\Http\Files\FileManager;
 use App\Http\Internal\APIRequest;
 use App\Http\Requests\CreateUpdateItemRequest;
 use App\Models\Item;
@@ -47,7 +48,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('web.utils.item.create-item-panel')
+        return view('web.admin.utils.item.create-item-panel')
             ->with('title', '-create-item');
     }
 
@@ -62,7 +63,14 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item = Item::query()->create($validated);
 
-        // TODO: Insert image adding feature
+        $item->categories()->sync($validated['category_id']);
+
+        FileManager::instance()->storeFile('store/item/', $item->id, $request->file('file'));
+        $item->image()->create([
+            'title' => $item->name,
+            'slug' => $item->slug,
+            'path' => 'store/item/' . $item->id
+        ]);
 
         return redirect()->route('item.show', $item);
     }
@@ -75,7 +83,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('web.utils.item.show')
+        return view('web.admin.utils.item.show-item')
             ->with('item', $item)
             ->with('title', '-item-' . $item->id);
     }
@@ -88,7 +96,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('web.utils.item.edit-item')
+        return view('web.admin.utils.item.edit-item')
             ->with('item', $item)
             ->with('title', '-edit-item-' . $item->id);
     }
@@ -105,7 +113,12 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item->update($validated);
 
-        // TODO: Add the photo updating feature
+        $item->categories()->sync($validated['category_id']);
+
+        if ($request->has('file')) {
+            $path = $item->image->path;
+            FileManager::instance()->replaceFile('store/item/', $item->id, $request->file('file'), $path);
+        }
 
         $item->save();
 
@@ -120,9 +133,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        FileManager::instance()->removeFile($item->image->path);
         $item->delete();
-
-        // TODO: Photo remove from storage
 
         return redirect()->route('item.index');
     }

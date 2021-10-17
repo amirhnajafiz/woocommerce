@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\traits\Item;
 
 use App\Http\Internal\APIRequest;
 use App\Http\Requests\Item\MakeSpecialItemRequest;
+use App\Jobs\DeleteSpecials;
 use App\Models\Item;
 use App\Models\SpecialItem;
 use Exception;
@@ -48,13 +49,13 @@ trait Specialize
     {
         $validated = $request->validated();
 
-        SpecialItem::query()->create([
+        $item = SpecialItem::query()->create([
             'item_id' => $item->id,
             'expire_date' => now()->addMonth(),
             'discount' => $validated['amount']
         ]);
 
-        // TODO: Add a job for removing the Item in expire date
+        DeleteSpecials::dispatch($item)->delay(now()->addMonth());
 
         return response()->json([
             'status' => 'OK',

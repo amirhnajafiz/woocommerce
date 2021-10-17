@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
 use Exception;
@@ -11,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use PHPUnit\Util\Json;
 
 /**
@@ -42,7 +44,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('web.utils.brand.create-brand-panel')
+        return view('web.admin.utils.brand.create-brand-panel')
             ->with('title', '-create-brand');
     }
 
@@ -57,7 +59,12 @@ class BrandController extends Controller
         $validated = $request->validated();
         $brand = Brand::query()->create($validated);
 
-        // TODO: Insert image adding feature
+        FileManager::instance()->storeFile('store/brand/', $brand->id, $request->file('file'));
+        $brand->image()->create([
+            'title' => $brand->name,
+            'slug' => $brand->slug,
+            'path' => 'store/brand' . $brand->id
+        ]);
 
         return redirect()->route('brand.show', $brand);
     }
@@ -70,8 +77,8 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        return view('web.utils.brand.show-brand')
-            ->with('item', $brand)
+        return view('web.admin.utils.brand.show-brand')
+            ->with('brand', $brand)
             ->with('title', '-brand-' . $brand->id);
     }
 
@@ -83,7 +90,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('web.utils.brand.edit-brand')
+        return view('web.admin.utils.brand.edit-brand')
             ->with('brand', $brand)
             ->with('title', '-edit-brand-' . $brand->id);
     }
@@ -100,7 +107,10 @@ class BrandController extends Controller
         $validated = $request->validated();
         $brand->update($validated);
 
-        // TODO: Add the photo updating feature
+        if ($request->has('file')) {
+            $path = $brand->image->path;
+            FileManager::instance()->replaceFile('store/brand/', $brand->id, $request->file('file'), $path);
+        }
 
         $brand->save();
 
@@ -115,9 +125,8 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        FileManager::instance()->removeFile($brand->image->path);
         $brand->delete();
-
-        // TODO: Photo remove from storage
 
         return redirect()->route('brand.index');
     }

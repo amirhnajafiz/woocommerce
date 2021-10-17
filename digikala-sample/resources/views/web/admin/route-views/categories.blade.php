@@ -2,38 +2,29 @@
 
 @section('view')
     <div>
-        <div class="row m-0 my-3">
+        <div class="row m-0 my-5">
             @forelse($categories as $category)
-                <div class="col-4 m-auto">
-                    <div class="card">
+                <div class="col-4 m-auto shadow">
+                    <div class="card bg-dark text-white">
                         <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                {{ $category->name }}
+                            <h5 class="h2 card-title">
+                                <a href="{{ route('category.show', $category->id) }}">
+                                    {{ $category->name }}
+                                </a>
                             </h5>
-                            <div class="card-text">
-                                <span>Children:</span>
-                                <ul>
-                                    @forelse($category->children as $child)
-                                        <li>
-                                            {{ $child->name }}
-                                        </li>
-                                    @empty
-                                        <li>
-                                            Empty
-                                        </li>
-                                    @endforelse
-                                </ul>
-                            </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                Items: {{ $category->items->count() }}
-                            </li>
-                            <li class="list-group-item">
-                                Parent: {{ $category->parent ?? $category->parent->name ?? '-' }}
-                            </li>
-                        </ul>
+                        <div class="card-text p-3">
+                            Items: {{ $category->items->count() }}
+                        </div>
+                        <div class="flex flex-wrap justify-evenly p-3">
+                            <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -44,11 +35,13 @@
                 </div>
             @endforelse
         </div>
+        <div class="text-center">
+            <a href="{{ route('category.create') }}" class="btn btn-dark m-auto">
+                Create a new <strong>category</strong>
+            </a>
+        </div>
         <div class="mt-5">
             {{ $categories->links() }}
         </div>
-        <a href="#" class="d-block w-25 btn btn-success m-auto my-4 disabled">
-            Create
-        </a>
     </div>
 @stop
