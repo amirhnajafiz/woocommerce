@@ -68,4 +68,14 @@ class Item extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    /**
+     * Check if one item is special.
+     *
+     * @return bool true or false
+     */
+    public function isSpecial(): bool
+    {
+        return SpecialItem::query()->where('item_id', '=', $this->id)->exists();
+    }
 }

@@ -41,6 +41,11 @@
                                 View: {{ $item->view }}
                             </li>
                         </ul>
+                        @if($item->isSpecial())
+                            Remove from Special <!-- TODO: Make js request -->
+                        @else
+                            Make Special <!-- TODO: Make js request -->
+                        @endif
                     </div>
                 </div>
             @empty
