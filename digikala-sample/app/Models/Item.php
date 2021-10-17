@@ -54,7 +54,7 @@ class Item extends Model
      *
      * @return BelongsToMany
      */
-    public function category(): BelongsToMany
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }

@@ -63,6 +63,8 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item = Item::query()->create($validated);
 
+        $item->categories()->sync($validated['category_id']);
+
         FileManager::instance()->storeFile('store/item/', $item->id, $request->file('file'));
         $item->image()->create([
             'title' => $item->name,
@@ -110,6 +112,8 @@ class ItemController extends Controller
     {
         $validated = $request->validated();
         $item->update($validated);
+
+        $item->categories()->sync($validated['category_id']);
 
         if ($request->has('file')) {
             $path = $item->image->path;
