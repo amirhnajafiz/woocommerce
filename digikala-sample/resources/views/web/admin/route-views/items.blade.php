@@ -16,15 +16,21 @@
                             <div class="card-text">
                                 Categories:
                                 <ul>
-                                    @forelse($item->category as $category)
-                                        <li>
-                                            {{ $category->name }}
-                                        </li>
-                                    @empty
+                                    @if($item->category)
+                                        @forelse($item->category as $category)
+                                            <li>
+                                                {{ $category->name }}
+                                            </li>
+                                        @empty
+                                            <li>
+                                                This item has no categories!
+                                            </li>
+                                        @endforelse
+                                    @else
                                         <li>
                                             This item has no categories!
                                         </li>
-                                    @endforelse
+                                    @endif
                                 </ul>
                                 By: {{ $item->brand->name }}<br />
                                 Left: {{ $item->number }}
