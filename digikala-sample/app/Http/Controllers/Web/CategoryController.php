@@ -59,11 +59,11 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category = Category::query()->create($validated);
 
-        FileManager::instance()->storeFile('store/', $category->id, $request->file('file'));
+        FileManager::instance()->storeFile('store/category/', $category->id, $request->file('file'));
         $category->image()->create([
             'title' => $category->name,
             'slug' => Str::slug($category->name),
-            'path' => 'store/' . $category->id
+            'path' => 'store/category/' . $category->id
         ]);
 
         return redirect()->route('category.show', $category);
@@ -107,7 +107,10 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category->update($validated);
 
-        // TODO: Add the photo updating feature
+        if ($request->has('file')) {
+            $path = $category->image->path;
+            FileManager::instance()->replaceFile('store/brand/', $category->id, $request->file('file'), $path);
+        }
 
         $category->save();
 
@@ -122,9 +125,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        FileManager::instance()->removeFile($category->image->path);
         $category->delete();
-
-        // TODO: Photo remove from storage
 
         return redirect()->route('category.index');
     }
