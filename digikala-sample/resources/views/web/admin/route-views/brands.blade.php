@@ -25,6 +25,14 @@
                                 Accepted by Digi Company
                             </li>
                         </ul>
+                        <div class="flex flex-wrap justify-evenly p-3">
+                            <a href="#" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -36,8 +44,8 @@
             @endforelse
         </div>
         <div class="text-center">
-            <a href="{{ route('brand.create') }}" class="btn btn-success m-auto my-4">
-                Create
+            <a href="{{ route('brand.create') }}" class="btn btn-dark m-auto">
+                Create a new <strong>brand</strong>
             </a>
         </div>
         <div class="mt-5">

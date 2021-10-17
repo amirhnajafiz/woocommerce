@@ -75,8 +75,8 @@
             @endforelse
         </div>
         <div class="text-center">
-            <a href="{{ route('item.create') }}" class="btn btn-success m-auto">
-                Create
+            <a href="{{ route('item.create') }}" class="btn btn-dark m-auto">
+                Create a new <strong>item</strong>
             </a>
         </div>
         <div class="mt-5">
