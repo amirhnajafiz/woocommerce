@@ -59,11 +59,11 @@ class BrandController extends Controller
         $validated = $request->validated();
         $brand = Brand::query()->create($validated);
 
-        FileManager::instance()->storeFile('store/', $brand->id, $request->file('file'));
+        FileManager::instance()->storeFile('store/brand/', $brand->id, $request->file('file'));
         $brand->image()->create([
             'title' => $brand->name,
             'slug' => $brand->slug,
-            'path' => 'store/' . $brand->id
+            'path' => 'store/brand' . $brand->id
         ]);
 
         return redirect()->route('brand.show', $brand);
@@ -107,7 +107,10 @@ class BrandController extends Controller
         $validated = $request->validated();
         $brand->update($validated);
 
-        // TODO: Add the photo updating feature
+        if ($request->has('file')) {
+            $path = $brand->image->path;
+            FileManager::instance()->replaceFile('store/brand/', $brand->id, $request->file('file'), $path);
+        }
 
         $brand->save();
 
@@ -122,9 +125,8 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        FileManager::instance()->removeFile($brand->image->path);
         $brand->delete();
-
-        // TODO: Photo remove from storage
 
         return redirect()->route('brand.index');
     }
