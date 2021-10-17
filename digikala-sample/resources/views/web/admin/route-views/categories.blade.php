@@ -5,7 +5,7 @@
         <div class="row m-0 my-5">
             @forelse($categories as $category)
                 <div class="col-4 m-auto shadow">
-                    <div class="card">
+                    <div class="card bg-dark text-white">
                         <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -15,35 +15,35 @@
                             </h5>
                             <div class="card-text">
                                 <span>Children:</span>
-                                <ul>
+                                <ul class="list-group list-group-flush">
                                     @forelse($category->children as $child)
-                                        <li>
+                                        <li class="list-group-item bg-dark text-white">
                                             {{ $child->name }}
                                         </li>
                                     @empty
-                                        <li>
+                                        <li class="list-group-item bg-dark text-white">
                                             Empty
                                         </li>
                                     @endforelse
                                 </ul>
-                                <div class="flex flex-wrap justify-evenly p-3">
-                                    <a href="#" class="btn btn-primary">
-                                        Edit
-                                    </a>
-                                    <a href="#" class="btn btn-danger">
-                                        Delete
-                                    </a>
-                                </div>
                             </div>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Items: {{ $category->items->count() }}
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Parent: {{ $category->parent ?? $category->parent->name ?? '-' }}
                             </li>
                         </ul>
+                        <div class="flex flex-wrap justify-evenly p-3">
+                            <a href="#" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
                     </div>
                 </div>
             @empty

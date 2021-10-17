@@ -32,6 +32,6 @@
         <del> Sale Codes</del>
     </a>
 </div>
-<a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action px-5 py-3 text-center text-white" style="background-color: #fd5a24 !important;">
+<a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action px-5 py-3 text-center text-white rounded" style="background-color: #fd5a24 !important;">
     Exit
 </a>

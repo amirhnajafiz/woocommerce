@@ -5,7 +5,7 @@
         <div class="row m-0 my-5">
             @forelse($brands as $brand)
                 <div class="col-4 m-auto shadow">
-                    <div class="card">
+                    <div class="card bg-dark text-white">
                         <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -18,10 +18,10 @@
                             </p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Items: {{ $brand->items->count() }}
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Accepted by Digi Company
                             </li>
                         </ul>

@@ -4,8 +4,8 @@
     <div>
         <div class="row m-0 my-3">
             @forelse($items as $item)
-                <div class="col-4 m-auto shadow">
-                    <div class="card">
+                <div class="col-lg-4 col-md-12 col-sm-12 m-auto shadow">
+                    <div class="card bg-dark text-white">
                         <img src="{{ $item->image->path }}" class="card-img-top" alt="{{ $item->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -37,13 +37,13 @@
                             </div>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Price: {{ $item->price }}
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 Score: {{ $item->score }}
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item bg-dark text-white">
                                 View: {{ $item->view }}
                             </li>
                         </ul>
