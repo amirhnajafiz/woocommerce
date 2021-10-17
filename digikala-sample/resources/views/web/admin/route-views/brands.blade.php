@@ -8,7 +8,7 @@
                     <div class="card bg-dark text-white">
                         <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="h2 card-title">
                                 <a href="{{ route('brand.show', $brand->id) }}">
                                     {{ $brand->name }}
                                 </a>
@@ -26,7 +26,7 @@
                             </li>
                         </ul>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('brand.edit', $brand->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
                             <a href="#" class="btn btn-danger">
