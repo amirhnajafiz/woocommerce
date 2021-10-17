@@ -8,30 +8,12 @@
                     <div class="card bg-dark text-white">
                         <img src="{{ $item->image->path }}" class="card-img-top" alt="{{ $item->image->alt }}">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="h3 card-title">
                                 <a href="{{ route('item.show', $item->id) }}">
                                     {{ $item->name }}
                                 </a>
                             </h5>
                             <div class="card-text">
-                                Categories:
-                                <ul>
-                                    @if($item->category)
-                                        @forelse($item->category as $category)
-                                            <li>
-                                                {{ $category->name }}
-                                            </li>
-                                        @empty
-                                            <li>
-                                                This item has no categories!
-                                            </li>
-                                        @endforelse
-                                    @else
-                                        <li>
-                                            This item has no categories!
-                                        </li>
-                                    @endif
-                                </ul>
                                 By: {{ $item->brand->name }}<br />
                                 Left: {{ $item->number }}
                             </div>
@@ -57,7 +39,7 @@
                                     Make Special
                                 </a><!-- TODO: Make js request -->
                             @endif
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('item.edit', $item->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
                             <a href="#" class="btn btn-danger">

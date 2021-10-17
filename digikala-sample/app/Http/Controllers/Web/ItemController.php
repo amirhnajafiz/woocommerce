@@ -48,7 +48,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('web.utils.item.create-item-panel')
+        return view('web.admin.utils.item.create-item-panel')
             ->with('title', '-create-item');
     }
 
@@ -83,7 +83,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('web.utils.item.show')
+        return view('web.admin.utils.item.show-item')
             ->with('item', $item)
             ->with('title', '-item-' . $item->id);
     }
@@ -96,7 +96,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('web.utils.item.edit-item')
+        return view('web.admin.utils.item.edit-item')
             ->with('item', $item)
             ->with('title', '-edit-item-' . $item->id);
     }
