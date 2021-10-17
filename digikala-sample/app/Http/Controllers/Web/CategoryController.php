@@ -109,7 +109,7 @@ class CategoryController extends Controller
 
         if ($request->has('file')) {
             $path = $category->image->path;
-            FileManager::instance()->replaceFile('store/brand/', $category->id, $request->file('file'), $path);
+            FileManager::instance()->replaceFile('store/category/', $category->id, $request->file('file'), $path);
         }
 
         $category->save();

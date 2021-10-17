@@ -63,11 +63,11 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item = Item::query()->create($validated);
 
-        FileManager::instance()->storeFile('store/', $item->id, $request->file('file'));
+        FileManager::instance()->storeFile('store/item/', $item->id, $request->file('file'));
         $item->image()->create([
             'title' => $item->name,
             'slug' => $item->slug,
-            'path' => 'store/' . $item->id
+            'path' => 'store/item/' . $item->id
         ]);
 
         return redirect()->route('item.show', $item);
@@ -111,7 +111,10 @@ class ItemController extends Controller
         $validated = $request->validated();
         $item->update($validated);
 
-        // TODO: Add the photo updating feature
+        if ($request->has('file')) {
+            $path = $item->image->path;
+            FileManager::instance()->replaceFile('store/item/', $item->id, $request->file('file'), $path);
+        }
 
         $item->save();
 
@@ -126,9 +129,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        FileManager::instance()->removeFile($item->image->path);
         $item->delete();
-
-        // TODO: Photo remove from storage
 
         return redirect()->route('item.index');
     }
