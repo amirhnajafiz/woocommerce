@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart', [HomeController::class, 'userCart'])
         ->name('cart');
 
-    Route::get('item', [\App\Http\Controllers\UserController::class, 'showItem'])
+    Route::get('item/{item}', [\App\Http\Controllers\UserController::class, 'showItem'])
         ->name('show.item');
 });
 
