@@ -9,7 +9,9 @@
                         <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
-                                {{ $category->name }}
+                                <a href="{{ route('category.show', $category->id) }}">
+                                    {{ $category->name }}
+                                </a>
                             </h5>
                             <div class="card-text">
                                 <span>Children:</span>
@@ -47,7 +49,7 @@
         <div class="mt-5">
             {{ $categories->links() }}
         </div>
-        <a href="#" class="d-block w-25 btn btn-success m-auto my-4 disabled">
+        <a href="{{ route('category.create') }}" class="d-block w-25 btn btn-success m-auto my-4 disabled">
             Create
         </a>
     </div>

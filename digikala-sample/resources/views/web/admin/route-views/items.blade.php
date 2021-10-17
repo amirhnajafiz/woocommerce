@@ -9,7 +9,9 @@
                         <img src="{{ $item->image->path }}" class="card-img-top" alt="{{ $item->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
-                                {{ $item->name }}
+                                <a href="{{ route('item.show', $item->id) }}">
+                                    {{ $item->name }}
+                                </a>
                             </h5>
                             <div class="card-text">
                                 Categories:
@@ -52,7 +54,7 @@
         <div class="mt-5">
             {{ $items->links() }}
         </div>
-        <a href="#" class="d-block w-25 btn btn-success m-auto my-4 disabled">
+        <a href="{{ route('item.create') }}" class="d-block w-25 btn btn-success m-auto my-4 disabled">
             Create
         </a>
     </div>

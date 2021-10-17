@@ -9,7 +9,9 @@
                         <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
-                                {{ $brand->name }}
+                                <a href="{{ route('brand.show', $brand->id) }}">
+                                    {{ $brand->name }}
+                                </a>
                             </h5>
                             <p class="card-text">
                                 {{ $brand->description }}
@@ -36,7 +38,7 @@
         <div class="mt-5">
             {{ $brands->links() }}
         </div>
-        <a href="#" class="d-block w-25 btn btn-success m-auto my-4 disabled">
+        <a href="{{ route('brand.create') }}" class="d-block w-25 btn btn-success m-auto my-4 disabled">
             Create
         </a>
     </div>
