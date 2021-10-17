@@ -57,6 +57,11 @@
                     transform: translateX(25%);
                 }
             }
+
+            .inline-nav {
+                display: block;
+                padding-left: 40px !important;
+            }
         </style>
 
     </head>

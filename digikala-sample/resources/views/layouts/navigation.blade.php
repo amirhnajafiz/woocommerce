@@ -47,6 +47,11 @@
                         </div>
                     @endif
                 @endif
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link>
+                        <span onclick="display()">{{ __('Categories') }}</span>
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -139,4 +144,14 @@
             </div>
         @endif
     </div>
+    <x-category-nav id="categories-nav" style="display: none;"></x-category-nav>
 </nav>
+
+@section('script')
+    <script>
+        function display() {
+            const el = document.getElementById('categories-nav');
+            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+@stop
