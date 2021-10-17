@@ -12,7 +12,6 @@
                                 {{ $item->item->name }}
                             </h5>
                             <p class="card-text">
-                                Category: {{ $item->item->category->name }}<br />
                                 By: {{ $item->item->brand->name }}<br />
                                 Left: {{ $item->item->number }}
                             </p>

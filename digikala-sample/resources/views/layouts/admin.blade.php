@@ -16,7 +16,7 @@
 
         <style>
             body {
-                background: linear-gradient(-45deg, #ffffff, #a2a2a2, #707070, #000000);
+                background: linear-gradient(-45deg, #282828, #373737, #242424, #2f2f2f);
                 background-size: 400% 400%;
                 animation: gradient 20s ease infinite;
                 height: 100vh;
@@ -42,7 +42,7 @@
         </title>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid m-0 p-0">
             @yield('content')
         </div>
         <!-- Scripts -->
