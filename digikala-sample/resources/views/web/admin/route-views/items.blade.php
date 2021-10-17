@@ -11,11 +11,22 @@
                             <h5 class="card-title">
                                 {{ $item->name }}
                             </h5>
-                            <p class="card-text">
-                                Category: {{ $item->category->name }}<br />
+                            <div class="card-text">
+                                Categories:
+                                <ul>
+                                    @forelse($item->category as $category)
+                                        <li>
+                                            {{ $category->name }}
+                                        </li>
+                                    @empty
+                                        <li>
+                                            This item has no categories!
+                                        </li>
+                                    @endforelse
+                                </ul>
                                 By: {{ $item->brand->name }}<br />
                                 Left: {{ $item->number }}
-                            </p>
+                            </div>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
