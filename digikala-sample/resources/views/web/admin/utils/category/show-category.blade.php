@@ -1,4 +1,4 @@
-@extends('web.home')
+@extends('layouts.admin')
 
 @section('content')
     <pre>

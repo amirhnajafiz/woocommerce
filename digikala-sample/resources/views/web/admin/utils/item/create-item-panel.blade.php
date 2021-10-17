@@ -1,4 +1,4 @@
-@extends('web.admin.main')
+@extends('layouts.admin')
 
 @section('view')
     <h1>
