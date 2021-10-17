@@ -8,36 +8,17 @@
                     <div class="card bg-dark text-white">
                         <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="h2 card-title">
                                 <a href="{{ route('category.show', $category->id) }}">
                                     {{ $category->name }}
                                 </a>
                             </h5>
-                            <div class="card-text">
-                                <span>Children:</span>
-                                <ul class="list-group list-group-flush">
-                                    @forelse($category->children as $child)
-                                        <li class="list-group-item bg-dark text-white">
-                                            {{ $child->name }}
-                                        </li>
-                                    @empty
-                                        <li class="list-group-item bg-dark text-white">
-                                            Empty
-                                        </li>
-                                    @endforelse
-                                </ul>
-                            </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-white">
-                                Items: {{ $category->items->count() }}
-                            </li>
-                            <li class="list-group-item bg-dark text-white">
-                                Parent: {{ $category->parent ?? $category->parent->name ?? '-' }}
-                            </li>
-                        </ul>
+                        <div class="card-text p-3">
+                            Items: {{ $category->items->count() }}
+                        </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
                             <a href="#" class="btn btn-danger">
