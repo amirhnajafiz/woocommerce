@@ -1,4 +1,4 @@
-<div class="list-group bg-dark" style="height: 93vh;">
+<div class="list-group bg-dark" style="height: 100vh;">
     <a href="{{ route('brand.index') }}"
        class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('brand.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
         Brands / Companies

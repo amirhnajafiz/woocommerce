@@ -4,7 +4,7 @@
     <div>
         <div class="row m-0 my-3">
             @forelse($items as $item)
-                <div class="col-4 m-auto">
+                <div class="col-4 m-auto shadow">
                     <div class="card">
                         <img src="{{ $item->image->path }}" class="card-img-top" alt="{{ $item->image->alt }}">
                         <div class="card-body">
@@ -47,11 +47,23 @@
                                 View: {{ $item->view }}
                             </li>
                         </ul>
-                        @if($item->isSpecial())
-                            Remove from Special <!-- TODO: Make js request -->
-                        @else
-                            Make Special <!-- TODO: Make js request -->
-                        @endif
+                        <div class="flex flex-wrap justify-evenly p-3">
+                            @if($item->isSpecial())
+                                <a href="#" class="btn btn-warning">
+                                    Remove from Special
+                                </a> <!-- TODO: Make js request -->
+                            @else
+                                <a href="#" class="btn btn-success">
+                                    Make Special
+                                </a><!-- TODO: Make js request -->
+                            @endif
+                            <a href="#" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -62,12 +74,14 @@
                 </div>
             @endforelse
         </div>
+        <div class="text-center">
+            <a href="{{ route('item.create') }}" class="btn btn-success m-auto">
+                Create
+            </a>
+        </div>
         <div class="mt-5">
             {{ $items->links() }}
         </div>
-        <a href="{{ route('item.create') }}" class="d-block w-25 btn btn-success m-auto my-4 disabled">
-            Create
-        </a>
     </div>
 @stop
 

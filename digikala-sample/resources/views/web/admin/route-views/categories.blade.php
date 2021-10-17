@@ -2,9 +2,9 @@
 
 @section('view')
     <div>
-        <div class="row m-0 my-3">
+        <div class="row m-0 my-5">
             @forelse($categories as $category)
-                <div class="col-4 m-auto">
+                <div class="col-4 m-auto shadow">
                     <div class="card">
                         <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
@@ -46,11 +46,13 @@
                 </div>
             @endforelse
         </div>
+        <div class="text-center">
+            <a href="{{ route('category.create') }}" class="btn btn-success m-auto my-4">
+                Create
+            </a>
+        </div>
         <div class="mt-5">
             {{ $categories->links() }}
         </div>
-        <a href="{{ route('category.create') }}" class="d-block w-25 btn btn-success m-auto my-4 disabled">
-            Create
-        </a>
     </div>
 @stop

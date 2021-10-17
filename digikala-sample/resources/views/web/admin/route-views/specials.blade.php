@@ -2,9 +2,9 @@
 
 @section('view')
     <div>
-        <div class="row m-0 my-3">
+        <div class="row m-0 my-5">
             @forelse($items as $item)
-                <div class="col-4 m-auto">
+                <div class="col-4 m-auto shadow">
                     <div class="card">
                         <img src="{{ $item->item->image->path }}" class="card-img-top" alt="{{ $item->item->image->alt }}">
                         <div class="card-body">
