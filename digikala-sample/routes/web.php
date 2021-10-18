@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Web\BrandController;
-use App\Http\Controllers\Web\CategoryController;
-use App\Http\Controllers\Web\ItemController;
+use App\Http\Controllers\SuperAdmin\BrandController;
+use App\Http\Controllers\SuperAdmin\CategoryController;
+use App\Http\Controllers\SuperAdmin\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
