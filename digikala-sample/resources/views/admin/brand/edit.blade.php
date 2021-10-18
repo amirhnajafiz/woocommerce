@@ -1,6 +1,8 @@
-@extends('admin.main')
+@extends('layouts.admin')
 
-@section('view')
+@section('title', __('-edit-brand-' . $brand->id))
+
+@section('content')
     <div class="p-5 bg-dark text-white shadow">
         <h1 class="h2">
             Edit <strong>{{ $brand->name }}</strong>

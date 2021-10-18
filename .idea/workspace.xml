@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/brands.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/index.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,11 +166,11 @@
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\brand" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Controllers\SuperAdmin" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Requests" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\admin" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\layouts" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\user" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\special" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\cart" />
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -221,7 +223,7 @@
       <workItem from="1634466062464" duration="1925000" />
       <workItem from="1634476455400" duration="15392000" />
       <workItem from="1634497264494" duration="5348000" />
-      <workItem from="1634574699144" duration="3395000" />
+      <workItem from="1634574699144" duration="4370000" />
     </task>
     <servers />
   </component>
