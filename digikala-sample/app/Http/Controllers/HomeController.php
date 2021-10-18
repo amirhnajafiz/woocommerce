@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HomePageRequest;
 use App\Models\Item;
 use App\Models\SpecialItem;
 use Illuminate\Contracts\Foundation\Application;
@@ -20,15 +21,20 @@ class HomeController extends Controller
     /**
      * Home page of the website.
      *
-     * @param Request $request
+     * @param HomePageRequest $request
      * @return Application|Factory|View
      */
-    public function index(Request $request) // TODO: Form request
+    public function index(HomePageRequest $request)
     {
+        $validated = $request->validated();
+
         $items = Item::query()
-            ->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))
+            ->orderBy($validated['filter'], $validated['mode'])
             ->paginate(10);
-        $specials = SpecialItem::query()->get()->random(5);
+
+        $specials = SpecialItem::query()
+            ->get()
+            ->random(5);
 
         return view('welcome')
             ->with('title', 'home') // TODO: Title fix

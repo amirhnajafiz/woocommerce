@@ -3,16 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Item\MakeSpecialItemRequest;
+use App\Http\Requests\MakeSpecialItemRequest;
 use App\Jobs\DeleteSpecials;
 use App\Models\SpecialItem;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /**
  * Class SpecialItemController for controlling special items CRUD.
