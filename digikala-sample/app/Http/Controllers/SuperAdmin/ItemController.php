@@ -77,7 +77,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('web.admin.utils.item.show-item')
+        return view('web.utils.item.show')
             ->with('item', $item)
             ->with('title', '-item-' . $item->id);
     }

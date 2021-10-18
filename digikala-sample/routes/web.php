@@ -30,7 +30,8 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
         ->name('admin.panel');
 
     // Item resource controller
-    Route::resource('item', ItemController::class);
+    Route::resource('item', ItemController::class)
+        ->except(['show']);
 
     Route::resource('special', \App\Http\Resources\SpecialItemCollection::class)
         ->only('index', 'store', 'destroy');
@@ -44,14 +45,14 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
 
 // User routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', [HomeController::class, 'userPanel'])
+    Route::view('/dashboard', 'dashboard')
         ->name('dashboard');
 
-    Route::get('cart', [HomeController::class, 'userCart'])
+    Route::view('/cart', 'web.user.cart')
         ->name('cart');
 
-    Route::get('view/{item}', [\App\Http\Controllers\UserController::class, 'showItem'])
-        ->name('show.item');
+    Route::get('item/{item}', [ItemController::class, 'show'])
+        ->name('item.show');
 });
 
 require __DIR__ . '/auth.php';

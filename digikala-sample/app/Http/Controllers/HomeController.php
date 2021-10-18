@@ -56,28 +56,4 @@ class HomeController extends Controller
             ->with('specials', $specials)
             ->with('items', $specials);
     }
-
-    /**
-     * User panel view.
-     *
-     * @return Application|Factory|View
-     */
-    public function userPanel()
-    {
-        return view('dashboard')
-            ->with('title', '-user-panel')
-            ->with('user', Auth::user());
-    }
-
-    /**
-     * User cart view.
-     *
-     * @return Application|Factory|View
-     */
-    public function userCart()
-    {
-        return view('web.user.cart')
-            ->with('title', '-user-cart')
-            ->with('user', Auth::user());
-    }
 }
