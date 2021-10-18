@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\BrandController;
 use App\Http\Controllers\Web\CategoryController;
@@ -33,16 +32,8 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
     // Item resource controller
     Route::resource('item', ItemController::class);
 
-    // Special item routes
-    // TODO: Resource
-    Route::get('special', [ItemController::class, 'special'])
-        ->name('all.special');
-
-    Route::post('special', [ItemController::class, 'makeSpecial'])
-        ->name('create.special');
-
-    Route::delete('special', [ItemController::class, 'removeSpecial'])
-        ->name('remove.special');
+    Route::resource('special', \App\Http\Resources\SpecialItemCollection::class)
+        ->only('index', 'store', 'destroy');
 
     // Brand resource controller
     Route::resource('brand', BrandController::class);

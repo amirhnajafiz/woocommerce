@@ -23,9 +23,6 @@ use PHPUnit\Util\Json;
  */
 class ItemController extends Controller
 {
-    // Traits
-    use Specialize;
-
     /**
      * Display a listing of the items resource.
      *
