@@ -19,11 +19,23 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name', \App\Enums\Limit::NAME())->nullable(false);
-            $table->string('email')->nullable(false)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone', \App\Enums\Limit::PHONE())->nullable(false)->unique();
-            $table->string('role')->default(\App\Enums\Role::USER());
+            $table->string('name', \App\Enums\Limit::NAME())
+                ->nullable(false);
+
+            $table->string('email')
+                ->nullable(false)
+                ->unique();
+
+            $table->timestamp('email_verified_at')
+                ->nullable();
+
+            $table->string('phone', \App\Enums\Limit::PHONE())
+                ->nullable(false)
+                ->unique();
+
+            $table->string('role')
+                ->default(\App\Enums\Role::USER());
+
             $table->string('password');
             $table->timestamps();
         });

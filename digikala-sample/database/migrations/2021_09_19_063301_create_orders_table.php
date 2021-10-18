@@ -19,15 +19,20 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('cart_id')
                 ->references('id')
                 ->on('carts')
                 ->cascadeOnDelete();
+
             $table->foreignId('item_id')
                 ->references('id')
                 ->on('items')
                 ->cascadeOnDelete();
-            $table->integer('number')->default(1);
+
+            $table->integer('number')
+                ->default(1);
+
             $table->timestamps();
         });
     }

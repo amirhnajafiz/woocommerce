@@ -19,11 +19,16 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('cart_id')
                 ->references('id')
                 ->on('carts');
-            $table->float('amount')->default(0);
+
+            $table->float('amount')
+                ->default(0);
+
             $table->string('bank', \App\Enums\Limit::NAME());
+
             $table->timestamps();
         });
     }

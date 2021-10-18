@@ -20,15 +20,22 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('user_id')
                 ->references('id')
                 ->on('users')
                 ->cascadeOnDelete();
+
             $table->string('state', Limit::TITLE());
+
             $table->string('city', Limit::TITLE());
+
             $table->string('address', Limit::LINK());
+
             $table->string('zip_code', Limit::PHONE());
+
             $table->string('phone', Limit::PHONE());
+
             $table->timestamps();
         });
     }
