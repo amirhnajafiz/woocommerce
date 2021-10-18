@@ -15,8 +15,7 @@
                     <div class="card-text pb-4 mb-4" style="border-bottom: 1px solid #bababa">
                         Categories:
                         <ul>
-                            @if($item->category)
-                                @forelse($item->category as $category)
+                                @forelse($item->categories as $category)
                                     <li>
                                         {{ $category->name }}
                                     </li>
@@ -25,11 +24,6 @@
                                         This item has no categories!
                                     </li>
                                 @endforelse
-                            @else
-                                <li>
-                                    This item has no categories!
-                                </li>
-                            @endif
                         </ul>
                     </div>
                     <div class="d-flex flex-col">

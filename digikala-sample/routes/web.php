@@ -27,13 +27,14 @@ Route::get('specials', [HomeController::class, 'specials'])
 
 Route::middleware(['auth', 'can:admin-panel'])->group(function () {
     // Admin routes
-    Route::get('/admin', [AdminController::class, 'index'])
-        ->name('admin');
+    Route::view('/admin', 'web.admin.route-views.welcome')
+        ->name('admin.panel');
 
     // Item resource controller
     Route::resource('item', ItemController::class);
 
     // Special item routes
+    // TODO: Resource
     Route::get('special', [ItemController::class, 'special'])
         ->name('all.special');
 

@@ -21,6 +21,7 @@ class ItemObserver
      */
     public function creating(Item $item)
     {
+        // TODO: Mutators insted
         $item->slug = Str::slug($item->name); // Slug creating
     }
 

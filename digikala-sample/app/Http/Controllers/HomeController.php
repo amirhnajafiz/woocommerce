@@ -23,13 +23,15 @@ class HomeController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function index(Request $request)
+    public function index(Request $request) // TODO: Form request
     {
-        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(10);
+        $items = Item::query()
+            ->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))
+            ->paginate(10);
         $specials = SpecialItem::query()->get()->random(5);
 
         return view('welcome')
-            ->with('title', 'home')
+            ->with('title', 'home') // TODO: Title fix
             ->with('specials', $specials)
             ->with('items', $items);
     }
