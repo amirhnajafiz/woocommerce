@@ -1,6 +1,8 @@
-@extends('admin.main')
+@extends('layouts.admin')
 
-@section('view')
+@section('title', __('-edit-category-' . $category->id))
+
+@section('content')
     <div class="p-5 bg-dark text-white shadow">
         <h1 class="h2 d-flex justify-start" style="align-items:center;">
             <strong class="ml-3">{{ $category->name }}</strong>

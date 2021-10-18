@@ -1,4 +1,6 @@
-@extends('admin.main')
+@extends('layouts.admin')
+
+@section('title', __('-create-category'))
 
 @section('style')
     <style>
@@ -24,7 +26,7 @@
     </style>
 @stop
 
-@section('view')
+@section('content')
     <div class="p-5 bg-dark text-white shadow">
         <h1 class="h2 d-flex justify-start" style="align-items:center; position: relative;">
             <strong class="ml-3">Create a new category</strong>

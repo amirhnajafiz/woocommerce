@@ -1,6 +1,8 @@
-@extends('admin.main')
+@extends('layouts.admin')
 
-@section('view')
+@section('title', __('categories-panel'))
+
+@section('content')
     <div>
         <div class="row m-0 my-5">
             @forelse($categories as $category)
