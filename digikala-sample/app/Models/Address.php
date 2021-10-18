@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class Address for our users addresses.
+ * Class Address for our user addresses.
  *
  * @package App\Models
  */

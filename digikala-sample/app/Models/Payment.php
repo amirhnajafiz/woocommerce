@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class Payment for user payments.
+ * Class Payment for user payment.
  *
  * @package App\Models
  */

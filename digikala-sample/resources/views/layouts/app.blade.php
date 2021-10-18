@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Digikala @yield('title')</title>
+        <title>Sale @yield('title')</title>
 
         <!-- Bootstrap CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,8 +16,6 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        @yield('style')
 
         <style>
             html {
@@ -64,6 +62,7 @@
             }
         </style>
 
+        @yield('style')
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen" style="padding-bottom: 10px;">

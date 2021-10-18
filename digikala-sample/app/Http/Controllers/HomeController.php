@@ -36,7 +36,7 @@ class HomeController extends Controller
 
         return view('welcome')
             ->with('title', 'home') // TODO: Title fix
-            ->with('specials', $specials)
+            ->with('special', $specials)
             ->with('items', $items);
     }
 
@@ -49,9 +49,9 @@ class HomeController extends Controller
     {
         $specials = SpecialItem::paginate(10);
 
-        return view('web.specials')
-            ->with('title', 'specials')
-            ->with('specials', $specials)
+        return view('web.special')
+            ->with('title', 'special')
+            ->with('special', $specials)
             ->with('items', $specials);
     }
 }

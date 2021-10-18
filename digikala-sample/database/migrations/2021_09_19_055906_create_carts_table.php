@@ -22,7 +22,7 @@ class CreateCartsTable extends Migration
 
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('users')
+                ->on('user')
                 ->cascadeOnDelete();
 
             $table->string('status', \App\Enums\Limit::TITLE())
