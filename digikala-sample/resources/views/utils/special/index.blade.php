@@ -11,8 +11,10 @@
         }
     </style>
 @stop
+
+@section('title', __('-specials'))
+
 <x-app-layout>
-    @section('title', $title)
     <div class="row m-0 w-75 m-auto my-3">
         <div class="row m-0 gap-x-10 gap-y-10">
             @foreach($specials as $special)

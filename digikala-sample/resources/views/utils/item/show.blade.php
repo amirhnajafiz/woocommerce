@@ -1,7 +1,6 @@
-@section('style')
-@stop
+@section('title', __('-item-'. $item->id))
+
 <x-app-layout>
-    @section('title', $title)
     <div class="card mx-auto w-75" style="margin-top: 150px;">
         <div class="row m-0">
             <div class="col-md-4 rounded">

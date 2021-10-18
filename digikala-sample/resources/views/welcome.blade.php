@@ -1,3 +1,5 @@
+@section('title', __('-home'))
+
 @section('style')
     <style>
         .card {
@@ -11,8 +13,8 @@
         }
     </style>
 @stop
+
 <x-app-layout>
-    @section('title', $title)
     <div class="row m-0 w-75 m-auto my-3">
         <div class="col-12 my-5">
             <a href="{{ route('special') }}">
