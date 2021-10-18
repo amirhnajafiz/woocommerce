@@ -19,13 +19,16 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+
             $table->string('name', \App\Enums\Limit::NAME());
+
             $table->foreignId('parent_id')
                 ->nullable(true)
                 ->default(null)
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

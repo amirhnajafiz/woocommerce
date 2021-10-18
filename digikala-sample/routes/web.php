@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Web\BrandController;
-use App\Http\Controllers\Web\CategoryController;
-use App\Http\Controllers\Web\ItemController;
+use App\Http\Controllers\SuperAdmin\BrandController;
+use App\Http\Controllers\SuperAdmin\CategoryController;
+use App\Http\Controllers\SuperAdmin\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,26 +21,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('specials', [HomeController::class, 'specials'])
-    ->name('specials');
+Route::get('special', [HomeController::class, 'specials'])
+    ->name('special');
 
 Route::middleware(['auth', 'can:admin-panel'])->group(function () {
     // Admin routes
-    Route::get('/admin', [AdminController::class, 'index'])
-        ->name('admin');
+    Route::view('/admin', 'web.admin.route-views.welcome')
+        ->name('admin.panel');
 
     // Item resource controller
-    Route::resource('item', ItemController::class);
+    Route::resource('item', ItemController::class)
+        ->except(['show']);
 
-    // Special item routes
-    Route::get('special', [ItemController::class, 'special'])
-        ->name('all.special');
-
-    Route::post('special', [ItemController::class, 'makeSpecial'])
-        ->name('create.special');
-
-    Route::delete('special', [ItemController::class, 'removeSpecial'])
-        ->name('remove.special');
+    Route::resource('special', \App\Http\Resources\SpecialItemCollection::class)
+        ->only('index', 'store', 'destroy');
 
     // Brand resource controller
     Route::resource('brand', BrandController::class);
@@ -52,14 +45,16 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
 
 // User routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', [HomeController::class, 'userPanel'])
+    // User dashboard
+    Route::view('/dashboard', 'dashboard')
         ->name('dashboard');
 
-    Route::get('cart', [HomeController::class, 'userCart'])
-        ->name('cart');
+    // User view of an item
+    Route::get('item/{item}', [ItemController::class, 'show'])
+        ->name('item.show');
 
-    Route::get('view/{item}', [\App\Http\Controllers\UserController::class, 'showItem'])
-        ->name('show.item');
+    // User carts
+    Route::resource('cart', \App\Http\Controllers\CartController::class);
 });
 
 require __DIR__ . '/auth.php';

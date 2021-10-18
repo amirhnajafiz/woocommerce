@@ -17,13 +17,18 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('payment', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('cart_id')
                 ->references('id')
                 ->on('carts');
-            $table->float('amount')->default(0);
+
+            $table->float('amount')
+                ->default(0);
+
             $table->string('bank', \App\Enums\Limit::NAME());
+
             $table->timestamps();
         });
     }
@@ -35,6 +40,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('payment');
     }
 }

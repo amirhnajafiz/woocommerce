@@ -19,11 +19,15 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('users')
+                ->on('user')
                 ->cascadeOnDelete();
-            $table->string('status', \App\Enums\Limit::TITLE())->default(\App\Enums\Status::ORDER());
+
+            $table->string('status', \App\Enums\Limit::TITLE())
+                ->default(\App\Enums\Status::ORDER());
+
             $table->timestamps();
         });
     }

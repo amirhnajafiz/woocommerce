@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Str;
 
 /**
  * Class Brand.
@@ -28,6 +29,17 @@ class Brand extends Model
         'slug',
         'description'
     ];
+
+    /**
+     * Mutator for setting the brand name.
+     *
+     * @param $value string name value
+     */
+    public function setNameAttribute(string $value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
 
     /**
      * Each brand has a logo.

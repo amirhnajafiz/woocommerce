@@ -131,6 +131,9 @@
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/fruitcake/laravel-cors" />
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/myclabs/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/laravel/breeze" />
+      <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/spatie/url" />
+      <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/spatie/macroable" />
+      <excludeFolder url="file://$MODULE_DIR$/digikala-sample/vendor/spatie/menu" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HomePageRequest;
 use App\Models\Item;
 use App\Models\SpecialItem;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class HomeController handles the home routes views.
@@ -20,17 +19,24 @@ class HomeController extends Controller
     /**
      * Home page of the website.
      *
-     * @param Request $request
+     * @param HomePageRequest $request
      * @return Application|Factory|View
      */
-    public function index(Request $request)
+    public function index(HomePageRequest $request)
     {
-        $items = Item::query()->orderBy($request->get('filter', 'id'), $request->get('mode', 'asc'))->paginate(10);
-        $specials = SpecialItem::query()->get()->random(5);
+        $validated = $request->validated();
+
+        $items = Item::query()
+            ->orderBy($validated['filter'], $validated['mode'])
+            ->paginate(10);
+
+        $specials = SpecialItem::query()
+            ->get()
+            ->random(5);
 
         return view('welcome')
-            ->with('title', 'home')
-            ->with('specials', $specials)
+            ->with('title', 'home') // TODO: Title fix
+            ->with('special', $specials)
             ->with('items', $items);
     }
 
@@ -43,33 +49,9 @@ class HomeController extends Controller
     {
         $specials = SpecialItem::paginate(10);
 
-        return view('web.specials')
-            ->with('title', 'specials')
-            ->with('specials', $specials)
+        return view('web.special')
+            ->with('title', 'special')
+            ->with('special', $specials)
             ->with('items', $specials);
-    }
-
-    /**
-     * User panel view.
-     *
-     * @return Application|Factory|View
-     */
-    public function userPanel()
-    {
-        return view('dashboard')
-            ->with('title', '-user-panel')
-            ->with('user', Auth::user());
-    }
-
-    /**
-     * User cart view.
-     *
-     * @return Application|Factory|View
-     */
-    public function userCart()
-    {
-        return view('web.user.cart')
-            ->with('title', '-user-cart')
-            ->with('user', Auth::user());
     }
 }

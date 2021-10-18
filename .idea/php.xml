@@ -125,6 +125,9 @@
       <path value="$PROJECT_DIR$/digikala-sample/vendor/fruitcake/laravel-cors" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/myclabs/php-enum" />
       <path value="$PROJECT_DIR$/digikala-sample/vendor/laravel/breeze" />
+      <path value="$PROJECT_DIR$/digikala-sample/vendor/spatie/url" />
+      <path value="$PROJECT_DIR$/digikala-sample/vendor/spatie/macroable" />
+      <path value="$PROJECT_DIR$/digikala-sample/vendor/spatie/menu" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

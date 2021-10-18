@@ -19,14 +19,20 @@ class CreateSpecialItemsTable extends Migration
     {
         Schema::create('special_items', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('item_id')
                 ->unique()
                 ->nullable(false)
                 ->references('id')
                 ->on('items')
                 ->cascadeOnDelete();
-            $table->date('expire_date')->default(now()->addMonth());
-            $table->integer('discount')->default(0);
+
+            $table->date('expire_date')
+                ->default(now()->addMonth());
+
+            $table->integer('discount')
+                ->default(0);
+
             $table->timestamps();
         });
     }

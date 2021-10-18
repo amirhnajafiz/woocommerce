@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Comment for users comments on items.
+ * Class Comment for user comments on items.
  *
  * @package App\Models
  */

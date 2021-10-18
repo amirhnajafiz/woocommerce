@@ -19,9 +19,16 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('name', \App\Enums\Limit::NAME())->unique();
-            $table->string('slug', \App\Enums\Limit::LINK())->unique();
-            $table->string('description', \App\Enums\Limit::COMMENT())->default(" ");
+
+            $table->string('name', \App\Enums\Limit::NAME())
+                ->unique();
+
+            $table->string('slug', \App\Enums\Limit::LINK())
+                ->unique();
+
+            $table->string('description', \App\Enums\Limit::COMMENT())
+                ->default(" ");
+
             $table->timestamps();
         });
     }

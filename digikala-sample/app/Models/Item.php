@@ -40,6 +40,17 @@ class Item extends Model
     ];
 
     /**
+     * Mutator for setting the item name.
+     *
+     * @param $value string item name
+     */
+    public function setNameAttribute(string $value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    /**
      * Each item has a main image.
      *
      * @return MorphOne
@@ -56,7 +67,7 @@ class Item extends Model
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'item_category');
     }
 
     /**

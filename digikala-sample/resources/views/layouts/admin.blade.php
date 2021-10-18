@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <title>Sale@yield('title')</title>
+
         <!-- Bootstrap CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
@@ -36,14 +38,17 @@
         </style>
 
         @yield('style')
-
-        <title>
-            {{ "Digikala-" . $title }}
-        </title>
     </head>
     <body>
         <div class="container-fluid m-0 p-0">
-            @yield('content')
+            <div class="row m-0 p-0">
+                <div class="col-2 p-0">
+                    <x.admin-navigation></x.admin-navigation>
+                </div>
+                <div class="col-10 p-0">
+                    @yield('content')
+                </div>
+            </div>
         </div>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>

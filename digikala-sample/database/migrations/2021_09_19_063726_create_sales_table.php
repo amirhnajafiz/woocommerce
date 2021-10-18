@@ -13,10 +13,15 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('sale', function (Blueprint $table) {
             $table->id();
-            $table->string('code', \App\Enums\Limit::NAME())->nullable(false);
-            $table->integer('discount')->default(10);
+
+            $table->string('code', \App\Enums\Limit::NAME())
+                ->nullable(false);
+
+            $table->integer('discount')
+                ->default(10);
+
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('sale');
     }
 }
