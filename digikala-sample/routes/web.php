@@ -45,14 +45,16 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
 
 // User routes
 Route::middleware(['auth'])->group(function () {
+    // User dashboard
     Route::view('/dashboard', 'dashboard')
         ->name('dashboard');
 
-    Route::view('/cart', 'web.user.cart')
-        ->name('cart');
-
+    // User view of an item
     Route::get('item/{item}', [ItemController::class, 'show'])
         ->name('item.show');
+
+    // User carts
+    Route::resource('cart', \App\Http\Controllers\CartController::class);
 });
 
 require __DIR__ . '/auth.php';
