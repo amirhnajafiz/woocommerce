@@ -30,9 +30,8 @@ class ItemController extends Controller
     {
         $items = Item::paginate(2);
 
-        return view('web.admin.route-views.items')
-            ->with('items', $items)
-            ->with('title', '-all-items');
+        return view('admin.item.index')
+            ->with('items', $items);
     }
 
     /**
@@ -42,8 +41,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('web.admin.utils.item.create-item-panel')
-            ->with('title', '-create-item');
+        return view('admin.item.create');
     }
 
     /**
@@ -77,9 +75,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('web.utils.item.show')
-            ->with('item', $item)
-            ->with('title', '-item-' . $item->id);
+        return view('utils.item.show')
+            ->with('item', $item);
     }
 
     /**
@@ -90,9 +87,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('web.admin.utils.item.edit-item')
-            ->with('item', $item)
-            ->with('title', '-edit-item-' . $item->id);
+        return view('admin.item.edit')
+            ->with('item', $item);
     }
 
     /**
