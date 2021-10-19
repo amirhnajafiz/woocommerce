@@ -30,9 +30,8 @@ class BrandController extends Controller
     {
         $brands = Brand::paginate(2);
 
-        return view('web.admin.route-views.brands')
-            ->with('brands', $brands)
-            ->with('title', '-all-brands');
+        return view('admin.brand.index')
+            ->with('brands', $brands);
     }
 
     /**
@@ -42,8 +41,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('web.admin.utils.brand.create-brand-panel')
-            ->with('title', '-create-brand');
+        return view('admin.brand.create');
     }
 
     /**
@@ -75,9 +73,8 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        return view('web.admin.utils.brand.show-brand')
-            ->with('brand', $brand)
-            ->with('title', '-brand-' . $brand->id);
+        return view('utils.brand.show')
+            ->with('brand', $brand);
     }
 
     /**
@@ -88,9 +85,8 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('web.admin.utils.brand.edit-brand')
-            ->with('brand', $brand)
-            ->with('title', '-edit-brand-' . $brand->id);
+        return view('admin.brand.edit')
+            ->with('brand', $brand);
     }
 
     /**
