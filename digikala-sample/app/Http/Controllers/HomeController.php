@@ -35,7 +35,6 @@ class HomeController extends Controller
             ->random(5);
 
         return view('welcome')
-            ->with('title', 'home') // TODO: Title fix
             ->with('special', $specials)
             ->with('items', $items);
     }
@@ -49,9 +48,7 @@ class HomeController extends Controller
     {
         $specials = SpecialItem::paginate(10);
 
-        return view('web.special')
-            ->with('title', 'special')
-            ->with('special', $specials)
-            ->with('items', $specials);
+        return view('utils.special.index')
+            ->with('specials', $specials);
     }
 }

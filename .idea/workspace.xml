@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +221,7 @@
       <workItem from="1634466062464" duration="1925000" />
       <workItem from="1634476455400" duration="15392000" />
       <workItem from="1634497264494" duration="5348000" />
-      <workItem from="1634574699144" duration="4892000" />
+      <workItem from="1634574699144" duration="5649000" />
     </task>
     <servers />
   </component>
