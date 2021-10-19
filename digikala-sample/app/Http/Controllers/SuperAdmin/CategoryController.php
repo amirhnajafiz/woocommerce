@@ -31,9 +31,8 @@ class CategoryController extends Controller
     {
         $categories = Category::paginate(2);
 
-        return view('web.admin.route-views.categories')
-            ->with('categories', $categories)
-            ->with('title', '-all-categories');
+        return view('admin.category.index')
+            ->with('categories', $categories);
     }
 
     /**
@@ -43,8 +42,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('web.admin.utils.category.create-category-panel')
-            ->with('title', '-create-category');
+        return view('admin.category.create');
     }
 
     /**
@@ -76,9 +74,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('web.admin.utils.category.show-category')
-            ->with('category', $category)
-            ->with('title', '-category-' . $category->id);
+        return view('utils.category.show')
+            ->with('category', $category);
     }
 
     /**
@@ -89,9 +86,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('web.admin.utils.category.edit-category')
-            ->with('category', $category)
-            ->with('title', '-edit-category-' . $category->id);
+        return view('admin.category.edit')
+            ->with('category', $category);
     }
 
     /**
