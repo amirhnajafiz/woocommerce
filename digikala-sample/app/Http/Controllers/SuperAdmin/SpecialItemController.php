@@ -25,9 +25,8 @@ class SpecialItemController extends Controller
     {
         $items = SpecialItem::paginate(2);
 
-        return view('web.admin.route-views.special')
-            ->with('items', $items)
-            ->with('title', '-special-items');
+        return view('admin.special.index')
+            ->with('items', $items);
     }
 
     /**
