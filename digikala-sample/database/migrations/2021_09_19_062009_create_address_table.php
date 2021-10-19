@@ -23,7 +23,7 @@ class CreateAddressTable extends Migration
 
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('user')
+                ->on('users')
                 ->cascadeOnDelete();
 
             $table->string('state', Limit::TITLE());
