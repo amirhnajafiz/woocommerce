@@ -7,6 +7,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CartController for managing user carts.
@@ -22,7 +23,8 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        return view('web.user.cart');
+        return view('utils.cart.index')
+            ->with('user', Auth::user());
     }
 
     /**
