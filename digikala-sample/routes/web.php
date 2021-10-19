@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('special', [HomeController::class, 'specials'])
+Route::get('/special-items', [HomeController::class, 'specials'])
     ->name('special');
 
 Route::middleware(['auth', 'can:super-admin'])->group(function () {
