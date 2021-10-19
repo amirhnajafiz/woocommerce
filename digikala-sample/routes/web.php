@@ -24,10 +24,10 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('special', [HomeController::class, 'specials'])
     ->name('special');
 
-Route::middleware(['auth', 'can:admin-panel'])->group(function () {
+Route::middleware(['auth', 'can:super-admin'])->group(function () {
     // Admin routes
-    Route::view('/admin', 'web.admin.route-views.welcome')
-        ->name('admin.panel');
+    Route::view('/super-admin', 'web.admin.route-views.welcome')
+        ->name('super.admin');
 
     // Item resource controller
     Route::resource('item', ItemController::class)
@@ -50,8 +50,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('dashboard');
 
     // User view of an item
-    Route::get('item/{item}', [ItemController::class, 'show'])
-        ->name('item.show');
+    Route::resource('item', ItemController::class)
+        ->only(['show']);
 
     // User carts
     Route::resource('cart', \App\Http\Controllers\CartController::class);
