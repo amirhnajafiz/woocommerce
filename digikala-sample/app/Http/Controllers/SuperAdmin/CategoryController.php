@@ -59,20 +59,23 @@ class CategoryController extends Controller
         $validated = $request->validated();
 
         DB::transaction(function () use ($request, $validated) {
-            $category = Category::query()->create($validated);
+            $category = Category::query()
+                ->create($validated);
             $name = 'file' . $category->id;
 
             FileManager::instance()
                 ->storeFile('store/category/', $name, $request->file('file'));
 
-            $category->image()->create([
-                'title' => $category->name,
-                'alt' => Str::slug($category->name),
-                'path' => './storage/store/category/' . $name
-            ]);
+            $category->image()
+                ->create([
+                    'title' => $category->name,
+                    'alt' => Str::slug($category->name),
+                    'path' => './storage/store/category/' . $name
+                ]);
         });
 
-        return redirect()->route('category.index');
+        return redirect()
+            ->route('category.index');
     }
 
     /**
@@ -112,7 +115,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validated();
 
-        DB::transaction(function () use ($request, $category, $validated) {
+        DB::transaction(function () use ($request, $validated, $category) {
             $category->update($validated);
 
             if ($request->has('file')) {
@@ -124,7 +127,8 @@ class CategoryController extends Controller
             $category->save();
         });
 
-        return redirect()->route('category.index');
+        return redirect()
+            ->route('category.index');
     }
 
     /**
@@ -136,10 +140,12 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         DB::transaction(function () use ($category) {
-            FileManager::instance()->removeFile($category->image->path);
+            FileManager::instance()
+                ->removeFile($category->image->path);
             $category->delete();
         });
 
-        return redirect()->route('category.index');
+        return redirect()
+            ->route('category.index');
     }
 }
