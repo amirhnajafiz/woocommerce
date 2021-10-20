@@ -24,7 +24,7 @@ class BrandResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param $request
-     * @return array|Arrayable|JsonSerializable
+     * @return array|Arrayable
      */
     public function toArray($request)
     {

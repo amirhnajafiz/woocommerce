@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use JsonSerializable;
 
 /**
  * Class CategoryCollection handles the categories collection.
@@ -24,7 +23,7 @@ class CategoryCollection extends ResourceCollection
      * Transform the resource collection into an array.
      *
      * @param $request
-     * @return array|Arrayable|JsonSerializable
+     * @return array|Arrayable
      */
     public function toArray($request)
     {

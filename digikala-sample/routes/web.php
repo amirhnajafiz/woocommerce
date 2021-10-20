@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
 use App\Http\Controllers\SuperAdmin\ItemController;
+use App\Http\Resources\SpecialItemCollection;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,7 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 Route::get('/special-items', [HomeController::class, 'specials'])
-    ->name('special');
+    ->name('special-items');
 
 Route::middleware(['auth', 'can:super-admin'])->group(function () {
     // Admin routes
@@ -33,8 +35,8 @@ Route::middleware(['auth', 'can:super-admin'])->group(function () {
     Route::resource('item', ItemController::class)
         ->except(['show']);
 
-    Route::resource('special', \App\Http\Resources\SpecialItemCollection::class)
-        ->only('index', 'store', 'destroy');
+    Route::resource('special', SpecialItemCollection::class)
+        ->only(['index', 'store', 'destroy']);
 
     // Brand resource controller
     Route::resource('brand', BrandController::class);
@@ -54,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
         ->only(['show']);
 
     // User carts
-    Route::resource('cart', \App\Http\Controllers\CartController::class);
+    Route::resource('cart', CartController::class);
 });
 
 require __DIR__ . '/auth.php';
