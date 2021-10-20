@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
 use App\Http\Controllers\SuperAdmin\ItemController;
+use App\Http\Controllers\SuperAdmin\SpecialItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,20 +23,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('special', [HomeController::class, 'specials'])
-    ->name('special');
+Route::get('/special-items', [HomeController::class, 'specials'])
+    ->name('special-items');
 
-Route::middleware(['auth', 'can:admin-panel'])->group(function () {
+Route::middleware(['auth', 'can:super-admin'])->group(function () {
     // Admin routes
-    Route::view('/admin', 'web.admin.route-views.welcome')
-        ->name('admin.panel');
+    Route::view('/super-admin', 'admin.welcome')
+        ->name('super.admin');
 
     // Item resource controller
     Route::resource('item', ItemController::class)
         ->except(['show']);
 
-    Route::resource('special', \App\Http\Resources\SpecialItemCollection::class)
-        ->only('index', 'store', 'destroy');
+    Route::resource('special', SpecialItemController::class)
+        ->only(['index', 'store', 'destroy']);
 
     // Brand resource controller
     Route::resource('brand', BrandController::class);
@@ -46,15 +48,15 @@ Route::middleware(['auth', 'can:admin-panel'])->group(function () {
 // User routes
 Route::middleware(['auth'])->group(function () {
     // User dashboard
-    Route::view('/dashboard', 'dashboard')
+    Route::view('/dashboard', 'utils.user.index')
         ->name('dashboard');
 
     // User view of an item
-    Route::get('item/{item}', [ItemController::class, 'show'])
-        ->name('item.show');
+    Route::resource('item', ItemController::class)
+        ->only(['show']);
 
     // User carts
-    Route::resource('cart', \App\Http\Controllers\CartController::class);
+    Route::resource('cart', CartController::class);
 });
 
 require __DIR__ . '/auth.php';

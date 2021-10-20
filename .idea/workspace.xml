@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/CreateUpdateItemRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/CreateUpdateItemRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/brand/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,11 +172,11 @@
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\brand" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\layouts" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\user" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\special" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\cart" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -223,7 +229,10 @@
       <workItem from="1634466062464" duration="1925000" />
       <workItem from="1634476455400" duration="15392000" />
       <workItem from="1634497264494" duration="5348000" />
-      <workItem from="1634574699144" duration="4892000" />
+      <workItem from="1634574699144" duration="5649000" />
+      <workItem from="1634665227176" duration="2399000" />
+      <workItem from="1634715160912" duration="6548000" />
+      <workItem from="1634747167682" duration="5530000" />
     </task>
     <servers />
   </component>

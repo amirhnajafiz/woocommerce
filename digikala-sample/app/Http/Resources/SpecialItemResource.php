@@ -3,9 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use JsonSerializable;
 
 /**
  * Class SpecialItemResource for packing special items.
@@ -18,7 +16,7 @@ class SpecialItemResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param $request
-     * @return array|Arrayable|JsonSerializable
+     * @return array|Arrayable
      */
     public function toArray($request)
     {

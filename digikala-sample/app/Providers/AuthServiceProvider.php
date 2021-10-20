@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // Admin panel access gate
-        Gate::define('admin-panel', function (User $user) {
+        Gate::define('super-admin', function (User $user) {
             return $user->role == Role::ADMIN();
         });
     }

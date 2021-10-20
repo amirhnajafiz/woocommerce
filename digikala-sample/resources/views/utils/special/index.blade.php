@@ -22,7 +22,7 @@
                     <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ route('show.item', $special->item->id) }}">
+                            <a href="{{ route('item.show', $special->item->id) }}">
                                 {{ $special->item->name }}
                             </a>
                         </h5>
@@ -45,6 +45,6 @@
         </div>
     </div>
     <div style="margin-top: 100px;">
-        {{ $items->links() }}
+        {{ $specials->links() }}
     </div>
 </x-app-layout>

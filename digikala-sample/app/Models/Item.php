@@ -35,7 +35,6 @@ class Item extends Model
         'number',
         'score',
         'brand_id',
-        'category_id',
         'properties'
     ];
 
@@ -48,6 +47,7 @@ class Item extends Model
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+        $this->attributes['properties'] = '';
     }
 
     /**
@@ -67,7 +67,7 @@ class Item extends Model
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'item_category');
+        return $this->belongsToMany(Category::class);
     }
 
     /**

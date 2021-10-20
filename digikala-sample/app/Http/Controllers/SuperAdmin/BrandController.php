@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class BrandController handles the brand base methods.
@@ -28,11 +29,10 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::paginate(2);
+        $brands = Brand::paginate(6);
 
-        return view('web.admin.route-views.brands')
-            ->with('brands', $brands)
-            ->with('title', '-all-brands');
+        return view('admin.brand.index')
+            ->with('brands', $brands);
     }
 
     /**
@@ -42,8 +42,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('web.admin.utils.brand.create-brand-panel')
-            ->with('title', '-create-brand');
+        return view('admin.brand.create');
     }
 
     /**
@@ -55,16 +54,25 @@ class BrandController extends Controller
     public function store(CreateUpdateBrandRequest $request)
     {
         $validated = $request->validated();
-        $brand = Brand::query()->create($validated);
 
-        FileManager::instance()->storeFile('store/brand/', $brand->id, $request->file('file'));
-        $brand->image()->create([
-            'title' => $brand->name,
-            'slug' => $brand->slug,
-            'path' => 'store/brand' . $brand->id
-        ]);
+        DB::transaction(function () use ($request, $validated) {
+            $brand = Brand::query()
+                ->create($validated);
+            $name = 'file' . $brand->id;
 
-        return redirect()->route('brand.show', $brand);
+            FileManager::instance()
+                ->storeFile('store/brand/', $name, $request->file('file'));
+
+            $brand->image()
+                ->create([
+                    'title' => $brand->name,
+                    'alt' => $brand->slug,
+                    'path' => './storage/store/brand/' . $name
+                ]);
+        });
+
+        return redirect()
+            ->route('brand.index');
     }
 
     /**
@@ -75,9 +83,8 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        return view('web.admin.utils.brand.show-brand')
-            ->with('brand', $brand)
-            ->with('title', '-brand-' . $brand->id);
+        return view('utils.brand.show')
+            ->with('brand', $brand);
     }
 
     /**
@@ -88,9 +95,8 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('web.admin.utils.brand.edit-brand')
-            ->with('brand', $brand)
-            ->with('title', '-edit-brand-' . $brand->id);
+        return view('admin.brand.edit')
+            ->with('brand', $brand);
     }
 
     /**
@@ -103,16 +109,21 @@ class BrandController extends Controller
     public function update(CreateUpdateBrandRequest $request, Brand $brand)
     {
         $validated = $request->validated();
-        $brand->update($validated);
 
-        if ($request->has('file')) {
-            $path = $brand->image->path;
-            FileManager::instance()->replaceFile('store/brand/', $brand->id, $request->file('file'), $path);
-        }
+        DB::transaction(function () use ($request, $validated, $brand) {
+            $brand->update($validated);
 
-        $brand->save();
+            if ($request->has('file')) {
+                $path = $brand->image->path;
+                FileManager::instance()
+                    ->replaceFile('store/brand/file', $brand->id, $request->file('file'), $path);
+            }
 
-        return redirect()->route('brand.show', $brand);
+            $brand->save();
+        });
+
+        return redirect()
+            ->route('brand.show', $brand);
     }
 
     /**
@@ -123,9 +134,13 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        FileManager::instance()->removeFile($brand->image->path);
-        $brand->delete();
+        DB::transaction(function () use ($brand) {
+            FileManager::instance()
+                ->removeFile($brand->image->path);
+            $brand->delete();
+        });
 
-        return redirect()->route('brand.index');
+        return redirect()
+            ->route('brand.index');
     }
 }

@@ -40,7 +40,7 @@ class CreateUpdateItemRequest extends FormRequest
             'number' => 'numeric',
             'brand_id' => 'exists:App\Models\Brand,id',
             'category_id' => 'required|array',
-            'category_id.*' => 'exists:App\Models\Category,id'
+            'category_id.*' => 'exists_or_null:categories,id'
         ];
     }
 

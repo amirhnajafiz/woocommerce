@@ -11,8 +11,8 @@
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('specials')" :active="request()->routeIs('specials')">
-                        {{ __('Specials') }}
+                    <x-nav-link :href="route('special-items')" :active="request()->routeIs('special-items')">
+                        {{ __('Special-items') }}
                     </x-nav-link>
                 </div>
 
@@ -35,17 +35,17 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')">
+                        <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
                             {{ __('Cart') }}
                         </x-nav-link>
                     </div>
-                    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN())
+                    @can('super-admin')
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('admin.panel')" :active="request()->routeIs('admin.panel')" style="color: #fd5a24;">
+                            <x-nav-link :href="route('super.admin')" :active="request()->routeIs('super.admin')" style="color: #fd5a24;">
                                 {{ __('Admin Panel') }}
                             </x-nav-link>
                         </div>
-                    @endif
+                    @endcan
                 @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link>

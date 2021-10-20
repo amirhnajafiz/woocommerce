@@ -32,17 +32,19 @@
             <strong class="ml-3">Create a new brand / company</strong>
         </h1>
     </div>
-    <form action="#" method="post">
+    <form action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="text-white px-5 my-4">
             <div>
-                <input class="form-input" type="text" name="name" placeholder="Name ..."/>
+                <label for="name">Brand name:</label><br />
+                <input id="name" class="form-input" type="text" name="name" placeholder="Name ..."/>
             </div>
         </div>
         <div class="text-white px-5 my-4">
-            <h2>
+            <label for="description">
                 Description
-            </h2>
-            <textarea class="form-input" name="description" placeholder="Say about your company ..."></textarea>
+            </label><br />
+            <textarea id="description" class="form-input" name="description" placeholder="Say about your company ..."></textarea>
         </div>
         <div class="text-white px-5 my-4">
             <h2>
@@ -51,9 +53,9 @@
             <input class="form-input" type="file" name="file" />
         </div>
         <div class="px-5">
-            <a href="#" class="btn btn-light">
+            <button type="submit" class="btn btn-light">
                 Create
-            </a>
+            </button>
         </div>
     </form>
 @stop
