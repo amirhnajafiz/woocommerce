@@ -27,7 +27,7 @@ class HomeController extends Controller
         $validated = $request->validated();
 
         $items = Item::query()
-            ->orderBy($validated['filter'], $validated['mode'])
+            ->orderBy($validated['filter'] ?? 'id', $validated['mode'] ?? 'asc')
             ->paginate(10);
 
         $specials = SpecialItem::query()
@@ -35,7 +35,7 @@ class HomeController extends Controller
             ->random(5);
 
         return view('welcome')
-            ->with('special', $specials)
+            ->with('specials', $specials)
             ->with('items', $items);
     }
 
