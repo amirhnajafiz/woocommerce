@@ -8,32 +8,24 @@
             @forelse($brands as $brand)
                 <div class="col-4 m-auto shadow">
                     <div class="card bg-dark text-white">
-                        <img src="{{ $brand->image->path }}" class="card-img-top" alt="{{ $brand->image->alt }}">
                         <div class="card-body">
-                            <h5 class="h2 card-title">
+                            <h5 class="h4 card-title text-center">
                                 <a href="{{ route('brand.show', $brand->id) }}">
                                     {{ $brand->name }}
                                 </a>
                             </h5>
-                            <p class="card-text">
-                                {{ $brand->description }}
-                            </p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-white">
-                                Items: {{ $brand->items->count() }}
-                            </li>
-                            <li class="list-group-item bg-dark text-white">
-                                Accepted by Digi Company
-                            </li>
-                        </ul>
                         <div class="flex flex-wrap justify-evenly p-3">
                             <a href="{{ route('brand.edit', $brand->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
-                            <a href="#" class="btn btn-danger">
-                                Delete
-                            </a>
+                            <form action="{{ route('brand.destroy', $brand->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
