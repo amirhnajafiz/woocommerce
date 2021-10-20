@@ -28,7 +28,7 @@
                 <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="{{ route('show.item', $special->item->id) }}">
+                        <a href="{{ route('item.show', $special->item->id) }}">
                             {{ $special->item->name }}
                         </a>
                     </h5>
@@ -85,7 +85,7 @@
                     <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" />
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ route('show.item', $item->id) }}">
+                            <a href="{{ route('item.show', $item->id) }}">
                                 {{ $item->name }}
                             </a>
                         </h5>
