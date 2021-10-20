@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
 use App\Http\Controllers\SuperAdmin\ItemController;
-use App\Http\Resources\SpecialItemCollection;
+use App\Http\Controllers\SuperAdmin\SpecialItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +35,7 @@ Route::middleware(['auth', 'can:super-admin'])->group(function () {
     Route::resource('item', ItemController::class)
         ->except(['show']);
 
-    Route::resource('special', SpecialItemCollection::class)
+    Route::resource('special', SpecialItemController::class)
         ->only(['index', 'store', 'destroy']);
 
     // Brand resource controller

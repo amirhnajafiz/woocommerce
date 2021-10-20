@@ -23,7 +23,7 @@ class SpecialItemController extends Controller
      */
     public function index(): View
     {
-        $items = SpecialItem::all();
+        $items = SpecialItem::paginate(2);
 
         return view('admin.special.index')
             ->with('items', $items);
