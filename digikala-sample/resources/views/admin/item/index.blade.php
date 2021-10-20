@@ -8,7 +8,6 @@
             @forelse($items as $item)
                 <div class="col-lg-4 col-md-12 col-sm-12 m-auto shadow">
                     <div class="card bg-dark text-white">
-                        <img src="{{ $item->image->path }}" class="card-img-top" alt="{{ $item->image->alt }}">
                         <div class="card-body">
                             <h5 class="h3 card-title">
                                 <a href="{{ route('item.show', $item->id) }}">
@@ -20,33 +19,22 @@
                                 Left: {{ $item->number }}
                             </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-white">
-                                Price: {{ $item->price }}
-                            </li>
-                            <li class="list-group-item bg-dark text-white">
-                                Score: {{ $item->score }}
-                            </li>
-                            <li class="list-group-item bg-dark text-white">
-                                View: {{ $item->view }}
-                            </li>
-                        </ul>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            @if($item->isSpecial())
-                                <a href="#" class="btn btn-warning">
-                                    Remove from Special
-                                </a> <!-- TODO: Make js request -->
-                            @else
+                            @if(!$item->isSpecial())
                                 <a href="#" class="btn btn-success">
                                     Make Special
-                                </a><!-- TODO: Make js request -->
+                                </a> <!-- TODO: Make js request -->
                             @endif
                             <a href="{{ route('item.edit', $item->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
-                            <a href="#" class="btn btn-danger">
-                                Delete
-                            </a>
+                                <form action="{{ route('item.destroy', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
                         </div>
                     </div>
                 </div>

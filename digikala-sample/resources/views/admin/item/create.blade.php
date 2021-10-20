@@ -32,35 +32,49 @@
             <strong class="ml-3">Create a new item</strong>
         </h1>
     </div>
-    <form action="#" method="post">
+    <form action="{{ route('item.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="text-white px-5 my-4">
             <h2>
                 Basic information
             </h2>
             <div>
-                <input class="form-input" type="text" name="name" placeholder="Name ..."/>
+                <label for="name">Item name:</label><br />
+                <input id="name" class="form-input" type="text" name="name" placeholder="Name ..."/>
             </div>
             <div>
-                <input class="form-input" type="number" name="price" placeholder="Price ..."/>
-            </div>
-            <div>
-                <input class="form-input" type="text" name="brand" placeholder="Brand ..."/>
+                <label for="price">Item price:</label><br />
+                <input id="price" class="form-input" type="number" name="price" placeholder="Price ..."/>
             </div>
         </div>
         <div class="text-white px-5 my-4">
-            <h2>
-                Category
-            </h2>
-            <select class="form-input">
-                <option>
-                    1
+            <label for="brand">
+                Item Brand
+            </label><br />
+            <select id="brand" name="brand_id" class="form-input">
+                <option class="text-light" value="" selected>
+                    {{ __('-- none --') }}
                 </option>
-                <option>
-                    1
+                @foreach($brands as $brand)
+                    <option class="text-dark" value="{{ $brand->id }}">
+                        {{ $brand->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="text-white px-5 my-4">
+            <label for="parent">
+                Item Category
+            </label><br />
+            <select id="parent" name="category_id" class="form-input" multiple>
+                <option class="text-light" value="" selected>
+                    {{ __('-- none --') }}
                 </option>
-                <option>
-                    1
-                </option>
+                @foreach($categories as $category)
+                    <option class="text-dark" value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="text-white px-5 my-4">
@@ -70,9 +84,9 @@
             <input class="form-input" type="file" name="file" />
         </div>
         <div class="px-5">
-            <a href="#" class="btn btn-light">
+            <button type="submit" class="btn btn-light">
                 Create
-            </a>
+            </button>
         </div>
     </form>
 @stop
