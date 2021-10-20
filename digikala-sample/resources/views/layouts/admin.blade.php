@@ -43,7 +43,7 @@
         <div class="container-fluid m-0 p-0">
             <div class="row m-0 p-0">
                 <div class="col-2 p-0">
-                    <x.admin-navigation></x.admin-navigation>
+                    @include('layouts.admin-navigation')
                 </div>
                 <div class="col-10 p-0">
                     @yield('content')

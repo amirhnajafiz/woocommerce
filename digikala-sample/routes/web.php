@@ -26,7 +26,7 @@ Route::get('/special-items', [HomeController::class, 'specials'])
 
 Route::middleware(['auth', 'can:super-admin'])->group(function () {
     // Admin routes
-    Route::view('/super-admin', 'web.admin.route-views.welcome')
+    Route::view('/super-admin', 'admin.welcome')
         ->name('super.admin');
 
     // Item resource controller
