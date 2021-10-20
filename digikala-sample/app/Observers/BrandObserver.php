@@ -22,18 +22,4 @@ class BrandObserver
     {
         BrandCreate::dispatch($brand);
     }
-
-    /**
-     * Handle the Brand "force deleted" event.
-     *
-     * @param Brand $brand
-     * @return void
-     */
-    public function forceDeleted(Brand $brand)
-    {
-        if (isset($brand->image)) {
-            FileManager::instance()->removeFile($brand->image->path);
-            $brand->image()->delete();
-        }
-    }
 }

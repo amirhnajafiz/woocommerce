@@ -22,18 +22,4 @@ class ItemObserver
     {
         ItemCreate::dispatch($item);
     }
-
-    /**
-     * Handle the Item "force deleted" event.
-     *
-     * @param Item $item
-     * @return void
-     */
-    public function forceDeleted(Item $item)
-    {
-        if (isset($item->image)) {
-            FileManager::instance()->removeFile($item->image->path);
-            $item->image()->delete();
-        }
-    }
 }
