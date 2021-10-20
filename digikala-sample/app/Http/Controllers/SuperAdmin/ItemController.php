@@ -75,7 +75,7 @@ class ItemController extends Controller
             $item->image()
                 ->create([
                     'title' => $item->name,
-                    'slug' => $item->slug,
+                    'alt' => $item->slug,
                     'path' => './storage/store/item/' . $name
                 ]);
 

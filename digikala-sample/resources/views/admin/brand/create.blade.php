@@ -43,7 +43,7 @@
         <div class="text-white px-5 my-4">
             <label for="description">
                 Description
-            </label>
+            </label><br />
             <textarea id="description" class="form-input" name="description" placeholder="Say about your company ..."></textarea>
         </div>
         <div class="text-white px-5 my-4">

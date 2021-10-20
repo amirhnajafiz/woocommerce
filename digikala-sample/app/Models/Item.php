@@ -47,6 +47,7 @@ class Item extends Model
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+        $this->attributes['properties'] = '';
     }
 
     /**

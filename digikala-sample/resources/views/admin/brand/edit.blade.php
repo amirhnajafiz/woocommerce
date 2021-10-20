@@ -32,11 +32,11 @@
             <strong class="ml-3">{{ 'Editing brand: ' . $brand->name }}</strong>
         </h1>
     </div>
-    <form action="{{ route('category.update', $category->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('brand.update', $brand->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="p-5 text-white">
-            <div class="border-bottom pb-2 mb-5">
+            <div>
                 <label for="name">Brand name:</label><br />
                 <input
                     id="name"
@@ -47,17 +47,17 @@
                     placeholder="Name ..."
                 />
             </div>
-            <div class="border-bottom pb-2 mb-5">
+            <div>
                 <label for="description">
                     Description:
-                </label>
+                </label><br />
                 <textarea id="description" class="form-input" name="description" placeholder="Say about your company ...">{{ $brand->description }}</textarea>
             </div>
-            <div class="text-white px-5 my-4">
+            <div>
                 <img width="150" src="{{ asset($brand->image->path) }}" alt="{{ $brand->image->alt }}" /><br />
                 <input class="form-input" type="file" name="file" />
             </div>
-            <div class="px-5">
+            <div>
                 <button type="submit" class="btn btn-light">
                     Update
                 </button>

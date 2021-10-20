@@ -66,7 +66,7 @@ class BrandController extends Controller
             $brand->image()
                 ->create([
                     'title' => $brand->name,
-                    'slug' => $brand->slug,
+                    'alt' => $brand->slug,
                     'path' => './storage/store/brand/' . $name
                 ]);
         });
