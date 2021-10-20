@@ -45,7 +45,7 @@
                 Parent Category
             </label><br />
             <select id="parent" name="parent_id" class="form-input">
-                <option class="text-light" value="null" selected>
+                <option class="text-light" value="" selected>
                     {{ __('-- none --') }}
                 </option>
                 @foreach($categories as $category)
