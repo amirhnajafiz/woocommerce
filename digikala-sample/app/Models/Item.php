@@ -35,7 +35,6 @@ class Item extends Model
         'number',
         'score',
         'brand_id',
-        'category_id',
         'properties'
     ];
 

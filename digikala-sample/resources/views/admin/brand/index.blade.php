@@ -4,7 +4,7 @@
 
 @section('content')
     <div>
-        <div class="row m-0 my-5">
+        <div class="row m-0 my-5 gap-x-10 gap-y-10">
             @forelse($brands as $brand)
                 <div class="col-4 m-auto shadow">
                     <div class="card bg-dark text-white">

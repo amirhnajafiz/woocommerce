@@ -72,7 +72,7 @@
                     />
                 </div>
             </div>
-            <div class="text-white px-5 my-4">
+            <div>
                 <label for="brand">
                     Item Brand:
                 </label><br />
@@ -89,15 +89,15 @@
                     @endforeach
                 </select>
             </div>
-            <div class="text-white px-5 my-4">
+            <div>
                 <label for="category">
                     Item Category:
                 </label><br />
-                <select id="category" name="category_id" class="form-input" multiple>
+                <select id="category" name="category_id[]" class="form-input" multiple>
                     <option
                         class="text-light"
                         value=""
-                        @if($item->category()->count() == 0)
+                        @if($item->categories()->count() == 0)
                             {{ 'selected' }}
                         @endif
                     >
@@ -107,7 +107,7 @@
                         <option
                             class="text-dark"
                             value="{{ $category->id }}"
-                            @if($item->category()->only('id')->has($category->id))
+                            @if($item->categories()->get()->only('id')->has($category->id))
                                 {{ 'selected' }}
                             @endif
                         >
@@ -116,11 +116,11 @@
                     @endforeach
                 </select>
             </div>
-            <div class="text-white px-5 my-4">
+            <div>
                 <img width="150" src="{{ asset($item->image->path) }}" alt="{{ $item->image->alt }}" /><br />
                 <input class="form-input" type="file" name="file" />
             </div>
-            <div class="px-5">
+            <div>
                 <button type="submit" class="btn btn-light">
                     Update
                 </button>

@@ -66,7 +66,7 @@
             <label for="parent">
                 Item Category
             </label><br />
-            <select id="parent" name="category_id" class="form-input" multiple>
+            <select id="parent" name="category_id[]" class="form-input" multiple>
                 <option class="text-light" value="" selected>
                     {{ __('-- none --') }}
                 </option>

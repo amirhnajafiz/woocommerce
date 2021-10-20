@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('special')" :active="request()->routeIs('special')">
+                    <x-nav-link :href="route('special-items')" :active="request()->routeIs('special-items')">
                         {{ __('Special-items') }}
                     </x-nav-link>
                 </div>

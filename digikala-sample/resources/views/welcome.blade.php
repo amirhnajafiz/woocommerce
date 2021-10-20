@@ -17,7 +17,7 @@
 <x-app-layout>
     <div class="row m-0 w-75 m-auto my-3">
         <div class="col-12 my-5">
-            <a href="{{ route('special') }}">
+            <a href="{{ route('special-items') }}">
                 <span class="h4 p-3 rounded" style="color: #000000; background-color: rgba(255,77,28,0.7)">
                     Special items
                 </span>

@@ -51,13 +51,6 @@ class CreateItemsTable extends Migration
                 ->on('brands')
                 ->cascadeOnDelete();
 
-            $table->foreignId('category_id')
-                ->nullable(true)
-                ->default(null)
-                ->references('id')
-                ->on('categories')
-                ->cascadeOnDelete();
-
             $table->string('properties', \App\Enums\Limit::COMMENT());
 
             $table->timestamps();

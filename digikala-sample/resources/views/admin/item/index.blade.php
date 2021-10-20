@@ -4,12 +4,12 @@
 
 @section('content')
     <div>
-        <div class="row m-0 my-3">
+        <div class="row m-0 my-3 gap-x-10 gap-y-10">
             @forelse($items as $item)
                 <div class="col-lg-4 col-md-12 col-sm-12 m-auto shadow">
                     <div class="card bg-dark text-white">
                         <div class="card-body">
-                            <h5 class="h3 card-title">
+                            <h5 class="h4 card-title">
                                 <a href="{{ route('item.show', $item->id) }}">
                                     {{ $item->name }}
                                 </a>
