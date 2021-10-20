@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
+        // Creating a new validator rule for exists and null check
         Validator::extend(
             'exists_or_null',
             function ($attribute, $value, $parameters)

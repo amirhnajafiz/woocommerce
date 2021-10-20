@@ -4,20 +4,16 @@
 
 @section('content')
     <div>
-        <div class="row m-0 my-5">
+        <div class="row m-0 my-5 gap-x-10 gap-y-10">
             @forelse($categories as $category)
                 <div class="col-4 m-auto shadow">
                     <div class="card bg-dark text-white">
-                        <img src="{{ $category->image->path }}" class="card-img-top" alt="{{ $category->image->alt }}">
                         <div class="card-body">
-                            <h5 class="h2 card-title">
+                            <h5 class="h4 card-title text-center">
                                 <a href="{{ route('category.show', $category->id) }}">
                                     {{ $category->name }}
                                 </a>
                             </h5>
-                        </div>
-                        <div class="card-text p-3">
-                            Items: {{ $category->items->count() }}
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
                             <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">

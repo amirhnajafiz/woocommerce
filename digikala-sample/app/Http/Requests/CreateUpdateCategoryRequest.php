@@ -35,7 +35,8 @@ class CreateUpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|min:1|max:64',
-            'parent_id' => 'exists_or_null:categories,id'
+            'parent_id' => 'exists_or_null:categories,id',
+            'file' => 'required'
         ];
     }
 

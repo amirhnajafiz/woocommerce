@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(2);
+        $categories = Category::paginate(6);
 
         return view('admin.category.index')
             ->with('categories', $categories);
@@ -60,17 +60,16 @@ class CategoryController extends Controller
 
         DB::transaction(function () use ($request, $validated) {
             $category = Category::query()->create($validated);
+            $name = 'file' . $category->id;
 
-            if ($request->has('file')) {
-                $name = 'file' . $category->id;
-                FileManager::instance()
-                    ->storeFile('store/category/', $name, $request->file('file'));
-                $category->image()->create([
-                    'title' => $category->name,
-                    'alt' => Str::slug($category->name),
-                    'path' => './storage/store/category/' . $name
-                ]);
-            }
+            FileManager::instance()
+                ->storeFile('store/category/', $name, $request->file('file'));
+
+            $category->image()->create([
+                'title' => $category->name,
+                'alt' => Str::slug($category->name),
+                'path' => './storage/store/category/' . $name
+            ]);
         });
 
         return redirect()->route('category.index');
