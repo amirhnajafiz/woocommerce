@@ -38,7 +38,7 @@
             Icon
         </div>
         <div>
-            <img style="width: 150px; height: 150px;" src="{{ $category->image->path }}" alt="{{ $category->image->alt }}" />
+            <img style="width: 150px;" src="{{ asset($category->image->path) }}" alt="{{ $category->image->alt }}" />
         </div>
     </div>
 @stop

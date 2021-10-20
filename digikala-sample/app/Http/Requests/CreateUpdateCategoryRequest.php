@@ -34,8 +34,7 @@ class CreateUpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:1|max:64',
-            'parent_id' => 'exists:App\Model\Category,id'
+            'name' => 'required|min:1|max:64'
         ];
     }
 

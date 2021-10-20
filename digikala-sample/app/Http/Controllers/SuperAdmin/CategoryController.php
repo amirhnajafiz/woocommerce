@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -42,7 +43,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::all();
+        return view('admin.category.create')
+            ->with('categories', $categories);
     }
 
     /**
@@ -54,16 +57,23 @@ class CategoryController extends Controller
     public function store(CreateUpdateCategoryRequest $request)
     {
         $validated = $request->validated();
-        $category = Category::query()->create($validated);
 
-        FileManager::instance()->storeFile('store/category/', $category->id, $request->file('file'));
-        $category->image()->create([
-            'title' => $category->name,
-            'slug' => Str::slug($category->name),
-            'path' => 'store/category/' . $category->id
-        ]);
+        DB::transaction(function () use ($request, $validated) {
+            $category = Category::query()->create($validated);
 
-        return redirect()->route('category.show', $category);
+            if ($request->has('file')) {
+                $name = 'file' . $category->id;
+                FileManager::instance()
+                    ->storeFile('store/category/', $name, $request->file('file'));
+                $category->image()->create([
+                    'title' => $category->name,
+                    'alt' => Str::slug($category->name),
+                    'path' => './storage/store/category/' . $name
+                ]);
+            }
+        });
+
+        return redirect()->route('category.index');
     }
 
     /**

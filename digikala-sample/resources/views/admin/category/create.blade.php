@@ -32,26 +32,27 @@
             <strong class="ml-3">Create a new category</strong>
         </h1>
     </div>
-    <form action="#" method="post">
+    <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="text-white px-5 my-4">
             <div>
-                <input class="form-input" type="text" name="name" placeholder="Name ..."/>
+                <label for="name">Category name:</label><br />
+                <input id="name" class="form-input" type="text" name="name" placeholder="Name ..."/>
             </div>
         </div>
         <div class="text-white px-5 my-4">
-            <h2>
+            <label for="parent">
                 Parent Category
-            </h2>
-            <select class="form-input">
-                <option>
-                    1
+            </label><br />
+            <select id="parent" name="parent_id" class="form-input">
+                <option class="text-light" value="null" selected>
+                    {{ __('-- none --') }}
                 </option>
-                <option>
-                    1
-                </option>
-                <option>
-                    1
-                </option>
+                @foreach($categories as $category)
+                    <option class="text-dark" value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="text-white px-5 my-4">
@@ -61,9 +62,9 @@
             <input class="form-input" type="file" name="file" />
         </div>
         <div class="px-5">
-            <a href="#" class="btn btn-light">
+            <button type="submit" class="btn btn-light">
                 Create
-            </a>
+            </button>
         </div>
     </form>
 @stop
