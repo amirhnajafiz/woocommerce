@@ -50,7 +50,7 @@
         </div>
         <div class="text-white px-5 my-4">
             <label for="parent">
-                Parent Category
+                Parent Category:
             </label><br />
             <select id="parent" name="parent_id" class="form-input">
                 <option
