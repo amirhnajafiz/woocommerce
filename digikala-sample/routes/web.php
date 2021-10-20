@@ -46,7 +46,7 @@ Route::middleware(['auth', 'can:super-admin'])->group(function () {
 // User routes
 Route::middleware(['auth'])->group(function () {
     // User dashboard
-    Route::view('/dashboard', 'dashboard')
+    Route::view('/dashboard', 'utils.user.index')
         ->name('dashboard');
 
     // User view of an item

@@ -1,4 +1,4 @@
-@section('title', __('-cart-', $user->name))
+@section('title', __('-cart-') . $user->id)
 
 <x-app-layout>
     <div class="py-12">
