@@ -19,9 +19,13 @@
                             <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">
                                 Edit
                             </a>
-                            <a href="#" class="btn btn-danger">
-                                Delete
-                            </a>
+                            <form action="{{ route('category.destroy', $category->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

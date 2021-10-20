@@ -95,7 +95,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $categories = Category::all();
         return view('admin.category.edit')
+            ->with('categories', $categories)
             ->with('category', $category);
     }
 
@@ -109,16 +111,20 @@ class CategoryController extends Controller
     public function update(CreateUpdateCategoryRequest $request, Category $category)
     {
         $validated = $request->validated();
-        $category->update($validated);
 
-        if ($request->has('file')) {
-            $path = $category->image->path;
-            FileManager::instance()->replaceFile('store/category/', $category->id, $request->file('file'), $path);
-        }
+        DB::transaction(function () use ($request, $category, $validated) {
+            $category->update($validated);
 
-        $category->save();
+            if ($request->has('file')) {
+                $path = $category->image->path;
+                FileManager::instance()
+                    ->replaceFile('store/category/file', $category->id, $request->file('file'), $path);
+            }
 
-        return redirect()->route('category.show', $category);
+            $category->save();
+        });
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -129,8 +135,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        FileManager::instance()->removeFile($category->image->path);
-        $category->delete();
+        DB::transaction(function () use ($category) {
+            FileManager::instance()->removeFile($category->image->path);
+            $category->delete();
+        });
 
         return redirect()->route('category.index');
     }

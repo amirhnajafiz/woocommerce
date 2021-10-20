@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/CreateUpdateCategoryRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/CreateUpdateCategoryRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/category/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +228,7 @@
       <workItem from="1634497264494" duration="5348000" />
       <workItem from="1634574699144" duration="5649000" />
       <workItem from="1634665227176" duration="2399000" />
-      <workItem from="1634715160912" duration="5333000" />
+      <workItem from="1634715160912" duration="6205000" />
     </task>
     <servers />
   </component>

@@ -35,8 +35,7 @@ class CreateUpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|min:1|max:64',
-            'parent_id' => 'exists_or_null:categories,id',
-            'file' => 'required'
+            'parent_id' => 'exists_or_null:categories,id'
         ];
     }
 
@@ -48,7 +47,7 @@ class CreateUpdateCategoryRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'required' => 'Please enter category name.',
+            'required' => 'Please enter :attribute.',
             'min' => 'Name is too short.',
             'max' => 'Name is very long.',
             'exists' => 'No such super category.'
