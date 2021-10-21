@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -31,10 +32,10 @@ class SpecialItem extends Model
     /**
      * For every special item we have a item.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function item(): HasOne
+    public function item(): BelongsTo
     {
-        return $this->hasOne(Item::class, 'id');
+        return $this->belongsTo(Item::class);
     }
 }

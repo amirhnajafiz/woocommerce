@@ -9,6 +9,7 @@ use App\Models\SpecialItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class SpecialItemController for controlling special items CRUD.
@@ -24,7 +25,7 @@ class SpecialItemController extends Controller
      */
     public function index(): View
     {
-        $items = SpecialItem::paginate(6);
+        $items = SpecialItem::paginate(4);
 
         return view('admin.special.index')
             ->with('items', $items);
@@ -43,7 +44,7 @@ class SpecialItemController extends Controller
         DB::transaction(function () use ($validated) {
             $item = SpecialItem::query()
                 ->create([
-                    'item_id' => $validated['id']->id,
+                    'item_id' => $validated['item_id'],
                     'expire_date' => now()->addMonth(),
                     'discount' => 12
                 ]);
@@ -58,12 +59,12 @@ class SpecialItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param SpecialItem $specialItem
+     * @param $id
      * @return RedirectResponse
      */
-    public function destroy(SpecialItem $specialItem): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
-        $specialItem->delete();
+        SpecialItem::query()->findOrFail($id)->delete();
         return redirect()
             ->route('special.index');
     }

@@ -4,11 +4,10 @@
 
 @section('content')
     <div>
-        <div class="row m-0 my-5">
+        <div class="row m-0 my-5 gap-x-10 gap-y-10">
             @forelse($items as $item)
                 <div class="col-4 m-auto shadow">
                     <div class="card bg-dark text-light">
-                        <img src="{{ $item->item->image->path }}" class="card-img-top" alt="{{ $item->item->image->alt }}">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{ $item->item->name }}
@@ -29,7 +28,7 @@
                                 View: {{ $item->item->view }}
                             </li>
                         </ul>
-                        <div>
+                        <div class="text-center">
                             <form action="{{ route('special.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('delete')

@@ -4,8 +4,8 @@
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/SpecialItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/SpecialItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/MakeSpecialItemRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/MakeSpecialItemRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/SpecialItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/SpecialItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/special/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/special/index.blade.php" afterDir="false" />
     </list>
@@ -232,7 +232,7 @@
       <workItem from="1634665227176" duration="2399000" />
       <workItem from="1634715160912" duration="6548000" />
       <workItem from="1634747167682" duration="5622000" />
-      <workItem from="1634818340501" duration="784000" />
+      <workItem from="1634818340501" duration="3114000" />
     </task>
     <servers />
   </component>
