@@ -29,6 +29,15 @@
                                 View: {{ $item->item->view }}
                             </li>
                         </ul>
+                        <div>
+                            <form action="{{ route('special.destroy', $item->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">
+                                    Remove
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             @empty
