@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 /**
@@ -87,6 +88,6 @@ class Item extends Model
      */
     public function isSpecial(): bool
     {
-        return SpecialItem::query()->where('item_id', '=', $this->id)->exists();
+        return !SpecialItem::all()->keyBy('item_id')->has($this->attributes['id']);
     }
 }

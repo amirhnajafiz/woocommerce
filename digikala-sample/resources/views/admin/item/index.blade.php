@@ -20,10 +20,14 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            @if(!$item->isSpecial())
-                                <a href="#" class="btn btn-success">
-                                    Make Special
-                                </a> <!-- TODO: Make js request -->
+                            @if($item->isSpecial())
+                                <form action="{{ route('special.store') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="item_id" value="{{ $item->id }}" />
+                                    <button type="submit" class="btn btn-success">
+                                        Make Special
+                                    </button>
+                                </form>
                             @endif
                             <a href="{{ route('item.edit', $item->id) }}" class="btn btn-primary">
                                 Edit

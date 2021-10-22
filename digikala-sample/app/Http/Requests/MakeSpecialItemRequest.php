@@ -34,6 +34,7 @@ class MakeSpecialItemRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'item_id' => 'exists:items,id',
             'discount' => 'numeric'
         ];
     }
@@ -46,7 +47,8 @@ class MakeSpecialItemRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'numeric' => 'Value of :attribute must be a number.'
+            'numeric' => 'Value of :attribute must be a number.',
+            'exists' => 'Not valid item.'
         ];
     }
 }

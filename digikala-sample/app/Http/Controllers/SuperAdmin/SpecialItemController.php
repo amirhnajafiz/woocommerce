@@ -8,6 +8,8 @@ use App\Jobs\DeleteSpecials;
 use App\Models\SpecialItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class SpecialItemController for controlling special items CRUD.
@@ -23,7 +25,7 @@ class SpecialItemController extends Controller
      */
     public function index(): View
     {
-        $items = SpecialItem::paginate(2);
+        $items = SpecialItem::paginate(4);
 
         return view('admin.special.index')
             ->with('items', $items);
@@ -39,26 +41,31 @@ class SpecialItemController extends Controller
     {
         $validated = $request->validated();
 
-        $item = SpecialItem::query()->create([
-            'item_id' => $validated['id']->id,
-            'expire_date' => now()->addMonth(),
-            'discount' => $validated['amount']
-        ]);
+        DB::transaction(function () use ($validated) {
+            $item = SpecialItem::query()
+                ->create([
+                    'item_id' => $validated['item_id'],
+                    'expire_date' => now()->addMonth(),
+                    'discount' => 12
+                ]);
 
-        DeleteSpecials::dispatch($item)->delay(now()->addMonth());
+            DeleteSpecials::dispatch($item)->delay(now()->addMonth());
+        });
 
-        return redirect()->route('special.index');
+        return redirect()
+            ->route('special.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param SpecialItem $specialItem
+     * @param $id
      * @return RedirectResponse
      */
-    public function destroy(SpecialItem $specialItem): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
-        $specialItem->delete();
-        return redirect()->route('special.index');
+        SpecialItem::query()->findOrFail($id)->delete();
+        return redirect()
+            ->route('special.index');
     }
 }
