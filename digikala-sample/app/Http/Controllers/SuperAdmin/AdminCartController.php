@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -9,11 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 /**
- * Class AdminOrderController for managing orders.
+ * Class AdminCartController for managing orders.
  *
  * @package App\Http\Controllers\SuperAdmin
  */
-class AdminOrderController extends Controller
+class AdminCartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,10 +23,10 @@ class AdminOrderController extends Controller
      */
     public function index(): View
     {
-        $orders = Order::paginate(6);
+        $carts = Cart::paginate(6);
 
         return view('admin.payment.index')
-            ->with('orders', $orders);
+            ->with('orders', $carts);
     }
 
     /**
