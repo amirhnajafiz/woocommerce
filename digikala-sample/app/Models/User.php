@@ -107,14 +107,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cart::class);
     }
-
-    /**
-     * This method get user main cart.
-     *
-     * @return Builder|Builder[]|Collection|Model|null
-     */
-    public function getMainCart()
-    {
-        return Cart::query()->findOrFail($this->attributes['cart_id']);
-    }
 }
