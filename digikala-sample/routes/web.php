@@ -4,6 +4,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
 use App\Http\Controllers\SuperAdmin\ItemController;
@@ -68,6 +69,13 @@ Route::middleware(['auth'])->group(function () {
     // User addresses
     Route::resource('address', AddressController::class)
         ->except(['show']);
+
+    // Payment
+    Route::get('/payment/{cart}', [PaymentController::class, 'index'])
+        ->name('payment.index');
+
+    Route::post('/payment/{cart}', [PaymentController::class, 'pay'])
+        ->name('payment.store');
 });
 
 require __DIR__ . '/auth.php';

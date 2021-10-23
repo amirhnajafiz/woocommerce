@@ -55,7 +55,7 @@
             <a href="{{ route('cart.index') }}" class="btn btn-primary">
                 Back
             </a>
-            <a href="#" class="btn btn-success">
+            <a href="{{ route('payment.index', $cart->id) }}" class="btn btn-success">
                 Go to payment
             </a>
         </div>
