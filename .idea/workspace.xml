@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,11 +164,11 @@
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\brand" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Controllers\SuperAdmin" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\layouts" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\user" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\special" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\cart" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -230,7 +228,7 @@
       <workItem from="1634818340501" duration="3420000" />
       <workItem from="1634928089736" duration="261000" />
       <workItem from="1634969499721" duration="11286000" />
-      <workItem from="1634983600703" duration="3024000" />
+      <workItem from="1634983600703" duration="4186000" />
     </task>
     <servers />
   </component>
