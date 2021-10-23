@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUpdateCategoryRequest;
 use App\Http\Requests\CreateUpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
@@ -28,18 +27,19 @@ class OrderController extends Controller
 
         if ($orders->keyBy('item_id')->has($validated['item_id'])) {
             $order = $orders->filter(function ($order) use ($validated) {
-                return $order->item_id == $validated['item_id'];
-            })->first();
+                    return $order->item_id == $validated['item_id'];
+                })->first();
             $order->update([
                 'number' => $order->number < 21 ? $order->number + 1 : $order->number,
             ]);
             $order->save();
         } else {
-            Order::query()->create([
-                'cart_id' => $cart_id,
-                'item_id' => $validated['item_id'],
-                'number' => 1
-            ]);
+            Order::query()
+                ->create([
+                    'cart_id' => $cart_id,
+                    'item_id' => $validated['item_id'],
+                    'number' => 1
+                ]);
         }
 
         return redirect()
@@ -49,13 +49,20 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param CreateUpdateOrderRequest $request
+     * @param Order $order
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateOrderRequest $request, Order $order): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $order->update([
+           'number' => $validated['number']
+        ]);
+
+        return redirect()
+            ->back();
     }
 
     /**

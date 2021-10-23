@@ -6,20 +6,38 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="row m-0 p-6 bg-white border-b border-gray-200">
-                        <div class="col-8">
+                        <div class="col-4">
                             {{ 'Item: ' . $order->item->name }}
                         </div>
-                        <div class="col-2">
-                            {{ 'Number: ' . $order->number }}
-                        </div>
-                        <div class="col-2">
-                            <form action="{{ route('order.destroy', $order->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger">
-                                    Remove
-                                </button>
-                            </form>
+                        <div class="col-8 row m-0">
+                            <div class="col-8">
+                                <form action="{{ route('order.update', $order->id) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <label for="number">Number: </label>
+                                    <input
+                                        style="padding: 10px; width: 120px;"
+                                        id="number"
+                                        type="number"
+                                        name="number"
+                                        min="1"
+                                        max="20"
+                                        value="{{ $order->number }}"
+                                    />
+                                    <button type="submit" class="btn btn-dark">
+                                        Update
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="col-4">
+                                <form action="{{ route('order.destroy', $order->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        Remove
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
