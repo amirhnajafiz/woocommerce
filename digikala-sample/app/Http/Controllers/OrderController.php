@@ -48,11 +48,15 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Order $order
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Order $order): RedirectResponse
     {
-        //
+        $cart_id = $order->cart_id;
+        $order->delete();
+
+        return redirect()
+            ->route('cart.show', $cart_id);
     }
 }
