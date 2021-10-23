@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::factory(1)->create([
             'name' => 'super-admin',
             'phone' => '09155232106',
-            'role' => Role::ADMIN()
+            'role' => Role::SUPER_ADMIN()
         ]);
         // Create other users
         User::factory(10)->create();

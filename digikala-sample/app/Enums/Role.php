@@ -13,6 +13,7 @@ final class Role extends Enum
     private const USER = 'user';
     private const WRITER = 'writer';
     private const ADMIN = 'admin';
+    private const SUPER_ADMIN = 'super admin';
 
     /**
      * Normal user role
@@ -39,5 +40,14 @@ final class Role extends Enum
     public static function ADMIN() : Role
     {
         return new Role(self::ADMIN);
+    }
+
+    /**
+     * Super admin role of the website
+     * @return Role
+     */
+    public static function SUPER_ADMIN() : Role
+    {
+        return new Role(self::SUPER_ADMIN);
     }
 }

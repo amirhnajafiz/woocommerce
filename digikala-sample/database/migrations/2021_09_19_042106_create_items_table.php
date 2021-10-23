@@ -26,22 +26,10 @@ class CreateItemsTable extends Migration
             $table->string('slug', \App\Enums\Limit::NAME())
                 ->unique();
 
-            $table->integer('view')
-                ->default(0);
-
-            $table->integer('sell')
-                ->default(0);
-
-            $table->integer('favorite')
-                ->default(0);
-
             $table->bigInteger('price')
                 ->nullable(false);
 
             $table->integer('number')
-                ->default(0);
-
-            $table->bigInteger('score')
                 ->default(0);
 
             $table->foreignId('brand_id')
@@ -50,8 +38,6 @@ class CreateItemsTable extends Migration
                 ->references('id')
                 ->on('brands')
                 ->cascadeOnDelete();
-
-            $table->string('properties', \App\Enums\Limit::COMMENT());
 
             $table->timestamps();
         });

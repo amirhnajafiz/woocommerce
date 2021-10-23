@@ -30,19 +30,14 @@
                             {{ "Price: " . $item->price }}
                         </span>
                         <span>
-                            {{ "Views: " . $item->view }}
-                        </span>
-                        <span>
-                            {{ "Sell: " . $item->sell }}
-                        </span>
-                        <span>
                             {{ "Number: " . $item->number }}
                         </span>
-                        <span>
-                            {{ "Score: " . $item->score }}
-                        </span>
                     </div>
-                    <p class="card-text"><small class="text-muted">Brand {{ $item->brand->name }}</small></p>
+                    <p class="card-text">
+                        <a href="{{ route('brand.show', $item->brand->id) }}">
+                            <small class="text-muted">Brand {{ $item->brand->name }}</small>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

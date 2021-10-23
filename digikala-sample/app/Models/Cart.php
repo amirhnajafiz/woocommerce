@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * Class Cart is the user shopping cart.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Cart extends Model
 {

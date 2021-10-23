@@ -4,11 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * Class CreatePaymentsTable.
- *
- */
-class CreatePaymentsTable extends Migration
+class AddCartIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,19 +13,13 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id();
-
+        Schema::table('user', function (Blueprint $table) {
             $table->foreignId('cart_id')
+                ->nullable(true)
+                ->default(null)
                 ->references('id')
-                ->on('carts');
-
-            $table->float('amount')
-                ->default(0);
-
-            $table->string('bank', \App\Enums\Limit::NAME());
-
-            $table->timestamps();
+                ->on('carts')
+                ->onDelete('set null');
         });
     }
 
@@ -40,6 +30,8 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('cart_id');
+        });
     }
 }

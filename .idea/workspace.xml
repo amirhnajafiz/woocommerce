@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/SpecialItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/SpecialItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/SpecialItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/SpecialItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/item/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/special/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/special/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/brand/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/brand/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/category/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/category/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/item/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/item/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,11 +174,11 @@
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\web\utils\brand" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\app\Http\Controllers\SuperAdmin" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\layouts" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\user" />
       <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\special" />
-      <recent name="F:\Desktop\Projects\Digikala-Sample\digikala-sample\resources\views\utils\cart" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -232,7 +235,11 @@
       <workItem from="1634665227176" duration="2399000" />
       <workItem from="1634715160912" duration="6548000" />
       <workItem from="1634747167682" duration="5622000" />
-      <workItem from="1634818340501" duration="3114000" />
+      <workItem from="1634818340501" duration="3420000" />
+      <workItem from="1634928089736" duration="261000" />
+      <workItem from="1634969499721" duration="11286000" />
+      <workItem from="1634983600703" duration="4491000" />
+      <workItem from="1634999380576" duration="10252000" />
     </task>
     <servers />
   </component>

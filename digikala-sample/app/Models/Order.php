@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * Class Order for user order.
+ * Class Order for user cart.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Order extends Model
 {
@@ -29,7 +30,7 @@ class Order extends Model
     ];
 
     /**
-     * Each order belongs to a cart.
+     * Each cart belongs to a cart.
      *
      * @return BelongsTo
      */
@@ -39,12 +40,12 @@ class Order extends Model
     }
 
     /**
-     * Each order has an item.
+     * Each cart has an item.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function item(): HasOne
+    public function item(): BelongsTo
     {
-        return $this->hasOne(Item::class);
+        return $this->belongsTo(Item::class);
     }
 }

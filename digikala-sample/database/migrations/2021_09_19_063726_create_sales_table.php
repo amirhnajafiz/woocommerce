@@ -13,7 +13,7 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sale', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->id();
 
             $table->string('code', \App\Enums\Limit::NAME())
@@ -33,6 +33,6 @@ class CreateSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sale');
+        Schema::dropIfExists('sales');
     }
 }

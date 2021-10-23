@@ -63,10 +63,10 @@ class Category extends Model
     /**
      * Each category has items.
      *
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function items(): HasMany
+    public function items(): BelongsToMany
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
     }
 }

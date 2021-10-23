@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class Payment for user payment.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Payment extends Model
 {

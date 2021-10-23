@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
+use App\Enums\Role;
+use App\Enums\Status;
+use App\Http\Requests\UpdateCartRequest;
+use App\Models\Cart;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class CartController for managing user carts.
@@ -23,73 +25,84 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        return view('utils.cart.index')
-            ->with('user', Auth::user());
-    }
+        $carts = Auth::user()->carts
+            ->filter(function ($cart) {
+               return
+                   $cart->status == Status::ORDER() ||
+                   $cart->status == Status::READY() ||
+                   $cart->status == Status::SEND();
+            });
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
+        return view('utils.cart.index')
+            ->with('carts', $carts)
+            ->with('user', Auth::user());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(): RedirectResponse
     {
-        //
+        Cart::query()
+            ->create([
+                'user_id' => Auth::id()
+            ]);
+        return redirect()
+            ->route('cart.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Cart $cart
+     * @return View|RedirectResponse
      */
-    public function show($id)
+    public function show(Cart $cart)
     {
-        //
-    }
+        if (!Gate::check('payable-item', [$cart]) && Auth::user()->role != Role::ADMIN()) {
+            return redirect()->route('cart.index');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
+        return view('utils.cart.show')
+            ->with('cart', $cart)
+            ->with('user', Auth::user());
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param UpdateCartRequest $request
+     * @param Cart $cart
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCartRequest $request, Cart $cart): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $user = Auth::user();
+
+        $user->update([
+                'cart_id' => $validated['mode'] == 'select' ? $cart->id : null
+            ]);
+
+        $user->save();
+
+        return redirect()
+            ->route('cart.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Cart $cart
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Cart $cart): RedirectResponse
     {
-        //
+        $cart->delete();
+        return redirect()
+            ->route('cart.index');
     }
 }

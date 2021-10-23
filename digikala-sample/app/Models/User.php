@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,10 +11,6 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-// TODO: Igenr loading
-// TODO: Casting
-// TODO: Append
-
 
 /**
  * Class User.
@@ -24,6 +19,8 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable
 {
+    protected $table = 'user';
+
     // Traits
     use HasApiTokens;
     use HasFactory;
@@ -41,6 +38,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'role',
+        'cart_id',
         'password',
     ];
 
