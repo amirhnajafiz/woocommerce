@@ -41,10 +41,10 @@ class Order extends Model
     /**
      * Each order has an item.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function item(): HasOne
+    public function item(): BelongsTo
     {
-        return $this->hasOne(Item::class);
+        return $this->belongsTo(Item::class);
     }
 }

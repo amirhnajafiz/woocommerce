@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUpdateCategoryRequest;
+use App\Http\Requests\CreateUpdateOrderRequest;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,16 +15,17 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param CreateUpdateOrderRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(CreateUpdateOrderRequest $request): RedirectResponse
     {
+        $validated = $request->validated();
         $cart_id = Auth::user()->cart_id;
 
         Order::query()->create([
             'cart_id' => $cart_id,
-            'item_id' => $request->get('item_id'),
+            'item_id' => $validated['item_id'],
             'number' => 1
         ]);
 
