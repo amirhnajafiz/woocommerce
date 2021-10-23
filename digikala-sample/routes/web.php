@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SuperAdmin\AdminCartController;
+use App\Http\Controllers\SuperAdmin\AdminController;
 use App\Http\Controllers\SuperAdmin\AdminPaymentController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
@@ -35,6 +36,9 @@ Route::middleware(['auth', 'can:super-admin'])->group(function () {
     // Admin routes
     Route::view('/super-admin', 'admin.welcome')
         ->name('super.admin');
+
+    // Admin resource controller
+    Route::resource('admin', AdminController::class);
 
     // Item resource controller
     Route::resource('item', ItemController::class)
