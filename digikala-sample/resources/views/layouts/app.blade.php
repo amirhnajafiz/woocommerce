@@ -56,8 +56,15 @@
                 }
             }
 
+            .nav {
+                padding-left: 40px;
+                display: block;
+            }
+
             .inline-nav {
                 display: block;
+                padding: 10px 0;
+                border-left: 3px solid #393939;
                 padding-left: 40px !important;
             }
         </style>

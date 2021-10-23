@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Auth/RegisteredUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/Auth/RegisteredUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_042106_create_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_042106_create_items_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_055906_create_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_055906_create_carts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_061331_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_061331_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_062009_create_address_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_062009_create_address_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_10_23_064124_add_cart_id_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_10_23_064124_add_cart_id_to_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Menu/MenuMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Menu/MenuMaker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +233,7 @@
       <workItem from="1634928089736" duration="261000" />
       <workItem from="1634969499721" duration="11286000" />
       <workItem from="1634983600703" duration="4491000" />
-      <workItem from="1634999380576" duration="6832000" />
+      <workItem from="1634999380576" duration="9014000" />
     </task>
     <servers />
   </component>
