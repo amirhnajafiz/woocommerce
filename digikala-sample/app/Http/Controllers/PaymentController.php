@@ -6,8 +6,6 @@ use App\Enums\Status;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Cart;
 use App\Models\Payment;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
