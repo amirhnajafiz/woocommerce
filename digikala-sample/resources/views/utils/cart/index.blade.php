@@ -45,13 +45,16 @@
                     <div class="p-6 bg-white border-b border-gray-200">
                         No carts yet, create one now.
                     </div>
-                    <div class="p-6 bg-white border-b border-gray-200">
-                        <a href="{{ route('cart.create') }}" class="btn btn-success">
-                            Create new cart
-                        </a>
-                    </div>
                 </div>
             </div>
         @endforelse
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
+            <form action="{{ route('cart.store') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-success">
+                    Create new cart
+                </button>
+            </form>
+        </div>
     </div>
 </x-app-layout>

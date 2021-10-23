@@ -56,7 +56,8 @@ Route::middleware(['auth'])->group(function () {
         ->only(['show']);
 
     // User carts
-    Route::resource('cart', CartController::class);
+    Route::resource('cart', CartController::class)
+        ->except(['create', 'edit']);
 });
 
 require __DIR__ . '/auth.php';
