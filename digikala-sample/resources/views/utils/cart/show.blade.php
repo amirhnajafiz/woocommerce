@@ -9,36 +9,42 @@
                         <div class="col-4">
                             {{ 'Item: ' . $order->item->name }}
                         </div>
-                        <div class="col-8 row m-0">
-                            <div class="col-8">
-                                <form action="{{ route('order.update', $order->id) }}" method="post">
-                                    @csrf
-                                    @method('put')
-                                    <label for="number">Number: </label>
-                                    <input
-                                        style="padding: 10px; width: 120px;"
-                                        id="number"
-                                        type="number"
-                                        name="number"
-                                        min="1"
-                                        max="20"
-                                        value="{{ $order->number }}"
-                                    />
-                                    <button type="submit" class="btn btn-dark">
-                                        Update
-                                    </button>
-                                </form>
+                        @if($cart->status == \App\Enums\Status::ORDER())
+                            <div class="col-8 row m-0">
+                                <div class="col-8">
+                                    <form action="{{ route('order.update', $order->id) }}" method="post">
+                                        @csrf
+                                        @method('put')
+                                        <label for="number">Number: </label>
+                                        <input
+                                            style="padding: 10px; width: 120px;"
+                                            id="number"
+                                            type="number"
+                                            name="number"
+                                            min="1"
+                                            max="20"
+                                            value="{{ $order->number }}"
+                                        />
+                                        <button type="submit" class="btn btn-dark">
+                                            Update
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-4">
+                                    <form action="{{ route('order.destroy', $order->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">
+                                            Remove
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="col-4">
-                                <form action="{{ route('order.destroy', $order->id) }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger">
-                                        Remove
-                                    </button>
-                                </form>
+                        @else
+                            <div class="col-8 row m-0">
+                                Number: {{ $order->number }}
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -51,13 +57,15 @@
                 </div>
             </div>
         @endforelse
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
-            <a href="{{ route('cart.index') }}" class="btn btn-primary">
-                Back
-            </a>
-            <a href="{{ route('payment.index', $cart->id) }}" class="btn btn-success">
-                Go to payment
-            </a>
-        </div>
+        @if($cart->status == \App\Enums\Status::ORDER())
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
+                <a href="{{ route('cart.index') }}" class="btn btn-primary">
+                    Back
+                </a>
+                <a href="{{ route('payment.index', $cart->id) }}" class="btn btn-success">
+                    Go to payment
+                </a>
+            </div>
+        @endif
     </div>
 </x-app-layout>
