@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            @if($item->isSpecial())
+                            @if(!$item->isSpecial())
                                 <form action="{{ route('special.store') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="item_id" value="{{ $item->id }}" />

@@ -88,6 +88,6 @@ class Item extends Model
      */
     public function isSpecial(): bool
     {
-        return !SpecialItem::all()->keyBy('item_id')->has($this->attributes['id']);
+        return SpecialItem::all()->keyBy('item_id')->has($this->attributes['id']);
     }
 }

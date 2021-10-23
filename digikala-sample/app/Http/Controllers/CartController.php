@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,7 +24,9 @@ class CartController extends Controller
      */
     public function index(): View
     {
+        $carts = Auth::user()->carts;
         return view('utils.cart.index')
+            ->with('carts', $carts)
             ->with('user', Auth::user());
     }
 
