@@ -73,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
         ->except(['create', 'edit']);
 
     // Cart orders
-    Route::resource('cart', OrderController::class)
+    Route::resource('order', OrderController::class)
         ->only(['store', 'update', 'destroy']);
 
     // User addresses

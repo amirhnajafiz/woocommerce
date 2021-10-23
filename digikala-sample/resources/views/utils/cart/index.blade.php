@@ -12,10 +12,10 @@
     </div>
     <div class="p-12">
         @forelse($carts as $cart)
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-1 py-2 shadow">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div
-                        class="row m-0 p-6 {{ $user->cart_id == $cart->id ? 'bg-success text-light' : 'bg-white border-b' }} border-gray-200">
+                        class="row m-0 p-6 {{ $user->cart_id == $cart->id ? 'bg-success text-light' : 'bg-white' }} border-gray-200">
                         <div class="col-2">
                             {{ 'Status: ' . $cart->status }}
                         </div>
@@ -34,7 +34,7 @@
                                             value="{{ $user->cart_id != $cart->id ? 'select' : 'unselect' }}"
                                         />
                                         <button type="submit" class="btn btn-warning">
-                                            Select
+                                            {{ $user->cart_id == $cart->id ? 'Unselect' : 'Select' }}
                                         </button>
                                     </form>
                                 </div>
@@ -57,16 +57,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-    @empty
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    No carts yet, create one now.
+        @empty
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        No carts yet, create one now.
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforelse
+        @endforelse
+    </div>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
         <form action="{{ route('cart.store') }}" method="post">
             @csrf

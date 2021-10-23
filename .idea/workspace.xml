@@ -5,13 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Enums/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Enums/Status.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/AdminCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/SuperAdmin/AdminCartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/admin/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/admin/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin-navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin-navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,7 +235,7 @@
       <workItem from="1634928089736" duration="261000" />
       <workItem from="1634969499721" duration="11286000" />
       <workItem from="1634983600703" duration="4491000" />
-      <workItem from="1634999380576" duration="2826000" />
+      <workItem from="1634999380576" duration="3510000" />
     </task>
     <servers />
   </component>
