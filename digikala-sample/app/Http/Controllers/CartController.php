@@ -50,12 +50,14 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Cart $cart
+     * @return View
      */
-    public function show($id)
+    public function show(Cart $cart): View
     {
-        //
+        return view('utils.cart.show')
+            ->with('cart', $cart)
+            ->with('user', Auth::user());
     }
 
     /**
