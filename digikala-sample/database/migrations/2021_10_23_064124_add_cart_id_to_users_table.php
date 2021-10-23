@@ -13,7 +13,7 @@ class AddCartIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('user', function (Blueprint $table) {
             $table->foreignId('cart_id')
                 ->nullable(true)
                 ->default(null)
@@ -30,7 +30,7 @@ class AddCartIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('user', function (Blueprint $table) {
             $table->dropConstrainedForeignId('cart_id');
         });
     }

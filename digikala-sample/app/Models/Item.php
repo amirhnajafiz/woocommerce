@@ -29,14 +29,9 @@ class Item extends Model
     protected $fillable = [
         'name',
         'slug',
-        'view',
-        'sell',
-        'favorite',
         'price',
         'number',
-        'score',
-        'brand_id',
-        'properties'
+        'brand_id'
     ];
 
     /**
@@ -48,7 +43,6 @@ class Item extends Model
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
-        $this->attributes['properties'] = '';
     }
 
     /**

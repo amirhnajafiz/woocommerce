@@ -22,22 +22,13 @@ class CreateCommentsTable extends Migration
 
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('users')
+                ->on('user')
                 ->cascadeOnDelete();
 
             $table->foreignId('item_id')
                 ->references('id')
                 ->on('items')
                 ->cascadeOnDelete();
-
-            $table->float('rate')
-                ->default(0);
-
-            $table->integer('likes')
-                ->default(0);
-
-            $table->integer('dislikes')
-                ->default(0);
 
             $table->timestamps();
         });
