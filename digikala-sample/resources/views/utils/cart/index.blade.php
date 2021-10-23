@@ -14,7 +14,7 @@
         @forelse($carts as $cart)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="row m-0 p-6 {{ $user->cart_id == $cart->id ? 'bg-secondary' : 'bg-white' }} border-b border-gray-200">
+                    <div class="row m-0 p-6 {{ $user->cart_id == $cart->id ? 'bg-success text-light' : 'bg-white border-b' }} border-gray-200">
                         <div class="col-2">
                             {{ 'Status: ' . $cart->status }}
                         </div>
@@ -23,9 +23,18 @@
                         </div>
                         <div class="col-4 row m-0">
                             <div class="col-4">
-                                <a href="#" class="btn btn-warning">
-                                    Select
-                                </a>
+                                <form action="{{ route('cart.update', $cart->id) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <input
+                                        type="hidden"
+                                        name="mode"
+                                        value="{{ $user->cart_id != $cart->id ? 'select' : 'unselect' }}"
+                                    />
+                                    <button type="submit" class="btn btn-warning">
+                                        Select
+                                    </button>
+                                </form>
                             </div>
                             <div class="col-4">
                                 <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary">

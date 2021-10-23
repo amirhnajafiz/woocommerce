@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -60,13 +61,24 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param UpdateCartRequest $request
+     * @param Cart $cart
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCartRequest $request, Cart $cart): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $user = Auth::user();
+
+        $user->update([
+                'cart_id' => $validated['mode'] == 'select' ? $cart->id : null
+            ]);
+
+        $user->save();
+
+        return redirect()
+            ->route('cart.index');
     }
 
     /**
