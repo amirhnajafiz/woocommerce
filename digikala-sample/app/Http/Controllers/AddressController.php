@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUpdateAddressRequest;
 use App\Models\Address;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -41,12 +40,18 @@ class AddressController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param CreateUpdateAddressRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(CreateUpdateAddressRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = Auth::id();
+
+        Address::query()->create($validated);
+
+        return redirect()
+            ->route('address.index');
     }
 
     /**
@@ -76,13 +81,19 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param CreateUpdateAddressRequest $request
+     * @param Address $address
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateAddressRequest $request, Address $address): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $address->update($validated);
+        $address->save();
+
+        return redirect()
+            ->route('address.show', $address->id);
     }
 
     /**
