@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_062659_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_062659_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_063726_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_063726_create_sales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +235,7 @@
       <workItem from="1634818340501" duration="3420000" />
       <workItem from="1634928089736" duration="261000" />
       <workItem from="1634969499721" duration="11286000" />
-      <workItem from="1634983600703" duration="1379000" />
+      <workItem from="1634983600703" duration="2311000" />
     </task>
     <servers />
   </component>

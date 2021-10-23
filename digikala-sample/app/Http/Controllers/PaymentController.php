@@ -8,9 +8,9 @@ use App\Models\Cart;
 use App\Models\Payment;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class PaymentController for handling the user payment.
@@ -27,6 +27,10 @@ class PaymentController extends Controller
      */
     public function index(Cart $cart): View
     {
+        if (!Gate::check('payable-item', [$cart])) {
+            abort(301);
+        }
+
         $addresses = Auth::user()->addresses;
 
         return view('utils.payment.index')
@@ -82,6 +86,12 @@ class PaymentController extends Controller
                 ]);
                 $cart->save();
             }
+
+            Auth::user()->update([
+               'cart_id' => null
+            ]);
+
+            Auth::user()->save();
         });
 
         return redirect()

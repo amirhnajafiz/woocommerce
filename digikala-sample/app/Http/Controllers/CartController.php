@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Status;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use Illuminate\Contracts\View\View;
@@ -22,7 +23,14 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        $carts = Auth::user()->carts;
+        $carts = Auth::user()->carts
+            ->filter(function ($cart) {
+               return
+                   $cart->status == Status::ORDER() ||
+                   $cart->status == Status::READY() ||
+                   $cart->status == Status::SEND();
+            });
+
         return view('utils.cart.index')
             ->with('carts', $carts)
             ->with('user', Auth::user());

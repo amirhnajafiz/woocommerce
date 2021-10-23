@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -16,7 +17,7 @@ class PaymentRequest extends FormRequest
     public function authorize(): bool
     {
         $cart = $this->route('cart');
-        return Auth::id() == $cart->user_id;
+        return Auth::id() == $cart->user_id && $cart->status == Status::ORDER();
     }
 
     /**
