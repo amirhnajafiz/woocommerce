@@ -35,7 +35,7 @@
                             Price: {{ $special->item->price }}$
                         </small>
                         <small style="color: #000000;">
-                            <form action="{{ route('cart.store') }}" method="post">
+                            <form action="{{ route('order.store') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="item_id" value="{{ $special->item->id }}" />
                                 <button type="submit" class="rounded bg-light p-1">
