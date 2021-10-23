@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * Class Order for user order.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Order extends Model
 {

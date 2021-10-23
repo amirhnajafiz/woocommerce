@@ -5,6 +5,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SuperAdmin\AdminOrderController;
+use App\Http\Controllers\SuperAdmin\AdminPaymentController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
 use App\Http\Controllers\SuperAdmin\ItemController;
@@ -46,6 +48,14 @@ Route::middleware(['auth', 'can:super-admin'])->group(function () {
 
     // Category resource controller
     Route::resource('category', CategoryController::class);
+
+    // Payments resource controller
+    Route::resource('admin-payment', AdminPaymentController::class)
+        ->only(['index', 'destroy']);
+
+    // Orders resource controller
+    Route::resource('admin-order', AdminOrderController::class)
+        ->only(['index', 'update', 'destroy']);
 });
 
 // User routes
