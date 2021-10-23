@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -63,6 +64,9 @@ Route::middleware(['auth'])->group(function () {
     // Cart orders
     Route::resource('order', OrderController::class)
         ->only(['store', 'update', 'destroy']);
+
+    // User addresses
+    Route::resource('address', AddressController::class);
 });
 
 require __DIR__ . '/auth.php';
