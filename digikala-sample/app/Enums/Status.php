@@ -11,7 +11,7 @@ use MyCLabs\Enum\Enum;
  */
 final class Status extends Enum
 {
-    private const ORDER = 'order';
+    private const ORDER = 'cart';
     private const READY = 'ready';
     private const SEND = 'send';
     private const DELIVERED = 'delivered';

@@ -19,49 +19,61 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary">
+                            <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary my-2">
                                 View Cart
                             </a>
-                            <form action="{{ route('admin-cart.update', $cart->id) }}" method="post">
+                            <form action="{{ route('admin-cart.update', $cart->id) }}" method="post" class="my-2">
                                 @csrf
                                 @method('put')
-                                <label for="status">
+                                <label for="{{ 'status' . $cart->id }}">
                                     Status:
                                 </label>
-                                <select id="status" name="status">
+                                <select class="bg-dark text-white" id="{{ 'status' . $cart->id }}" name="status">
                                     <option
                                         value="{{ \App\Enums\Status::ORDER() }}"
-                                        {{ $cart->status == \App\Enums\Status::ORDER() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::ORDER())
+                                            selected
+                                        @endif
                                     >
                                         Order
                                     </option>
                                     <option
                                         value="{{ \App\Enums\Status::FAILED() }}"
-                                        {{ $cart->status == \App\Enums\Status::FAILED() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::FAILED())
+                                            selected
+                                        @endif
                                     >
                                         Failed
                                     </option>
                                     <option
                                         value="{{ \App\Enums\Status::STORE_FAIL() }}"
-                                        {{ $cart->status == \App\Enums\Status::STORE_FAIL() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::STORE_FAIL())
+                                            selected
+                                        @endif
                                     >
                                         Failed cause of store
                                     </option>
                                     <option
                                         value="{{ \App\Enums\Status::READY() }}"
-                                        {{ $cart->status == \App\Enums\Status::READY() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::READY())
+                                            selected
+                                        @endif
                                     >
                                         Ready
                                     </option>
                                     <option
                                         value="{{ \App\Enums\Status::SEND() }}"
-                                        {{ $cart->status == \App\Enums\Status::SEND() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::SEND())
+                                            selected
+                                        @endif
                                     >
                                         Sent
                                     </option>
                                     <option
                                         value="{{ \App\Enums\Status::DELIVERED() }}"
-                                        {{ $cart->status == \App\Enums\Status::DELIVERED() ? 'selected' : '' }}
+                                        @if($cart->status == \App\Enums\Status::DELIVERED())
+                                            selected
+                                        @endif
                                     >
                                         Delivered
                                     </option>
@@ -70,7 +82,7 @@
                                     Update
                                 </button>
                             </form>
-                            <form action="{{ route('admin-cart.destroy', $cart->id) }}" method="post">
+                            <form action="{{ route('admin-cart.destroy', $cart->id) }}" method="post" class="my-2">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">

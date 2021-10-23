@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Http\Requests\AdminUpdateCartRequest;
 use App\Models\Cart;
-use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class AdminCartController for managing orders.
@@ -25,32 +25,42 @@ class AdminCartController extends Controller
     {
         $carts = Cart::paginate(6);
 
-        return view('admin.payment.index')
-            ->with('orders', $carts);
+        return view('admin.cart.index')
+            ->with('carts', $carts);
     }
 
     /**
-     * Handling the order modification.
+     * Handling the cart modification.
      *
-     * @param Request $request
-     * @param Order $order
+     * @param AdminUpdateCartRequest $request
+     * @param $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, Order $order)
+    public function update(AdminUpdateCartRequest $request, $id): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $cart = Cart::query()->findOrFail($id);
+
+        $cart->update([
+            'status' => $validated['status']
+        ]);
+
+        $cart->save();
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Order $order
+     * @param Cart $cart
      * @return RedirectResponse
      */
-    public function destroy(Order $order): RedirectResponse
+    public function destroy(Cart $cart): RedirectResponse
     {
-        $order->delete();
+        $cart->delete();
 
         return redirect()
-            ->route('admin-order.index');
+            ->route('admin-cart.index');
     }
 }

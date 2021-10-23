@@ -3972,7 +3972,7 @@ function extend(a, b, thisArg) {
 }
 
 /**
- * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ * Remove byte cart marker. This catches EF BB BF (the UTF-8 BOM)
  *
  * @param {string} content with BOM
  * @return {string} content value without BOM
@@ -4273,7 +4273,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   /** Used to match Latin Unicode letters (excluding mathematical operators). */
   var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
 
-  /** Used to ensure capturing order of template delimiters. */
+  /** Used to ensure capturing cart of template delimiters. */
   var reNoMatch = /($^)/;
 
   /** Used to match unescaped characters in compiled string literals. */
@@ -4996,12 +4996,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
   /**
    * The base implementation of `_.sortBy` which uses `comparer` to define the
-   * sort order of `array` and replaces criteria objects with their corresponding
+   * sort cart of `array` and replaces criteria objects with their corresponding
    * values.
    *
    * @private
    * @param {Array} array The array to sort.
-   * @param {Function} comparer The function to define sort order.
+   * @param {Function} comparer The function to define sort cart.
    * @returns {Array} Returns `array`.
    */
   function baseSortBy(array, comparer) {
@@ -7074,7 +7074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This function is like `baseFor` except that it iterates over properties
-     * in the opposite order.
+     * in the opposite cart.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -7821,7 +7821,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function[]|Object[]|string[]} iteratees The iteratees to sort by.
-     * @param {string[]} orders The sort order of `iteratees`.
+     * @param {string[]} orders The sort cart of `iteratees`.
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
@@ -8208,7 +8208,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * The base implementation of `_.sortedIndex` and `_.sortedLastIndex` which
      * performs a binary search of `array` to determine the index at which `value`
-     * should be inserted into `array` in order to maintain its sort order.
+     * should be inserted into `array` in cart to maintain its sort cart.
      *
      * @private
      * @param {Array} array The sorted array to inspect.
@@ -8704,12 +8704,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Compares values to sort them in ascending order.
+     * Compares values to sort them in ascending cart.
      *
      * @private
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {number} Returns the sort order indicator for `value`.
+     * @returns {number} Returns the sort cart indicator for `value`.
      */
     function compareAscending(value, other) {
       if (value !== other) {
@@ -8745,15 +8745,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Used by `_.orderBy` to compare multiple properties of a value to another
      * and stable sort them.
      *
-     * If `order` is unspecified, all values are sorted in ascending order. Otherwise,
-     * specify an order of "desc" for descending or "asc" for ascending sort order
+     * If `cart` is unspecified, all values are sorted in ascending cart. Otherwise,
+     * specify an cart of "desc" for descending or "asc" for ascending sort cart
      * of corresponding values.
      *
      * @private
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
-     * @param {boolean[]|string[]} orders The order to sort by for each property.
-     * @returns {number} Returns the sort order indicator for `object`.
+     * @param {boolean[]|string[]} orders The cart to sort by for each property.
+     * @returns {number} Returns the sort cart indicator for `object`.
      */
     function compareMultiple(object, other, orders) {
       var index = -1,
@@ -10566,8 +10566,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
      * This is possible because methods like `_.bind`, `_.curry`, and `_.partial`
-     * may be applied regardless of execution order. Methods like `_.ary` and
-     * `_.rearg` modify function arguments, making the order in which they are
+     * may be applied regardless of execution cart. Methods like `_.ary` and
+     * `_.rearg` modify function arguments, making the cart in which they are
      * executed important, preventing the merging of metadata. However, we make
      * an exception for a safe combined case where curried functions have `_.ary`
      * and or `_.rearg` applied.
@@ -11054,7 +11054,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of `array` values not included in the other given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order and references of result values are
+     * for equality comparisons. The cart and references of result values are
      * determined by the first array.
      *
      * **Note:** Unlike `_.pullAll`, this method returns a new array.
@@ -11081,7 +11081,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.difference` except that it accepts `iteratee` which
      * is invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. The order and references of result values are
+     * by which they're compared. The cart and references of result values are
      * determined by the first array. The iteratee is invoked with one argument:
      * (value).
      *
@@ -11116,7 +11116,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.difference` except that it accepts `comparator`
-     * which is invoked to compare elements of `array` to `values`. The order and
+     * which is invoked to compare elements of `array` to `values`. The cart and
      * references of result values are determined by the first array. The comparator
      * is invoked with two arguments: (arrVal, othVal).
      *
@@ -11609,7 +11609,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of unique values that are included in all given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order and references of result values are
+     * for equality comparisons. The cart and references of result values are
      * determined by the first array.
      *
      * @static
@@ -11633,7 +11633,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.intersection` except that it accepts `iteratee`
      * which is invoked for each element of each `arrays` to generate the criterion
-     * by which they're compared. The order and references of result values are
+     * by which they're compared. The cart and references of result values are
      * determined by the first array. The iteratee is invoked with one argument:
      * (value).
      *
@@ -11669,7 +11669,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.intersection` except that it accepts `comparator`
-     * which is invoked to compare elements of `arrays`. The order and references
+     * which is invoked to compare elements of `arrays`. The cart and references
      * of result values are determined by the first array. The comparator is
      * invoked with two arguments: (arrVal, othVal).
      *
@@ -12054,7 +12054,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Uses a binary search to determine the lowest index at which `value`
-     * should be inserted into `array` in order to maintain its sort order.
+     * should be inserted into `array` in cart to maintain its sort cart.
      *
      * @static
      * @memberOf _
@@ -12131,8 +12131,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.sortedIndex` except that it returns the highest
-     * index at which `value` should be inserted into `array` in order to
-     * maintain its sort order.
+     * index at which `value` should be inserted into `array` in cart to
+     * maintain its sort cart.
      *
      * @static
      * @memberOf _
@@ -12420,7 +12420,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an array of unique values, in order, from all given arrays using
+     * Creates an array of unique values, in cart, from all given arrays using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * for equality comparisons.
      *
@@ -12501,7 +12501,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Creates a duplicate-free version of an array, using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * for equality comparisons, in which only the first occurrence of each element
-     * is kept. The order of result values is determined by the order they occur
+     * is kept. The cart of result values is determined by the cart they occur
      * in the array.
      *
      * @static
@@ -12522,8 +12522,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.uniq` except that it accepts `iteratee` which is
      * invoked for each element in `array` to generate the criterion by which
-     * uniqueness is computed. The order of result values is determined by the
-     * order they occur in the array. The iteratee is invoked with one argument:
+     * uniqueness is computed. The cart of result values is determined by the
+     * cart they occur in the array. The iteratee is invoked with one argument:
      * (value).
      *
      * @static
@@ -12548,8 +12548,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.uniq` except that it accepts `comparator` which
-     * is invoked to compare elements of `array`. The order of result values is
-     * determined by the order they occur in the array.The comparator is invoked
+     * is invoked to compare elements of `array`. The cart of result values is
+     * determined by the cart they occur in the array.The comparator is invoked
      * with two arguments: (arrVal, othVal).
      *
      * @static
@@ -12669,7 +12669,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of unique values that is the
      * [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
-     * of the given arrays. The order of result values is determined by the order
+     * of the given arrays. The cart of result values is determined by the cart
      * they occur in the arrays.
      *
      * @static
@@ -12691,8 +12691,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.xor` except that it accepts `iteratee` which is
      * invoked for each element of each `arrays` to generate the criterion by
-     * which by which they're compared. The order of result values is determined
-     * by the order they occur in the arrays. The iteratee is invoked with one
+     * which by which they're compared. The cart of result values is determined
+     * by the cart they occur in the arrays. The iteratee is invoked with one
      * argument: (value).
      *
      * @static
@@ -12721,8 +12721,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.xor` except that it accepts `comparator` which is
-     * invoked to compare elements of `arrays`. The order of result values is
-     * determined by the order they occur in the arrays. The comparator is invoked
+     * invoked to compare elements of `arrays`. The cart of result values is
+     * determined by the cart they occur in the arrays. The comparator is invoked
      * with two arguments: (arrVal, othVal).
      *
      * @static
@@ -12871,7 +12871,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method invokes `interceptor` and returns `value`. The interceptor
      * is invoked with one argument; (value). The purpose of this method is to
-     * "tap into" a method chain sequence in order to modify intermediate results.
+     * "tap into" a method chain sequence in cart to modify intermediate results.
      *
      * @static
      * @memberOf _
@@ -13467,7 +13467,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+     * // => Logs 'a' then 'b' (iteration cart is not guaranteed).
      */
     function forEach(collection, iteratee) {
       var func = isArray(collection) ? arrayEach : baseEach;
@@ -13501,8 +13501,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Creates an object composed of keys generated from the results of running
-     * each element of `collection` thru `iteratee`. The order of grouped values
-     * is determined by the order they occur in `collection`. The corresponding
+     * each element of `collection` thru `iteratee`. The cart of grouped values
+     * is determined by the cart they occur in `collection`. The corresponding
      * value of each key is an array of elements responsible for generating the
      * key. The iteratee is invoked with one argument: (value).
      *
@@ -13670,7 +13670,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * // => [16, 64]
      *
      * _.map({ 'a': 4, 'b': 8 }, square);
-     * // => [16, 64] (iteration order is not guaranteed)
+     * // => [16, 64] (iteration cart is not guaranteed)
      *
      * var user = [
      *   { 'user': 'barney' },
@@ -13688,9 +13688,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.sortBy` except that it allows specifying the sort
-     * order of the iteratees to sort by. If `order` is unspecified, all values
-     * are sorted in ascending order. Otherwise, specify an order of "desc" for
-     * descending or "asc" for ascending sort order of corresponding values.
+     * cart of the iteratees to sort by. If `cart` is unspecified, all values
+     * are sorted in ascending cart. Otherwise, specify an cart of "desc" for
+     * descending or "asc" for ascending sort cart of corresponding values.
      *
      * @static
      * @memberOf _
@@ -13699,7 +13699,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]
      *  The iteratees to sort by.
-     * @param {string[]} [orders] The sort order of `iteratees`.
+     * @param {string[]} [orders] The sort cart of `iteratees`.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
      * @returns {Array} Returns the new sorted array.
      * @example
@@ -13711,7 +13711,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *   { 'user': 'barney', 'age': 36 }
      * ];
      *
-     * // Sort by `user` in ascending order and by `age` in descending order.
+     * // Sort by `user` in ascending cart and by `age` in descending cart.
      * _.orderBy(user, ['user', 'age'], ['asc', 'desc']);
      * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      */
@@ -13804,7 +13804,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *   (result[value] || (result[value] = [])).push(key);
      *   return result;
      * }, {});
-     * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
+     * // => { '1': ['a', 'c'], '2': ['b'] } (iteration cart is not guaranteed)
      */
     function reduce(collection, iteratee, accumulator) {
       var func = isArray(collection) ? arrayReduce : baseReduce,
@@ -14030,9 +14030,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an array of elements, sorted in ascending order by the results of
+     * Creates an array of elements, sorted in ascending cart by the results of
      * running each element in a collection thru each iteratee. This method
-     * performs a stable sort, that is, it preserves the original sort order of
+     * performs a stable sort, that is, it preserves the original sort cart of
      * equal elements. The iteratees are invoked with one argument: (value).
      *
      * @static
@@ -16991,7 +16991,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * };
      *
      * _.findKey(user, function(o) { return o.age < 40; });
-     * // => 'barney' (iteration order is not guaranteed)
+     * // => 'barney' (iteration cart is not guaranteed)
      *
      * // The `_.matches` iteratee shorthand.
      * _.findKey(user, { 'age': 1, 'active': true });
@@ -17011,7 +17011,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.findKey` except that it iterates over elements of
-     * a collection in the opposite order.
+     * a collection in the opposite cart.
      *
      * @static
      * @memberOf _
@@ -17074,7 +17074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forIn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a', 'b', then 'c' (iteration order is not guaranteed).
+     * // => Logs 'a', 'b', then 'c' (iteration cart is not guaranteed).
      */
     function forIn(object, iteratee) {
       return object == null
@@ -17084,7 +17084,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.forIn` except that it iterates over properties of
-     * `object` in the opposite order.
+     * `object` in the opposite cart.
      *
      * @static
      * @memberOf _
@@ -17140,7 +17140,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forOwn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+     * // => Logs 'a' then 'b' (iteration cart is not guaranteed).
      */
     function forOwn(object, iteratee) {
       return object && baseForOwn(object, getIteratee(iteratee, 3));
@@ -17148,7 +17148,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.forOwn` except that it iterates over properties of
-     * `object` in the opposite order.
+     * `object` in the opposite cart.
      *
      * @static
      * @memberOf _
@@ -17430,7 +17430,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.keys(new Foo);
-     * // => ['a', 'b'] (iteration order is not guaranteed)
+     * // => ['a', 'b'] (iteration cart is not guaranteed)
      *
      * _.keys('hi');
      * // => ['0', '1']
@@ -17460,7 +17460,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.keysIn(new Foo);
-     * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+     * // => ['a', 'b', 'c'] (iteration cart is not guaranteed)
      */
     function keysIn(object) {
       return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
@@ -17519,11 +17519,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * };
      *
      * _.mapValues(user, function(o) { return o.age; });
-     * // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+     * // => { 'fred': 40, 'pebbles': 1 } (iteration cart is not guaranteed)
      *
      * // The `_.property` iteratee shorthand.
      * _.mapValues(user, 'age');
-     * // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+     * // => { 'fred': 40, 'pebbles': 1 } (iteration cart is not guaranteed)
      */
     function mapValues(object, iteratee) {
       var result = {};
@@ -17857,7 +17857,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.toPairs(new Foo);
-     * // => [['a', 1], ['b', 2]] (iteration order is not guaranteed)
+     * // => [['a', 1], ['b', 2]] (iteration cart is not guaranteed)
      */
     var toPairs = createToPairs(keys);
 
@@ -17883,7 +17883,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.toPairsIn(new Foo);
-     * // => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
+     * // => [['a', 1], ['b', 2], ['c', 3]] (iteration cart is not guaranteed)
      */
     var toPairsIn = createToPairs(keysIn);
 
@@ -18052,7 +18052,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.values(new Foo);
-     * // => [1, 2] (iteration order is not guaranteed)
+     * // => [1, 2] (iteration cart is not guaranteed)
      *
      * _.values('hi');
      * // => ['h', 'i']
@@ -18083,7 +18083,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.valuesIn(new Foo);
-     * // => [1, 2, 3] (iteration order is not guaranteed)
+     * // => [1, 2, 3] (iteration cart is not guaranteed)
      */
     function valuesIn(object) {
       return object == null ? [] : baseValues(object, keysIn(object));
@@ -18960,7 +18960,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         index = offset + match.length;
 
         // The JS engine embedded in Adobe products needs `match` returned in
-        // order to produce the correct `offset` value.
+        // cart to produce the correct `offset` value.
         return match;
       });
 
@@ -20119,7 +20119,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.range` except that it populates values in
-     * descending order.
+     * descending cart.
      *
      * @static
      * @memberOf _

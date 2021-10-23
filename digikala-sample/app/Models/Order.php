@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * Class Order for user order.
+ * Class Order for user cart.
  *
  * @package App\Models
  * @method static paginate(int $int)
@@ -30,7 +30,7 @@ class Order extends Model
     ];
 
     /**
-     * Each order belongs to a cart.
+     * Each cart belongs to a cart.
      *
      * @return BelongsTo
      */
@@ -40,7 +40,7 @@ class Order extends Model
     }
 
     /**
-     * Each order has an item.
+     * Each cart has an item.
      *
      * @return BelongsTo
      */

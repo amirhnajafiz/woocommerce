@@ -19,9 +19,9 @@
        class="list-group-item list-group-item-action px-5 py-3 bg-dark text-light disabled">
         <del> Users</del>
     </a>
-    <a href="#"
-       class="list-group-item list-group-item-action px-5 py-3 bg-dark text-light disabled">
-        <del> Orders</del>
+    <a href="{{ route('admin-cart.index') }}"
+       class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('admin-cart.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
+        Carts
     </a>
     <a href="{{ route('admin-payment.index') }}"
        class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('admin-payment.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">

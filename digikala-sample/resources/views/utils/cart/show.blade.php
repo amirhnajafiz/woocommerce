@@ -12,7 +12,7 @@
                         @if($cart->status == \App\Enums\Status::ORDER())
                             <div class="col-8 row m-0">
                                 <div class="col-8">
-                                    <form action="{{ route('order.update', $order->id) }}" method="post">
+                                    <form action="{{ route('cart.update', $order->id) }}" method="post">
                                         @csrf
                                         @method('put')
                                         <label for="number">Number: </label>
@@ -31,7 +31,7 @@
                                     </form>
                                 </div>
                                 <div class="col-4">
-                                    <form action="{{ route('order.destroy', $order->id) }}" method="post">
+                                    <form action="{{ route('cart.destroy', $order->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger">
