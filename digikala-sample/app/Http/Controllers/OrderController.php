@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUpdateCategoryRequest;
 use App\Http\Requests\CreateUpdateOrderRequest;
+use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,11 +24,23 @@ class OrderController extends Controller
         $validated = $request->validated();
         $cart_id = Auth::user()->cart_id;
 
-        Order::query()->create([
-            'cart_id' => $cart_id,
-            'item_id' => $validated['item_id'],
-            'number' => 1
-        ]);
+        $orders = Cart::query()->findOrFail($cart_id)->orders;
+
+        if ($orders->keyBy('item_id')->has($validated['item_id'])) {
+            $order = $orders->filter(function ($order) use ($validated) {
+                return $order->item_id == $validated['item_id'];
+            })->first();
+            $order->update([
+                'number' => $order->number < 21 ? $order->number + 1 : $order->number,
+            ]);
+            $order->save();
+        } else {
+            Order::query()->create([
+                'cart_id' => $cart_id,
+                'item_id' => $validated['item_id'],
+                'number' => 1
+            ]);
+        }
 
         return redirect()
             ->route('cart.show', $cart_id);
