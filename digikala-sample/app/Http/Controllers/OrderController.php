@@ -6,10 +6,13 @@ use App\Http\Requests\CreateUpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class OrderController for managing the orders of cart.
+ *
+ * @package App\Http\Controllers
+ */
 class OrderController extends Controller
 {
     /**
