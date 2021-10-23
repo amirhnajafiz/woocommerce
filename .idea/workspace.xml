@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/UpdateCartRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/UpdateCartRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +231,7 @@
       <workItem from="1634818340501" duration="3420000" />
       <workItem from="1634928089736" duration="261000" />
       <workItem from="1634969499721" duration="11286000" />
-      <workItem from="1634983600703" duration="2311000" />
+      <workItem from="1634983600703" duration="2679000" />
     </task>
     <servers />
   </component>
