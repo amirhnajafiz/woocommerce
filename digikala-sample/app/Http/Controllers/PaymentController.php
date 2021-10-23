@@ -6,6 +6,8 @@ use App\Enums\Status;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Cart;
 use App\Models\Payment;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -23,12 +25,12 @@ class PaymentController extends Controller
      * The index page is the payment page.
      *
      * @param Cart $cart the current cart for payment
-     * @return View
+     * @return View|RedirectResponse
      */
-    public function index(Cart $cart): View
+    public function index(Cart $cart)
     {
         if (!Gate::check('payable-item', [$cart])) {
-            abort(301);
+            return redirect()->route('carts.index');
         }
 
         $addresses = Auth::user()->addresses;

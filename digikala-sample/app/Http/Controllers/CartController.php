@@ -8,6 +8,7 @@ use App\Models\Cart;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class CartController for managing user carts.
@@ -55,10 +56,14 @@ class CartController extends Controller
      * Display the specified resource.
      *
      * @param Cart $cart
-     * @return View
+     * @return View|RedirectResponse
      */
-    public function show(Cart $cart): View
+    public function show(Cart $cart)
     {
+        if (!Gate::check('payable-item', [$cart])) {
+            return redirect()->route('cart.index');
+        }
+
         return view('utils.cart.show')
             ->with('cart', $cart)
             ->with('user', Auth::user());
