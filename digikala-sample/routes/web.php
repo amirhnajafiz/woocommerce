@@ -66,7 +66,8 @@ Route::middleware(['auth'])->group(function () {
         ->only(['store', 'update', 'destroy']);
 
     // User addresses
-    Route::resource('address', AddressController::class);
+    Route::resource('address', AddressController::class)
+        ->except(['show']);
 });
 
 require __DIR__ . '/auth.php';

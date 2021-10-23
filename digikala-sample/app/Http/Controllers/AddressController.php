@@ -55,18 +55,6 @@ class AddressController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Address $address
-     * @return View
-     */
-    public function show(Address $address): View
-    {
-        return view('utils.address.show')
-            ->with('address', $address);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Address $address

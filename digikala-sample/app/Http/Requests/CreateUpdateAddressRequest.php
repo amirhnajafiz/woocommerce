@@ -27,8 +27,8 @@ class CreateUpdateAddressRequest extends FormRequest
             'state' => 'required|min:2|max:64',
             'city' => 'required|min:2|max:64',
             'address' => 'required|min:2|max:128',
-            'zip_code' => 'required|min:1|max:12',
-            'phone' => 'required|numeric|min:6|max:12'
+            'zip_code' => 'required|numeric|min:1|max:9999999999',
+            'phone' => 'required|min:6|max:18'
         ];
     }
 }

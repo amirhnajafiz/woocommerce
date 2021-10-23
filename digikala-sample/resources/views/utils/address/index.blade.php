@@ -15,12 +15,16 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-2">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="row m-0 p-6 bg-white border-b border-gray-200">
-                        <div class="col-2">
-                            <div class="row m-0">
+                        <div class="col-6">
+                            <div class="row m-0 h4">
                                 {{ $address->state . ' - ' . $address->city }}
                             </div>
-                            <div class="row m-0">
-                                <div class="h3">
+                            <div class="row m-0 pt-2">
+                                {{ 'Code: ' . $address->zip_code }}<br />
+                                {{ 'Phone: ' . $address->phone }}
+                            </div>
+                            <div class="row m-0 pt-4">
+                                <div class="h5">
                                     Address:
                                 </div>
                                 <div>
@@ -28,15 +32,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-10 row m-0">
+                        <div class="col-6 row m-0">
                             <div class="col-4">
                                 <a href="{{ route('address.edit', $address->id) }}" class="btn btn-primary">
                                     Modify
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ route('address.show', $address->id) }}" class="btn btn-dark">
-                                    See
                                 </a>
                             </div>
                             <div class="col-4">
@@ -56,7 +55,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        No carts yet, create one now.
+                        No addresses yet, create one now.
                     </div>
                 </div>
             </div>

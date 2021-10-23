@@ -39,6 +39,11 @@
                             {{ __('Cart') }}
                         </x-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('address.index')" :active="request()->routeIs('address.index')">
+                            {{ __('Address') }}
+                        </x-nav-link>
+                    </div>
                     @can('super-admin')
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-nav-link :href="route('super.admin')" :active="request()->routeIs('super.admin')" style="color: #fd5a24;">
