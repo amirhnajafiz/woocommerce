@@ -81,7 +81,7 @@ class AddressController extends Controller
         $address->save();
 
         return redirect()
-            ->route('address.show', $address->id);
+            ->route('address.index', $address->id);
     }
 
     /**
