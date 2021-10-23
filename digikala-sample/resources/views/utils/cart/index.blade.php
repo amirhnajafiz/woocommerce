@@ -42,9 +42,13 @@
                                 </a>
                             </div>
                             <div class="col-4">
-                                <a href="#" class="btn btn-danger">
-                                    Delete
-                                </a>
+                                <form action="{{ route('cart.destroy', $cart->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

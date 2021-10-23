@@ -19,7 +19,7 @@ class AddCartIdToUsersTable extends Migration
                 ->default(null)
                 ->references('id')
                 ->on('carts')
-                ->onDelete(null);
+                ->onDelete('set null');
         });
     }
 
