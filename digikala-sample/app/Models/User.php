@@ -11,10 +11,6 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-// TODO: Igenr loading
-// TODO: Casting
-// TODO: Append
-
 
 /**
  * Class User.

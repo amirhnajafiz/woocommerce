@@ -25,7 +25,7 @@
                         <td>
                             <form action="{{ route('admin.update', $user->id) }}" method="post">
                                 @csrf
-                                @method('delete')
+                                @method('put')
                                 <select name="role" class="bg-dark text-white">
                                     <option
                                         value="{{ \App\Enums\Role::USER() }}"

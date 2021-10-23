@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SuperAdminUpdateRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 
 /**
  * Class AdminController for admin user CRUD.
@@ -31,23 +31,33 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param SuperAdminUpdateRequest $request
+     * @param $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(SuperAdminUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $user = User::query()->where('id', '=', $id)->first();
+
+        $user->update([
+            'role' => $validated['role']
+        ]);
+
+        $user->save();
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param $id
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
-        //
+        User::query()->findOrFail($id)->delete();
+        return back();
     }
 }
