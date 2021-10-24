@@ -74,12 +74,13 @@ class PaymentController extends Controller
      * The pay method for handling the payment functionality.
      *
      * @param PaymentRequest $request
-     * @param Cart $cart the current cart
      * @return RedirectResponse
      */
-    public function store(PaymentRequest $request, Cart $cart): RedirectResponse
+    public function store(PaymentRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+
+        $cart = Cart::query()->findOrFail($validated['cart_id']);
         $status = true;
         $total = 0;
 

@@ -23,8 +23,9 @@
                         </div>
                     </div>
                 @endforeach
-                <form action="{{ route('payment.store', $cart->id) }}" method="post">
+                <form action="{{ route('payment.store') }}" method="post">
                     @csrf
+                    <input type="hidden" name="cart_id" value="{{ $cart->id }}" />
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
                         <label for="address" class="h4 p-6">
                             Select an address
