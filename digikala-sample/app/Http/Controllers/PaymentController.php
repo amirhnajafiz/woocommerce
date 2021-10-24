@@ -102,21 +102,7 @@ class PaymentController extends Controller
                 ->where('sale_id', '=', $sale->id)
                 ->where('user_id', '=', $cart->user_id)
                 ->first();
-
-            if ($target) {
-                $sale = null;
-                return redirect()
-                    ->back()
-                    ->withErrors(['message' => 'You have used this discount code before.']);
-            } else {
-                SaleUser::query()
-                    ->create([
-                       'user_id' => $cart->user_id,
-                        'sale_id' => $sale->id
-                    ]);
-            }
         } else {
-            $sale = null;
             return redirect()
                 ->back()
                 ->withErrors(['message' => 'Invalid discount code.']);
@@ -137,13 +123,27 @@ class PaymentController extends Controller
             $total += $order->number * $order->item->price;
         }
 
-        if ($sale) {
-            $total = $total - $total * $sale->discount / 100;
-        }
-
-        DB::transaction(function () use ($validated, $cart, $status, $total) {
+        DB::transaction(function () use ($validated, $cart, $status, $total, $sale, $target) {
             if ($status) {
-                $response = rand(0, 100) % 5 == 1 ? Status::FAILED() : Status::SEND(); // Chance to connect to portal
+                // Sale code
+                if ($target) {
+                    $sale = null;
+                    return redirect()
+                        ->back()
+                        ->withErrors(['message' => 'You have used this discount code before.']);
+                } else {
+                    SaleUser::query()
+                        ->create([
+                            'user_id' => $cart->user_id,
+                            'sale_id' => $sale->id
+                        ]);
+                }
+
+                if ($sale) {
+                    $total -= $total * $sale->discount / 100;
+                }
+
+                $response = Status::SEND(); // Chance to connect to portal
 
                 if ($response->equals(Status::SEND())) {
                     Payment::query()

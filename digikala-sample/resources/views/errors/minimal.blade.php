@@ -5,7 +5,7 @@
                 <div class="h1" style="font-size: 10rem;">
                     @yield('code')
                 </div>
-                <div class="h4" style="font-size: 5rem;">
+                <div class="h4" style="font-size: 2rem;">
                     @yield('message')
                 </div>
             </div>
