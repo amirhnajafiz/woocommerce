@@ -17,7 +17,7 @@ class UpdateCartRequest extends FormRequest
     public function authorize(): bool
     {
         $cart = $this->route('cart');
-        return Auth::id() == $cart->user_id && $cart->status == Status::ORDER();
+        return Auth::id() == $cart->user_id;
     }
 
     /**

@@ -6,8 +6,6 @@ use App\Enums\Status;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Cart;
 use App\Models\Payment;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -27,10 +25,11 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all()->filter(function ($payment) {
-            $cart = $payment->cart;
-            return $cart->user_id == Auth::id();
-        });
+        $payments = Payment::all()
+            ->filter(function ($payment) {
+                $cart = $payment->cart;
+                return $cart->user_id == Auth::id();
+            });
 
         return view('utils.payment.index')
             ->with('user', Auth::user())
@@ -45,9 +44,13 @@ class PaymentController extends Controller
      */
     public function create($id)
     {
-        $cart = Cart::query()->where('id', '=', $id)->first();
+        $cart = Cart::query()
+            ->where('id', '=', $id)
+            ->first();
+
         if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
-            return redirect()->route('carts.index');
+            return redirect()
+                ->route('carts.index');
         }
 
         $addresses = Auth::user()->addresses;
@@ -80,10 +83,12 @@ class PaymentController extends Controller
     {
         $validated = $request->validated();
 
-        $cart = Cart::query()->findOrFail($validated['cart_id']);
+        $cart = Cart::query()
+            ->findOrFail($validated['cart_id']);
 
         if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
-            return redirect()->route('carts.index');
+            return redirect()
+                ->route('carts.index');
         }
 
         $status = true;
@@ -98,36 +103,37 @@ class PaymentController extends Controller
 
         DB::transaction(function () use ($validated, $cart, $status, $total) {
             if ($status) {
-                Payment::query()
-                    ->create([
-                        'cart_id' => $cart->id,
-                        'amount' => $total,
-                        'bank' => $validated['bank']
-                    ]);
+                $response = rand(0, 100) % 5 == 1 ? Status::FAILED() : Status::SEND(); // Chance to connect to portal
 
-                foreach ($cart->orders as $order) {
-                    $order->item
-                        ->update([
-                            'number' => $order->item->number - $order->number
+                if ($response->equals(Status::SEND())) {
+                    Payment::query()
+                        ->create([
+                            'cart_id' => $cart->id,
+                            'amount' => $total,
+                            'bank' => $validated['bank']
                         ]);
-                    $order->save();
+
+                    foreach ($cart->orders as $order) {
+                        $order->item
+                            ->update([
+                                'number' => $order->item->number - $order->number
+                            ]);
+                        $order->save();
+                    }
                 }
 
-                $cart->update([
-                    'status' => Status::READY()
-                ]);
-                $cart->save();
             } else {
-                $cart->update([
-                    'status' => Status::STORE_FAIL()
-                ]);
-                $cart->save();
+                $response = Status::STORE_FAIL();
             }
+
+            $cart->update([
+                'status' => $response
+            ]);
+            $cart->save();
 
             Auth::user()->update([
                'cart_id' => null
             ]);
-
             Auth::user()->save();
         });
 

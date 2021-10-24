@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\Role;
 use App\Enums\Status;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
@@ -61,7 +60,7 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        if (!Gate::check('payable-item', [$cart]) && Auth::user()->role != Role::ADMIN()) {
+        if (!Gate::check('own-cart', [$cart]) && !Gate::check('admin')) {
             return redirect()->route('cart.index');
         }
 
@@ -81,12 +80,14 @@ class CartController extends Controller
     {
         $validated = $request->validated();
 
-        $user = Auth::user();
+        if (!Gate::check('payable-cart')) {
+            return redirect()->route('cart.index');
+        }
 
+        $user = Auth::user();
         $user->update([
                 'cart_id' => $validated['mode'] == 'select' ? $cart->id : null
             ]);
-
         $user->save();
 
         return redirect()

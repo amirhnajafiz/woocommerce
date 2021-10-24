@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Files\FileManager;
 use App\Http\Requests\CreateUpdateBrandRequest;
 use App\Models\Brand;
-use App\Models\Item;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
