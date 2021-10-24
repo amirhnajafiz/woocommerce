@@ -23,6 +23,11 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="row m-0 p-6 bg-white border-b border-gray-200">
+                    <span class="text-right px-7">
+                        Total price: {{ $total }} $
+                    </span>
+                </div>
                 <form action="{{ route('payment.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="cart_id" value="{{ $cart->id }}" />

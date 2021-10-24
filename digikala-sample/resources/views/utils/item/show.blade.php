@@ -2,7 +2,7 @@
 
 <x-app-layout>
     <div class="card mx-auto w-75" style="margin-top: 150px;">
-        <div class="row m-0">
+        <div class="row m-0 py-5">
             <div class="col-md-4 rounded">
                 <img src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" class="rounded" />
             </div>
@@ -27,10 +27,19 @@
                     </div>
                     <div class="d-flex flex-col">
                         <span>
-                            {{ "Price: " . $item->price }}
+                            {{ "Price: " . $item->price }} $
                         </span>
                         <span>
                             {{ "Number: " . $item->number }}
+                        </span>
+                        <span>
+                            <form action="{{ route('order.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="item_id" value="{{ $item->id }}"/>
+                            <button type="submit" class="btn btn-primary p-1">
+                                Add +
+                            </button>
+                        </form>
                         </span>
                     </div>
                     <p class="card-text">

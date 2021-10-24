@@ -87,9 +87,6 @@
                             </button>
                         </x-slot>
                         <x-slot name="content">
-                            <x-dropdown-link>
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -154,7 +151,7 @@
             </div>
         @endif
     </div>
-    <x-category-nav id="categories-nav" style="display: none;"></x-category-nav>
+    <x-category-nav class="m-auto w-75" id="categories-nav" style="display: none;"></x-category-nav>
 </nav>
 
 @section('script')

@@ -57,7 +57,13 @@ class PaymentController extends Controller
 
         $addresses = Auth::user()->addresses;
 
+        $total = 0;
+        foreach ($cart->orders as $order) {
+            $total += $order->number * $order->item->price;
+        }
+
         return view('utils.payment.create')
+            ->with('total', $total)
             ->with('addresses', $addresses)
             ->with('cart', $cart)
             ->with('user', Auth::user());
@@ -71,8 +77,14 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
+        $total = 0;
+        foreach ($payment->cart->orders as $order) {
+            $total += $order->number * $order->item->price;
+        }
+
         return view('utils.payment.show')
-            ->with('payment', $payment);
+            ->with('payment', $payment)
+            ->with('total', $total);
     }
 
     /**
@@ -103,9 +115,8 @@ class PaymentController extends Controller
                 ->where('user_id', '=', $cart->user_id)
                 ->first();
         } else {
-            return redirect()
-                ->back()
-                ->withErrors(['message' => 'Invalid discount code.']);
+            $sale = null;
+            $target = null;
         }
 
         if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
@@ -126,20 +137,19 @@ class PaymentController extends Controller
         DB::transaction(function () use ($validated, $cart, $status, $total, $sale, $target) {
             if ($status) {
                 // Sale code
-                if ($target) {
-                    $sale = null;
-                    return redirect()
-                        ->back()
-                        ->withErrors(['message' => 'You have used this discount code before.']);
-                } else {
-                    SaleUser::query()
-                        ->create([
-                            'user_id' => $cart->user_id,
-                            'sale_id' => $sale->id
-                        ]);
-                }
-
                 if ($sale) {
+                    if ($target) {
+                        $sale = null;
+                        return redirect()
+                            ->back()
+                            ->withErrors(['message' => 'You have used this discount code before.']);
+                    } else {
+                        SaleUser::query()
+                            ->create([
+                                'user_id' => $cart->user_id,
+                                'sale_id' => $sale->id
+                            ]);
+                    }
                     $total -= $total * $sale->discount / 100;
                 }
 

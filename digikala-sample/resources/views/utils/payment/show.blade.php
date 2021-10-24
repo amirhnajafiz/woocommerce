@@ -24,6 +24,11 @@
                     </div>
                 @endforeach
                 <div class="row m-0 p-6 bg-white border-b border-gray-200">
+                    <span class="text-right px-7">
+                        Total price: {{ $total }} $
+                    </span>
+                </div>
+                <div class="row m-0 p-6 bg-white border-b border-gray-200">
                     <div>
                         Bank: {{ $payment->bank }}
                     </div>
@@ -31,7 +36,7 @@
                         Date: {{ $payment->created_at }}
                     </div>
                     <div>
-                        Amount: {{ $payment->amount }}
+                        Amount: {{ $payment->amount }} $
                     </div>
                 </div>
             </div>

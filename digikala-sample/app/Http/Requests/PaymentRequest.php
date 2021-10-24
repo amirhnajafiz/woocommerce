@@ -31,7 +31,7 @@ class PaymentRequest extends FormRequest
         return [
             'address_id' => 'exists:addresses,id',
             'cart_id' => 'exists:carts,id',
-            'discount' => 'nullable|min:10|max:10',
+            'discount' => 'min:10|max:10|nullable',
             'bank' => [Rule::in(['AK-Bank', 'National-Bank', 'Iran-Bank'])]
         ];
     }
