@@ -6,6 +6,8 @@ use App\Enums\Status;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Cart;
 use App\Models\Payment;
+use App\Models\Sale;
+use App\Models\SaleUser;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -86,6 +88,35 @@ class PaymentController extends Controller
         $cart = Cart::query()
             ->findOrFail($validated['cart_id']);
 
+        if ($validated['discount']) {
+            $sale = Sale::query()
+                ->where('code', '=', $validated['discount'])
+                ->firstOrFail();
+
+            $target = SaleUser::query()
+                ->where('sale_id', '=', $sale->id)
+                ->where('user_id', '=', $cart->user_id)
+                ->first();
+
+            if ($target) {
+                $sale = null;
+                return redirect()
+                    ->back()
+                    ->withErrors(['message' => 'You have used this discount code before.']);
+            } else {
+                SaleUser::query()
+                    ->create([
+                       'user_id' => $cart->user_id,
+                        'sale_id' => $sale->id
+                    ]);
+            }
+        } else {
+            $sale = null;
+            return redirect()
+                ->back()
+                ->withErrors(['message' => 'Invalid discount code.']);
+        }
+
         if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
             return redirect()
                 ->route('carts.index');
@@ -99,6 +130,10 @@ class PaymentController extends Controller
                 $status = false;
             }
             $total += $order->number * $order->item->price;
+        }
+
+        if ($sale) {
+            $total = $total - $total * $sale->discount / 100;
         }
 
         DB::transaction(function () use ($validated, $cart, $status, $total) {

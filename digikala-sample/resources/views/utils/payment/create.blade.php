@@ -58,6 +58,19 @@
                             </option>
                         </select>
                     </div>
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
+                        <label for="discount" class="h5 p-6">
+                            Discount code
+                        </label>
+                        <input
+                            type="text"
+                            minlength="10"
+                            maxlength="10"
+                            name="discount"
+                            id="discount"
+                            placeholder="XX12XX864 ..."
+                        />
+                    </div>
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2 text-center">
                         <a href="{{ route('cart.index') }}" class="btn btn-danger">
                             Back
