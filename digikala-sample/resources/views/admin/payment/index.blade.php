@@ -19,8 +19,8 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            <a href="{{ route('cart.show', $payment->cart->id) }}" class="btn btn-primary">
-                                View Cart
+                            <a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary">
+                                View
                             </a>
                             <form action="{{ route('admin-payment.destroy', $payment) }}" method="post">
                                 @csrf
