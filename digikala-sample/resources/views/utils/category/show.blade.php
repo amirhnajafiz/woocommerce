@@ -1,5 +1,19 @@
 @section('title', __('-category-'. $category->id))
 
+@section('style')
+    <style>
+        .card {
+            position: relative;
+            top: 0;
+            transition: top 0.5s;
+        }
+
+        .card:hover {
+            top: -20px;
+        }
+    </style>
+@stop
+
 <x-app-layout>
     <div class="mx-auto w-75" style="margin-top: 150px;">
         <div class="h2 py-4">
