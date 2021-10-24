@@ -17,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -37,11 +37,6 @@ class AuthServiceProvider extends ServiceProvider
         // Super admin
         Gate::define('super-admin', function (User $user) {
            return $user->role == Role::SUPER_ADMIN();
-        });
-
-        // Admin panel access
-        Gate::define('admin-access', function (User $user) {
-            return $user->role != Role::USER();
         });
 
         // Admin panel access gate

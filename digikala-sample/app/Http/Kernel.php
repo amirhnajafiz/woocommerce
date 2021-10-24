@@ -4,6 +4,8 @@ namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckUserAdministration;
+use App\Http\Middleware\RoleCheck;
+use App\Http\Middleware\WriteCheck;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 /**
@@ -73,5 +75,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role' => RoleCheck::class,
     ];
 }

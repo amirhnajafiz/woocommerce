@@ -49,13 +49,13 @@
                             {{ __('Payments') }}
                         </x-nav-link>
                     </div>
-                    @can('super-admin')
+                    @if(\Illuminate\Support\Facades\Auth::user()->role != \App\Enums\Role::USER())
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-nav-link :href="route('super.admin')" :active="request()->routeIs('super.admin')" style="color: #fd5a24;">
                                 {{ __('Admin Panel') }}
                             </x-nav-link>
                         </div>
-                    @endcan
+                    @endif
                 @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link>

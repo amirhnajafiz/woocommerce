@@ -1,11 +1,11 @@
 <div class="list-group bg-dark" style="height: 100vh;">
-    @can('super-admin')
+    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::SUPER_ADMIN())
         <a href="{{ route('user.index') }}"
            class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('user.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
             Users
         </a>
-    @endcan
-    @can('write')
+    @endif
+    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::SUPER_ADMIN() || \Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN() || \Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::WRITER())
         <a href="{{ route('brand.index') }}"
            class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('brand.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
             Brands / Companies
@@ -22,8 +22,8 @@
            class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('special.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
             Special Items
         </a>
-    @endcan
-    @can('admin')
+    @endif
+    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::SUPER_ADMIN() || \Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN())
         <a href="{{ route('admin-cart.index') }}"
            class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('admin-cart.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
             Carts
@@ -36,7 +36,7 @@
            class="list-group-item list-group-item-action px-5 py-3 bg-dark text-light disabled">
             <del> Sale Codes</del>
         </a>
-    @endcan
+    @endif
 </div>
 <a href="{{ route('dashboard') }}"
    class="list-group-item list-group-item-action px-5 py-3 text-center text-white rounded"

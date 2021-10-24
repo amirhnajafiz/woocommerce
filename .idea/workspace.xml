@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/AdminUpdateCartRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/AdminUpdateCartRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/MakeSpecialItemRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/MakeSpecialItemRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Middleware/CheckUserAdministration.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Middleware/CheckUserAdministration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin-navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/admin-navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +238,7 @@
       <workItem from="1634969499721" duration="11286000" />
       <workItem from="1634983600703" duration="4491000" />
       <workItem from="1634999380576" duration="10489000" />
-      <workItem from="1635063886895" duration="3778000" />
+      <workItem from="1635063886895" duration="8537000" />
     </task>
     <servers />
   </component>

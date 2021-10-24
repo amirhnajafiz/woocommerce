@@ -42,11 +42,11 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin panel
     Route::view('/super-admin', 'admin.welcome')
-        ->middleware(['can:admin-access'])
+        ->middleware(['role'])
         ->name('super.admin');
 
     // Admin
-    Route::middleware(['can:admin'])->group(function () {
+    Route::middleware(['admin'])->group(function () {
         // Payments resource controller
         Route::resource('admin-payment', AdminPaymentController::class)
             ->only(['index', 'destroy']);
@@ -57,7 +57,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // Writer
-    Route::middleware(['can:write'])->group(function () {
+    Route::middleware(['role'])->group(function () {
         // Item resource controller
         Route::resource('item', ItemController::class)
             ->except(['show']);
@@ -67,10 +67,12 @@ Route::middleware(['auth'])->group(function () {
             ->only(['index', 'store', 'destroy']);
 
         // Brand resource controller
-        Route::resource('brand', BrandController::class);
+        Route::resource('brand', BrandController::class)
+            ->except(['show']);
 
         // Category resource controller
-        Route::resource('category', CategoryController::class);
+        Route::resource('category', CategoryController::class)
+            ->except(['show']);
     });
 
     // User routes
@@ -80,6 +82,14 @@ Route::middleware(['auth'])->group(function () {
 
     // User view of an item
     Route::resource('item', ItemController::class)
+        ->only(['show']);
+
+    // Brand resource controller
+    Route::resource('brand', BrandController::class)
+        ->only(['show']);
+
+    // Category resource controller
+    Route::resource('category', CategoryController::class)
         ->only(['show']);
 
     // User carts
