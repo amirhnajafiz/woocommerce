@@ -27,7 +27,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::paginate(5);
+        $sales = Sale::paginate(3);
 
         return view('admin.sale.index')
             ->with('sales', $sales);

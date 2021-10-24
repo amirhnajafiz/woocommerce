@@ -3,11 +3,11 @@
 @section('title', __('-sales-panel'))
 
 @section('content')
-    <div class="row m-0 my-3">
-        <div class="col-8">
+    <div class="row m-0 my-3 text-white p-3">
+        <div class="col-9">
             @forelse($sales as $sale)
-                <div class="shadow">
-                    <div class="card bg-dark text-white">
+                <div class="shadow w-50 m-auto p-3">
+                    <div class="card bg-dark text-white p-3">
                         <div class="h4 card-title">
                             {{ $sale->code }}
                         </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             @empty
-                <div>
+                <div class="h2">
                     No sales yet.
                 </div>
             @endforelse
@@ -52,24 +52,26 @@
                 {{ $sales->links() }}
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <form action="{{ route('sale.store') }}" method="post">
-                @csrf
-                <label for="discount">
-                    Discount:
-                </label>
-                <input
-                    id="discount"
-                    class="text-white bg-dark"
-                    type="number"
-                    name="discount"
-                    placeholder="50 %..."
-                    min="1"
-                    max="99"
-                />
-                <button type="submit" class="btn btn-success">
-                    Create
-                </button>
+                <div class="flex flex-col">
+                    @csrf
+                    <label for="discount">
+                        Discount:
+                    </label>
+                    <input
+                        id="discount"
+                        class="text-white bg-dark"
+                        type="number"
+                        name="discount"
+                        placeholder="50 %..."
+                        min="1"
+                        max="99"
+                    />
+                    <button type="submit" class="btn btn-success mt-3">
+                        Create
+                    </button>
+                </div>
             </form>
         </div>
     </div>

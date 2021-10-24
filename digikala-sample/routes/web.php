@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Sales resource controller
         Route::resource('sale', SaleController::class)
-            ->only(['index', 'store', 'update', 'delete']);
+            ->only(['index', 'store', 'update', 'destroy']);
     });
 
     // Writer
