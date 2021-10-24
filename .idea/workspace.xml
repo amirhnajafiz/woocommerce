@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/errors/minimal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/errors/minimal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Models/Comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_09_19_061331_create_comments_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/cart/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/item/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/item/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/special/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +166,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/digikala-sample/resources/views/web/utils/category" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -233,7 +245,8 @@
       <workItem from="1634969499721" duration="11286000" />
       <workItem from="1634983600703" duration="4491000" />
       <workItem from="1634999380576" duration="10489000" />
-      <workItem from="1635063886895" duration="8845000" />
+      <workItem from="1635063886895" duration="8981000" />
+      <workItem from="1635086333969" duration="9148000" />
     </task>
     <servers />
   </component>

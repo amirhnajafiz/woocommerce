@@ -166,7 +166,7 @@
 
       AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
       /* MODERN-ONLY:END */
-      // For the cases when user pass only a function reference to the caller: `x-on:click="foo"`
+      // For the cases when users pass only a function reference to the caller: `x-on:click="foo"`
       // Where "foo" is a function. Also, we'll pass the function the event instance when we call it.
 
       if (Object.keys(dataContext).includes(expression)) {
@@ -3972,7 +3972,7 @@ function extend(a, b, thisArg) {
 }
 
 /**
- * Remove byte cart marker. This catches EF BB BF (the UTF-8 BOM)
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
  *
  * @param {string} content with BOM
  * @return {string} content value without BOM
@@ -4273,7 +4273,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   /** Used to match Latin Unicode letters (excluding mathematical operators). */
   var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
 
-  /** Used to ensure capturing cart of template delimiters. */
+  /** Used to ensure capturing order of template delimiters. */
   var reNoMatch = /($^)/;
 
   /** Used to match unescaped characters in compiled string literals. */
@@ -4996,12 +4996,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
   /**
    * The base implementation of `_.sortBy` which uses `comparer` to define the
-   * sort cart of `array` and replaces criteria objects with their corresponding
+   * sort order of `array` and replaces criteria objects with their corresponding
    * values.
    *
    * @private
    * @param {Array} array The array to sort.
-   * @param {Function} comparer The function to define sort cart.
+   * @param {Function} comparer The function to define sort order.
    * @returns {Array} Returns `array`.
    */
   function baseSortBy(array, comparer) {
@@ -7074,7 +7074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This function is like `baseFor` except that it iterates over properties
-     * in the opposite cart.
+     * in the opposite order.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -7821,7 +7821,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function[]|Object[]|string[]} iteratees The iteratees to sort by.
-     * @param {string[]} orders The sort cart of `iteratees`.
+     * @param {string[]} orders The sort orders of `iteratees`.
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
@@ -8208,7 +8208,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * The base implementation of `_.sortedIndex` and `_.sortedLastIndex` which
      * performs a binary search of `array` to determine the index at which `value`
-     * should be inserted into `array` in cart to maintain its sort cart.
+     * should be inserted into `array` in order to maintain its sort order.
      *
      * @private
      * @param {Array} array The sorted array to inspect.
@@ -8704,12 +8704,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Compares values to sort them in ascending cart.
+     * Compares values to sort them in ascending order.
      *
      * @private
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {number} Returns the sort cart indicator for `value`.
+     * @returns {number} Returns the sort order indicator for `value`.
      */
     function compareAscending(value, other) {
       if (value !== other) {
@@ -8745,15 +8745,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Used by `_.orderBy` to compare multiple properties of a value to another
      * and stable sort them.
      *
-     * If `cart` is unspecified, all values are sorted in ascending cart. Otherwise,
-     * specify an cart of "desc" for descending or "asc" for ascending sort cart
+     * If `orders` is unspecified, all values are sorted in ascending order. Otherwise,
+     * specify an order of "desc" for descending or "asc" for ascending sort order
      * of corresponding values.
      *
      * @private
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
-     * @param {boolean[]|string[]} orders The cart to sort by for each property.
-     * @returns {number} Returns the sort cart indicator for `object`.
+     * @param {boolean[]|string[]} orders The order to sort by for each property.
+     * @returns {number} Returns the sort order indicator for `object`.
      */
     function compareMultiple(object, other, orders) {
       var index = -1,
@@ -10566,8 +10566,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
      * This is possible because methods like `_.bind`, `_.curry`, and `_.partial`
-     * may be applied regardless of execution cart. Methods like `_.ary` and
-     * `_.rearg` modify function arguments, making the cart in which they are
+     * may be applied regardless of execution order. Methods like `_.ary` and
+     * `_.rearg` modify function arguments, making the order in which they are
      * executed important, preventing the merging of metadata. However, we make
      * an exception for a safe combined case where curried functions have `_.ary`
      * and or `_.rearg` applied.
@@ -11054,7 +11054,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of `array` values not included in the other given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The cart and references of result values are
+     * for equality comparisons. The order and references of result values are
      * determined by the first array.
      *
      * **Note:** Unlike `_.pullAll`, this method returns a new array.
@@ -11081,7 +11081,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.difference` except that it accepts `iteratee` which
      * is invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. The cart and references of result values are
+     * by which they're compared. The order and references of result values are
      * determined by the first array. The iteratee is invoked with one argument:
      * (value).
      *
@@ -11116,7 +11116,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.difference` except that it accepts `comparator`
-     * which is invoked to compare elements of `array` to `values`. The cart and
+     * which is invoked to compare elements of `array` to `values`. The order and
      * references of result values are determined by the first array. The comparator
      * is invoked with two arguments: (arrVal, othVal).
      *
@@ -11230,25 +11230,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': true },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': false }
      * ];
      *
-     * _.dropRightWhile(user, function(o) { return !o.active; });
+     * _.dropRightWhile(users, function(o) { return !o.active; });
      * // => objects for ['barney']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.dropRightWhile(user, { 'user': 'pebbles', 'active': false });
+     * _.dropRightWhile(users, { 'user': 'pebbles', 'active': false });
      * // => objects for ['barney', 'fred']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.dropRightWhile(user, ['active', false]);
+     * _.dropRightWhile(users, ['active', false]);
      * // => objects for ['barney']
      *
      * // The `_.property` iteratee shorthand.
-     * _.dropRightWhile(user, 'active');
+     * _.dropRightWhile(users, 'active');
      * // => objects for ['barney', 'fred', 'pebbles']
      */
     function dropRightWhile(array, predicate) {
@@ -11271,25 +11271,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': false },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': true }
      * ];
      *
-     * _.dropWhile(user, function(o) { return !o.active; });
+     * _.dropWhile(users, function(o) { return !o.active; });
      * // => objects for ['pebbles']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.dropWhile(user, { 'user': 'barney', 'active': false });
+     * _.dropWhile(users, { 'user': 'barney', 'active': false });
      * // => objects for ['fred', 'pebbles']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.dropWhile(user, ['active', false]);
+     * _.dropWhile(users, ['active', false]);
      * // => objects for ['pebbles']
      *
      * // The `_.property` iteratee shorthand.
-     * _.dropWhile(user, 'active');
+     * _.dropWhile(users, 'active');
      * // => objects for ['barney', 'fred', 'pebbles']
      */
     function dropWhile(array, predicate) {
@@ -11353,25 +11353,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': false },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': true }
      * ];
      *
-     * _.findIndex(user, function(o) { return o.user == 'barney'; });
+     * _.findIndex(users, function(o) { return o.user == 'barney'; });
      * // => 0
      *
      * // The `_.matches` iteratee shorthand.
-     * _.findIndex(user, { 'user': 'fred', 'active': false });
+     * _.findIndex(users, { 'user': 'fred', 'active': false });
      * // => 1
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.findIndex(user, ['active', false]);
+     * _.findIndex(users, ['active', false]);
      * // => 0
      *
      * // The `_.property` iteratee shorthand.
-     * _.findIndex(user, 'active');
+     * _.findIndex(users, 'active');
      * // => 2
      */
     function findIndex(array, predicate, fromIndex) {
@@ -11400,25 +11400,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': true },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': false }
      * ];
      *
-     * _.findLastIndex(user, function(o) { return o.user == 'pebbles'; });
+     * _.findLastIndex(users, function(o) { return o.user == 'pebbles'; });
      * // => 2
      *
      * // The `_.matches` iteratee shorthand.
-     * _.findLastIndex(user, { 'user': 'barney', 'active': true });
+     * _.findLastIndex(users, { 'user': 'barney', 'active': true });
      * // => 0
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.findLastIndex(user, ['active', false]);
+     * _.findLastIndex(users, ['active', false]);
      * // => 2
      *
      * // The `_.property` iteratee shorthand.
-     * _.findLastIndex(user, 'active');
+     * _.findLastIndex(users, 'active');
      * // => 0
      */
     function findLastIndex(array, predicate, fromIndex) {
@@ -11609,7 +11609,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of unique values that are included in all given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The cart and references of result values are
+     * for equality comparisons. The order and references of result values are
      * determined by the first array.
      *
      * @static
@@ -11633,7 +11633,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.intersection` except that it accepts `iteratee`
      * which is invoked for each element of each `arrays` to generate the criterion
-     * by which they're compared. The cart and references of result values are
+     * by which they're compared. The order and references of result values are
      * determined by the first array. The iteratee is invoked with one argument:
      * (value).
      *
@@ -11669,7 +11669,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.intersection` except that it accepts `comparator`
-     * which is invoked to compare elements of `arrays`. The cart and references
+     * which is invoked to compare elements of `arrays`. The order and references
      * of result values are determined by the first array. The comparator is
      * invoked with two arguments: (arrVal, othVal).
      *
@@ -12054,7 +12054,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Uses a binary search to determine the lowest index at which `value`
-     * should be inserted into `array` in cart to maintain its sort cart.
+     * should be inserted into `array` in order to maintain its sort order.
      *
      * @static
      * @memberOf _
@@ -12131,8 +12131,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.sortedIndex` except that it returns the highest
-     * index at which `value` should be inserted into `array` in cart to
-     * maintain its sort cart.
+     * index at which `value` should be inserted into `array` in order to
+     * maintain its sort order.
      *
      * @static
      * @memberOf _
@@ -12351,25 +12351,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': true },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': false }
      * ];
      *
-     * _.takeRightWhile(user, function(o) { return !o.active; });
+     * _.takeRightWhile(users, function(o) { return !o.active; });
      * // => objects for ['fred', 'pebbles']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.takeRightWhile(user, { 'user': 'pebbles', 'active': false });
+     * _.takeRightWhile(users, { 'user': 'pebbles', 'active': false });
      * // => objects for ['pebbles']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.takeRightWhile(user, ['active', false]);
+     * _.takeRightWhile(users, ['active', false]);
      * // => objects for ['fred', 'pebbles']
      *
      * // The `_.property` iteratee shorthand.
-     * _.takeRightWhile(user, 'active');
+     * _.takeRightWhile(users, 'active');
      * // => []
      */
     function takeRightWhile(array, predicate) {
@@ -12392,25 +12392,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'active': false },
      *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': true }
      * ];
      *
-     * _.takeWhile(user, function(o) { return !o.active; });
+     * _.takeWhile(users, function(o) { return !o.active; });
      * // => objects for ['barney', 'fred']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.takeWhile(user, { 'user': 'barney', 'active': false });
+     * _.takeWhile(users, { 'user': 'barney', 'active': false });
      * // => objects for ['barney']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.takeWhile(user, ['active', false]);
+     * _.takeWhile(users, ['active', false]);
      * // => objects for ['barney', 'fred']
      *
      * // The `_.property` iteratee shorthand.
-     * _.takeWhile(user, 'active');
+     * _.takeWhile(users, 'active');
      * // => []
      */
     function takeWhile(array, predicate) {
@@ -12420,7 +12420,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an array of unique values, in cart, from all given arrays using
+     * Creates an array of unique values, in order, from all given arrays using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * for equality comparisons.
      *
@@ -12501,7 +12501,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Creates a duplicate-free version of an array, using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * for equality comparisons, in which only the first occurrence of each element
-     * is kept. The cart of result values is determined by the cart they occur
+     * is kept. The order of result values is determined by the order they occur
      * in the array.
      *
      * @static
@@ -12522,8 +12522,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.uniq` except that it accepts `iteratee` which is
      * invoked for each element in `array` to generate the criterion by which
-     * uniqueness is computed. The cart of result values is determined by the
-     * cart they occur in the array. The iteratee is invoked with one argument:
+     * uniqueness is computed. The order of result values is determined by the
+     * order they occur in the array. The iteratee is invoked with one argument:
      * (value).
      *
      * @static
@@ -12548,8 +12548,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.uniq` except that it accepts `comparator` which
-     * is invoked to compare elements of `array`. The cart of result values is
-     * determined by the cart they occur in the array.The comparator is invoked
+     * is invoked to compare elements of `array`. The order of result values is
+     * determined by the order they occur in the array.The comparator is invoked
      * with two arguments: (arrVal, othVal).
      *
      * @static
@@ -12669,7 +12669,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Creates an array of unique values that is the
      * [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
-     * of the given arrays. The cart of result values is determined by the cart
+     * of the given arrays. The order of result values is determined by the order
      * they occur in the arrays.
      *
      * @static
@@ -12691,8 +12691,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.xor` except that it accepts `iteratee` which is
      * invoked for each element of each `arrays` to generate the criterion by
-     * which by which they're compared. The cart of result values is determined
-     * by the cart they occur in the arrays. The iteratee is invoked with one
+     * which by which they're compared. The order of result values is determined
+     * by the order they occur in the arrays. The iteratee is invoked with one
      * argument: (value).
      *
      * @static
@@ -12721,8 +12721,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.xor` except that it accepts `comparator` which is
-     * invoked to compare elements of `arrays`. The cart of result values is
-     * determined by the cart they occur in the arrays. The comparator is invoked
+     * invoked to compare elements of `arrays`. The order of result values is
+     * determined by the order they occur in the arrays. The comparator is invoked
      * with two arguments: (arrVal, othVal).
      *
      * @static
@@ -12846,14 +12846,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'age': 36 },
      *   { 'user': 'fred',    'age': 40 },
      *   { 'user': 'pebbles', 'age': 1 }
      * ];
      *
      * var youngest = _
-     *   .chain(user)
+     *   .chain(users)
      *   .sortBy('age')
      *   .map(function(o) {
      *     return o.user + ' is ' + o.age;
@@ -12871,7 +12871,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method invokes `interceptor` and returns `value`. The interceptor
      * is invoked with one argument; (value). The purpose of this method is to
-     * "tap into" a method chain sequence in cart to modify intermediate results.
+     * "tap into" a method chain sequence in order to modify intermediate results.
      *
      * @static
      * @memberOf _
@@ -12973,17 +12973,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'age': 36 },
      *   { 'user': 'fred',   'age': 40 }
      * ];
      *
      * // A sequence without explicit chaining.
-     * _(user).head();
+     * _(users).head();
      * // => { 'user': 'barney', 'age': 36 }
      *
      * // A sequence with explicit chaining.
-     * _(user)
+     * _(users)
      *   .chain()
      *   .head()
      *   .pick('user')
@@ -13234,21 +13234,21 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.every([true, 1, null, 'yes'], Boolean);
      * // => false
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'age': 36, 'active': false },
      *   { 'user': 'fred',   'age': 40, 'active': false }
      * ];
      *
      * // The `_.matches` iteratee shorthand.
-     * _.every(user, { 'user': 'barney', 'active': false });
+     * _.every(users, { 'user': 'barney', 'active': false });
      * // => false
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.every(user, ['active', false]);
+     * _.every(users, ['active', false]);
      * // => true
      *
      * // The `_.property` iteratee shorthand.
-     * _.every(user, 'active');
+     * _.every(users, 'active');
      * // => false
      */
     function every(collection, predicate, guard) {
@@ -13276,28 +13276,28 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @see _.reject
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'age': 36, 'active': true },
      *   { 'user': 'fred',   'age': 40, 'active': false }
      * ];
      *
-     * _.filter(user, function(o) { return !o.active; });
+     * _.filter(users, function(o) { return !o.active; });
      * // => objects for ['fred']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.filter(user, { 'age': 36, 'active': true });
+     * _.filter(users, { 'age': 36, 'active': true });
      * // => objects for ['barney']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.filter(user, ['active', false]);
+     * _.filter(users, ['active', false]);
      * // => objects for ['fred']
      *
      * // The `_.property` iteratee shorthand.
-     * _.filter(user, 'active');
+     * _.filter(users, 'active');
      * // => objects for ['barney']
      *
      * // Combining several predicates using `_.overEvery` or `_.overSome`.
-     * _.filter(user, _.overSome([{ 'age': 36 }, ['age', 40]]));
+     * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
      * // => objects for ['fred', 'barney']
      */
     function filter(collection, predicate) {
@@ -13320,25 +13320,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {*} Returns the matched element, else `undefined`.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'age': 36, 'active': true },
      *   { 'user': 'fred',    'age': 40, 'active': false },
      *   { 'user': 'pebbles', 'age': 1,  'active': true }
      * ];
      *
-     * _.find(user, function(o) { return o.age < 40; });
+     * _.find(users, function(o) { return o.age < 40; });
      * // => object for 'barney'
      *
      * // The `_.matches` iteratee shorthand.
-     * _.find(user, { 'age': 1, 'active': true });
+     * _.find(users, { 'age': 1, 'active': true });
      * // => object for 'pebbles'
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.find(user, ['active', false]);
+     * _.find(users, ['active', false]);
      * // => object for 'fred'
      *
      * // The `_.property` iteratee shorthand.
-     * _.find(user, 'active');
+     * _.find(users, 'active');
      * // => object for 'barney'
      */
     var find = createFind(findIndex);
@@ -13467,7 +13467,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration cart is not guaranteed).
+     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
      */
     function forEach(collection, iteratee) {
       var func = isArray(collection) ? arrayEach : baseEach;
@@ -13501,8 +13501,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Creates an object composed of keys generated from the results of running
-     * each element of `collection` thru `iteratee`. The cart of grouped values
-     * is determined by the cart they occur in `collection`. The corresponding
+     * each element of `collection` thru `iteratee`. The order of grouped values
+     * is determined by the order they occur in `collection`. The corresponding
      * value of each key is an array of elements responsible for generating the
      * key. The iteratee is invoked with one argument: (value).
      *
@@ -13670,15 +13670,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * // => [16, 64]
      *
      * _.map({ 'a': 4, 'b': 8 }, square);
-     * // => [16, 64] (iteration cart is not guaranteed)
+     * // => [16, 64] (iteration order is not guaranteed)
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney' },
      *   { 'user': 'fred' }
      * ];
      *
      * // The `_.property` iteratee shorthand.
-     * _.map(user, 'user');
+     * _.map(users, 'user');
      * // => ['barney', 'fred']
      */
     function map(collection, iteratee) {
@@ -13688,9 +13688,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.sortBy` except that it allows specifying the sort
-     * cart of the iteratees to sort by. If `cart` is unspecified, all values
-     * are sorted in ascending cart. Otherwise, specify an cart of "desc" for
-     * descending or "asc" for ascending sort cart of corresponding values.
+     * orders of the iteratees to sort by. If `orders` is unspecified, all values
+     * are sorted in ascending order. Otherwise, specify an order of "desc" for
+     * descending or "asc" for ascending sort order of corresponding values.
      *
      * @static
      * @memberOf _
@@ -13699,20 +13699,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]
      *  The iteratees to sort by.
-     * @param {string[]} [orders] The sort cart of `iteratees`.
+     * @param {string[]} [orders] The sort orders of `iteratees`.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
      * @returns {Array} Returns the new sorted array.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 34 },
      *   { 'user': 'fred',   'age': 40 },
      *   { 'user': 'barney', 'age': 36 }
      * ];
      *
-     * // Sort by `user` in ascending cart and by `age` in descending cart.
-     * _.orderBy(user, ['user', 'age'], ['asc', 'desc']);
+     * // Sort by `user` in ascending order and by `age` in descending order.
+     * _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
      * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      */
     function orderBy(collection, iteratees, orders, guard) {
@@ -13744,25 +13744,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the array of grouped elements.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney',  'age': 36, 'active': false },
      *   { 'user': 'fred',    'age': 40, 'active': true },
      *   { 'user': 'pebbles', 'age': 1,  'active': false }
      * ];
      *
-     * _.partition(user, function(o) { return o.active; });
+     * _.partition(users, function(o) { return o.active; });
      * // => objects for [['fred'], ['barney', 'pebbles']]
      *
      * // The `_.matches` iteratee shorthand.
-     * _.partition(user, { 'age': 1, 'active': false });
+     * _.partition(users, { 'age': 1, 'active': false });
      * // => objects for [['pebbles'], ['barney', 'fred']]
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.partition(user, ['active', false]);
+     * _.partition(users, ['active', false]);
      * // => objects for [['barney', 'pebbles'], ['fred']]
      *
      * // The `_.property` iteratee shorthand.
-     * _.partition(user, 'active');
+     * _.partition(users, 'active');
      * // => objects for [['fred'], ['barney', 'pebbles']]
      */
     var partition = createAggregator(function(result, value, key) {
@@ -13804,7 +13804,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *   (result[value] || (result[value] = [])).push(key);
      *   return result;
      * }, {});
-     * // => { '1': ['a', 'c'], '2': ['b'] } (iteration cart is not guaranteed)
+     * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
      */
     function reduce(collection, iteratee, accumulator) {
       var func = isArray(collection) ? arrayReduce : baseReduce,
@@ -13856,24 +13856,24 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @see _.filter
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'age': 36, 'active': false },
      *   { 'user': 'fred',   'age': 40, 'active': true }
      * ];
      *
-     * _.reject(user, function(o) { return !o.active; });
+     * _.reject(users, function(o) { return !o.active; });
      * // => objects for ['fred']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.reject(user, { 'age': 40, 'active': true });
+     * _.reject(users, { 'age': 40, 'active': true });
      * // => objects for ['barney']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.reject(user, ['active', false]);
+     * _.reject(users, ['active', false]);
      * // => objects for ['fred']
      *
      * // The `_.property` iteratee shorthand.
-     * _.reject(user, 'active');
+     * _.reject(users, 'active');
      * // => objects for ['barney']
      */
     function reject(collection, predicate) {
@@ -14004,21 +14004,21 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.some([null, 0, 'yes', false], Boolean);
      * // => true
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'active': true },
      *   { 'user': 'fred',   'active': false }
      * ];
      *
      * // The `_.matches` iteratee shorthand.
-     * _.some(user, { 'user': 'barney', 'active': false });
+     * _.some(users, { 'user': 'barney', 'active': false });
      * // => false
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.some(user, ['active', false]);
+     * _.some(users, ['active', false]);
      * // => true
      *
      * // The `_.property` iteratee shorthand.
-     * _.some(user, 'active');
+     * _.some(users, 'active');
      * // => true
      */
     function some(collection, predicate, guard) {
@@ -14030,9 +14030,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an array of elements, sorted in ascending cart by the results of
+     * Creates an array of elements, sorted in ascending order by the results of
      * running each element in a collection thru each iteratee. This method
-     * performs a stable sort, that is, it preserves the original sort cart of
+     * performs a stable sort, that is, it preserves the original sort order of
      * equal elements. The iteratees are invoked with one argument: (value).
      *
      * @static
@@ -14045,17 +14045,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Array} Returns the new sorted array.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 36 },
      *   { 'user': 'fred',   'age': 30 },
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
-     * _.sortBy(user, [function(o) { return o.user; }]);
+     * _.sortBy(users, [function(o) { return o.user; }]);
      * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 30]]
      *
-     * _.sortBy(user, ['user', 'age']);
+     * _.sortBy(users, ['user', 'age']);
      * // => objects for [['barney', 34], ['barney', 36], ['fred', 30], ['fred', 48]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
@@ -16984,25 +16984,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *  else `undefined`.
      * @example
      *
-     * var user = {
+     * var users = {
      *   'barney':  { 'age': 36, 'active': true },
      *   'fred':    { 'age': 40, 'active': false },
      *   'pebbles': { 'age': 1,  'active': true }
      * };
      *
-     * _.findKey(user, function(o) { return o.age < 40; });
-     * // => 'barney' (iteration cart is not guaranteed)
+     * _.findKey(users, function(o) { return o.age < 40; });
+     * // => 'barney' (iteration order is not guaranteed)
      *
      * // The `_.matches` iteratee shorthand.
-     * _.findKey(user, { 'age': 1, 'active': true });
+     * _.findKey(users, { 'age': 1, 'active': true });
      * // => 'pebbles'
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.findKey(user, ['active', false]);
+     * _.findKey(users, ['active', false]);
      * // => 'fred'
      *
      * // The `_.property` iteratee shorthand.
-     * _.findKey(user, 'active');
+     * _.findKey(users, 'active');
      * // => 'barney'
      */
     function findKey(object, predicate) {
@@ -17011,7 +17011,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.findKey` except that it iterates over elements of
-     * a collection in the opposite cart.
+     * a collection in the opposite order.
      *
      * @static
      * @memberOf _
@@ -17023,25 +17023,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *  else `undefined`.
      * @example
      *
-     * var user = {
+     * var users = {
      *   'barney':  { 'age': 36, 'active': true },
      *   'fred':    { 'age': 40, 'active': false },
      *   'pebbles': { 'age': 1,  'active': true }
      * };
      *
-     * _.findLastKey(user, function(o) { return o.age < 40; });
+     * _.findLastKey(users, function(o) { return o.age < 40; });
      * // => returns 'pebbles' assuming `_.findKey` returns 'barney'
      *
      * // The `_.matches` iteratee shorthand.
-     * _.findLastKey(user, { 'age': 36, 'active': true });
+     * _.findLastKey(users, { 'age': 36, 'active': true });
      * // => 'barney'
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.findLastKey(user, ['active', false]);
+     * _.findLastKey(users, ['active', false]);
      * // => 'fred'
      *
      * // The `_.property` iteratee shorthand.
-     * _.findLastKey(user, 'active');
+     * _.findLastKey(users, 'active');
      * // => 'pebbles'
      */
     function findLastKey(object, predicate) {
@@ -17074,7 +17074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forIn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a', 'b', then 'c' (iteration cart is not guaranteed).
+     * // => Logs 'a', 'b', then 'c' (iteration order is not guaranteed).
      */
     function forIn(object, iteratee) {
       return object == null
@@ -17084,7 +17084,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.forIn` except that it iterates over properties of
-     * `object` in the opposite cart.
+     * `object` in the opposite order.
      *
      * @static
      * @memberOf _
@@ -17140,7 +17140,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.forOwn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration cart is not guaranteed).
+     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
      */
     function forOwn(object, iteratee) {
       return object && baseForOwn(object, getIteratee(iteratee, 3));
@@ -17148,7 +17148,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.forOwn` except that it iterates over properties of
-     * `object` in the opposite cart.
+     * `object` in the opposite order.
      *
      * @static
      * @memberOf _
@@ -17430,7 +17430,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.keys(new Foo);
-     * // => ['a', 'b'] (iteration cart is not guaranteed)
+     * // => ['a', 'b'] (iteration order is not guaranteed)
      *
      * _.keys('hi');
      * // => ['0', '1']
@@ -17460,7 +17460,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.keysIn(new Foo);
-     * // => ['a', 'b', 'c'] (iteration cart is not guaranteed)
+     * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
      */
     function keysIn(object) {
       return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
@@ -17513,17 +17513,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @see _.mapKeys
      * @example
      *
-     * var user = {
+     * var users = {
      *   'fred':    { 'user': 'fred',    'age': 40 },
      *   'pebbles': { 'user': 'pebbles', 'age': 1 }
      * };
      *
-     * _.mapValues(user, function(o) { return o.age; });
-     * // => { 'fred': 40, 'pebbles': 1 } (iteration cart is not guaranteed)
+     * _.mapValues(users, function(o) { return o.age; });
+     * // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
      *
      * // The `_.property` iteratee shorthand.
-     * _.mapValues(user, 'age');
-     * // => { 'fred': 40, 'pebbles': 1 } (iteration cart is not guaranteed)
+     * _.mapValues(users, 'age');
+     * // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
      */
     function mapValues(object, iteratee) {
       var result = {};
@@ -17857,7 +17857,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.toPairs(new Foo);
-     * // => [['a', 1], ['b', 2]] (iteration cart is not guaranteed)
+     * // => [['a', 1], ['b', 2]] (iteration order is not guaranteed)
      */
     var toPairs = createToPairs(keys);
 
@@ -17883,7 +17883,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.toPairsIn(new Foo);
-     * // => [['a', 1], ['b', 2], ['c', 3]] (iteration cart is not guaranteed)
+     * // => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
      */
     var toPairsIn = createToPairs(keysIn);
 
@@ -18052,7 +18052,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.values(new Foo);
-     * // => [1, 2] (iteration cart is not guaranteed)
+     * // => [1, 2] (iteration order is not guaranteed)
      *
      * _.values('hi');
      * // => ['h', 'i']
@@ -18083,7 +18083,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Foo.prototype.c = 3;
      *
      * _.valuesIn(new Foo);
-     * // => [1, 2, 3] (iteration cart is not guaranteed)
+     * // => [1, 2, 3] (iteration order is not guaranteed)
      */
     function valuesIn(object) {
       return object == null ? [] : baseValues(object, keysIn(object));
@@ -18845,8 +18845,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * // => '<b>&lt;script&gt;</b>'
      *
      * // Use the "evaluate" delimiter to execute JavaScript and generate HTML.
-     * var compiled = _.template('<% _.forEach(user, function(user) { %><li><%- user %></li><% }); %>');
-     * compiled({ 'user': ['fred', 'barney'] });
+     * var compiled = _.template('<% _.forEach(users, function(user) { %><li><%- user %></li><% }); %>');
+     * compiled({ 'users': ['fred', 'barney'] });
      * // => '<li>fred</li><li>barney</li>'
      *
      * // Use the internal `print` function in "evaluate" delimiters.
@@ -18866,9 +18866,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * // => '<%- value %>'
      *
      * // Use the `imports` option to import `jQuery` as `jq`.
-     * var text = '<% jq.each(user, function(user) { %><li><%- user %></li><% }); %>';
+     * var text = '<% jq.each(users, function(user) { %><li><%- user %></li><% }); %>';
      * var compiled = _.template(text, { 'imports': { 'jq': jQuery } });
-     * compiled({ 'user': ['fred', 'barney'] });
+     * compiled({ 'users': ['fred', 'barney'] });
      * // => '<li>fred</li><li>barney</li>'
      *
      * // Use the `sourceURL` option to specify a custom sourceURL for the template.
@@ -18960,7 +18960,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         index = offset + match.length;
 
         // The JS engine embedded in Adobe products needs `match` returned in
-        // cart to produce the correct `offset` value.
+        // order to produce the correct `offset` value.
         return match;
       });
 
@@ -19637,21 +19637,21 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Function} Returns the callback.
      * @example
      *
-     * var user = [
+     * var users = [
      *   { 'user': 'barney', 'age': 36, 'active': true },
      *   { 'user': 'fred',   'age': 40, 'active': false }
      * ];
      *
      * // The `_.matches` iteratee shorthand.
-     * _.filter(user, _.iteratee({ 'user': 'barney', 'active': true }));
+     * _.filter(users, _.iteratee({ 'user': 'barney', 'active': true }));
      * // => [{ 'user': 'barney', 'age': 36, 'active': true }]
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.filter(user, _.iteratee(['user', 'fred']));
+     * _.filter(users, _.iteratee(['user', 'fred']));
      * // => [{ 'user': 'fred', 'age': 40 }]
      *
      * // The `_.property` iteratee shorthand.
-     * _.map(user, _.iteratee('user'));
+     * _.map(users, _.iteratee('user'));
      * // => ['barney', 'fred']
      *
      * // Create custom iteratee shorthands.
@@ -20119,7 +20119,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.range` except that it populates values in
-     * descending cart.
+     * descending order.
      *
      * @static
      * @memberOf _
@@ -21489,7 +21489,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -21503,20 +21503,20 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -21549,7 +21549,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -21561,12 +21561,12 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -21577,7 +21577,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -21586,11 +21586,11 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/
+/******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -21598,19 +21598,19 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/
+/******/ 		
 /******/ 		// no chunk on demand loading
-/******/
+/******/ 		
 /******/ 		// no prefetching
-/******/
+/******/ 		
 /******/ 		// no preloaded
-/******/
+/******/ 		
 /******/ 		// no HMR
-/******/
+/******/ 		
 /******/ 		// no HMR manifest
-/******/
+/******/ 		
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/
+/******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -21635,20 +21635,20 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/
+/******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/
+/******/ 	
 /******/ })()
 ;

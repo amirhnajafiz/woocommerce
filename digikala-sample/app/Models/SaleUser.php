@@ -6,25 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Comment for user comments on items.
+ * Class SaleUser for managing the users that use a sale.
  *
  * @package App\Models
  */
-class Comment extends Model
+class SaleUser extends Model
 {
     // Traits
     use HasFactory;
 
+    // Table name
+    protected $table = 'sale_user';
+
     /**
-     * Comment model fillable.
+     * Sale fillable.
      *
      * @var string[]
      */
     protected $fillable = [
         'user_id',
-        'item_id',
-        'rate',
-        'like',
-        'dislike'
+        'sale_id'
     ];
 }

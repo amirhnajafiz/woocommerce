@@ -4,6 +4,9 @@
 
 @section('content')
     <div>
+        <div class="h3 text-white px-6 py-2">
+            Categories
+        </div>
         <div class="row m-0 my-5 gap-x-10 gap-y-10">
             @forelse($categories as $category)
                 <div class="col-4 m-auto shadow">
@@ -39,7 +42,7 @@
         </div>
         <div class="text-center">
             <a href="{{ route('category.create') }}" class="btn btn-dark m-auto">
-                Create a new <strong>category</strong>
+                Create a new <strong>category</strong> +
             </a>
         </div>
         <div class="mt-5">

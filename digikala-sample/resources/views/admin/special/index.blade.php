@@ -9,26 +9,17 @@
                 <div class="col-4 m-auto shadow">
                     <div class="card bg-dark text-light">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                {{ $item->item->name }}
+                            <h5 class="h3 card-title">
+                                <a href="{{ route('item.show', $item->item->id) }}">
+                                    {{ $item->item->name }}
+                                </a>
                             </h5>
                             <p class="card-text">
                                 By: {{ $item->item->brand->name }}<br />
                                 Left: {{ $item->item->number }}
                             </p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-dark text-light">
-                                Price: {{ $item->item->price }}
-                            </li>
-                            <li class="list-group-item bg-dark text-light">
-                                Score: {{ $item->item->score }}
-                            </li>
-                            <li class="list-group-item bg-dark text-light">
-                                View: {{ $item->item->view }}
-                            </li>
-                        </ul>
-                        <div class="text-center">
+                        <div class="text-center py-4">
                             <form action="{{ route('special.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('delete')

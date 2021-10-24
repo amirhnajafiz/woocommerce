@@ -52,6 +52,12 @@
                                         </button>
                                     </form>
                                 </div>
+                            @else
+                                <div class="col-12">
+                                    <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary">
+                                        Open
+                                    </a>
+                                </div>
                             @endif
                         </div>
                     </div>

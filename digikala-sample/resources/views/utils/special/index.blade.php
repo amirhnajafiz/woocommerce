@@ -21,7 +21,7 @@
                 <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow" style="background-color: #ff7c50; color: #ffffff">
                     <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h5 class="h5 card-title">
                             <a href="{{ route('item.show', $special->item->id) }}">
                                 {{ $special->item->name }}
                             </a>

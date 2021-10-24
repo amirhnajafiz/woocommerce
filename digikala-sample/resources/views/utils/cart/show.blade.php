@@ -6,8 +6,8 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="row m-0 p-6 bg-white border-b border-gray-200">
-                        <div class="col-4">
-                            {{ 'Item: ' . $order->item->name }}
+                        <div class="col-4 font-bold">
+                            {{ $order->item->name }}
                         </div>
                         @if($cart->status == \App\Enums\Status::ORDER())
                             <div class="col-8 row m-0">
@@ -42,7 +42,17 @@
                             </div>
                         @else
                             <div class="col-8 row m-0">
-                                Number: {{ $order->number }}
+                                <div class="col-4">
+                                    Number: {{ $order->number }}
+                                </div>
+                                <div class="col-4">
+                                    Price: {{ $order->item->price }} $
+                                </div>
+                                <div class="col-4">
+                                    <a href="{{ route('item.show', $order->item->id) }}" class="btn btn-warning">
+                                        View
+                                    </a>
+                                </div>
                             </div>
                         @endif
                     </div>

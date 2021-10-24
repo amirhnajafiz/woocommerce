@@ -4,6 +4,9 @@
 
 @section('content')
     <div>
+        <div class="h3 text-white px-6 py-2">
+            Brands
+        </div>
         <div class="row m-0 my-5 gap-x-10 gap-y-10">
             @forelse($brands as $brand)
                 <div class="col-4 m-auto shadow">
@@ -39,7 +42,7 @@
         </div>
         <div class="text-center">
             <a href="{{ route('brand.create') }}" class="btn btn-dark m-auto">
-                Create a new <strong>brand</strong>
+                Create a new <strong>brand</strong> +
             </a>
         </div>
         <div class="mt-5">

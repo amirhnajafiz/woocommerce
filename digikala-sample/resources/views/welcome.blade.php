@@ -24,10 +24,12 @@
             </a>
         </div>
         @foreach($specials as $special)
-            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow" style="background-color: #ff7c50; color: #ffffff">
-                <img class="card-img-top" src="{{ $special->item->image->path }}" alt="{{ $special->item->image->alt }}" />
+            <div class="col-lg-2 col-md-6 col-sm-12 card mx-auto p-1 shadow"
+                 style="background-color: #ff7c50; color: #ffffff">
+                <img class="card-img-top" src="{{ $special->item->image->path }}"
+                     alt="{{ $special->item->image->alt }}"/>
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="h5 card-title">
                         <a href="{{ route('item.show', $special->item->id) }}">
                             {{ $special->item->name }}
                         </a>
@@ -43,7 +45,7 @@
                     <small style="color: #000000;">
                         <form action="{{ route('order.store') }}" method="post">
                             @csrf
-                            <input type="hidden" name="item_id" value="{{ $special->item->id }}" />
+                            <input type="hidden" name="item_id" value="{{ $special->item->id }}"/>
                             <button type="submit" class="rounded bg-light p-1">
                                 Add +
                             </button>
@@ -86,9 +88,9 @@
         <div class="row m-0 gap-x-10 gap-y-10">
             @foreach($items as $item)
                 <div class="col-lg-2 col-md-6 col-sm-12 mx-auto card p-1 shadow">
-                    <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}" />
+                    <img class="card-img-top" src="{{ $item->image->path }}" alt="{{ $item->image->alt }}"/>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h5 class="h5 card-title">
                             <a href="{{ route('item.show', $item->id) }}">
                                 {{ $item->name }}
                             </a>
@@ -104,7 +106,7 @@
                         <small style="color: #fd5a24;">
                             <form action="{{ route('order.store') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="item_id" value="{{ $item->id }}" />
+                                <input type="hidden" name="item_id" value="{{ $item->id }}"/>
                                 <button type="submit" class="rounded bg-light p-1">
                                     Add +
                                 </button>
