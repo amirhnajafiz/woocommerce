@@ -44,13 +44,13 @@ class PaymentController extends Controller
     /**
      * The index page is the payment page.
      *
-     * @param Cart $cart the current cart for payment
+     * @param Payment $payment
      * @return View|RedirectResponse
      */
-    public function show(Cart $cart)
+    public function show(Payment $payment)
     {
         return view('utils.payment.show')
-            ->with('cart', $cart);
+            ->with('payment', $payment);
     }
 
     /**
