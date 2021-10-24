@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUpdateSaleRequest;
 use App\Models\Sale;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -33,10 +34,10 @@ class SaleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param CreateUpdateSaleRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateUpdateSaleRequest $request)
     {
         //
     }
@@ -44,11 +45,11 @@ class SaleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
+     * @param CreateUpdateSaleRequest $request
+     * @param Sale $sale
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateUpdateSaleRequest $request, Sale $sale)
     {
         //
     }
@@ -56,10 +57,10 @@ class SaleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Sale $sale
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Sale $sale)
     {
         //
     }
