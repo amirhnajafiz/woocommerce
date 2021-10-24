@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * Class CheckUserAdministration for administration check.
- *
+ * Class RoleCheck for admin and write permissions.
  * @package App\Http\Middleware
  */
-class CheckUserAdministration
+class RoleCheck
 {
     /**
      * Handle an incoming request.
@@ -23,7 +22,7 @@ class CheckUserAdministration
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && (Auth::user()->role == Role::ADMIN() || Auth::user()->role == Role::SUPER_ADMIN() )) {
+        if (Auth::user() && Auth::user()->role != Role::USER()) {
             return $next($request);
         }
         return back();

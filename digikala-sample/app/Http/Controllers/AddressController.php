@@ -48,7 +48,8 @@ class AddressController extends Controller
         $validated = $request->validated();
         $validated['user_id'] = Auth::id();
 
-        Address::query()->create($validated);
+        Address::query()
+            ->create($validated);
 
         return redirect()
             ->route('address.index');

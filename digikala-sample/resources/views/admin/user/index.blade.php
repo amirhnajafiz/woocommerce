@@ -23,7 +23,7 @@
                             {{ $user->email }}
                         </td>
                         <td>
-                            <form action="{{ route('admin.update', $user->id) }}" method="post">
+                            <form action="{{ route('user.update', $user->id) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <select name="role" class="bg-dark text-white">
@@ -64,7 +64,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="{{ route('admin.destroy', $user->id) }}" method="post">
+                            <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">

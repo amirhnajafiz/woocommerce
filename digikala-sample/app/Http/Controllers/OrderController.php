@@ -26,12 +26,19 @@ class OrderController extends Controller
         $validated = $request->validated();
         $cart_id = Auth::user()->cart_id;
 
-        $orders = Cart::query()->findOrFail($cart_id)->orders;
+        $orders = Cart::query()
+            ->findOrFail($cart_id)
+            ->orders;
 
-        if ($orders->keyBy('item_id')->has($validated['item_id'])) {
+        $check_history = $orders
+            ->keyBy('item_id')
+            ->has($validated['item_id']);
+
+        if ($check_history) {
             $order = $orders->filter(function ($order) use ($validated) {
                     return $order->item_id == $validated['item_id'];
-                })->first();
+                })
+                ->first();
             $order->update([
                 'number' => $order->number < 21 ? $order->number + 1 : $order->number,
             ]);

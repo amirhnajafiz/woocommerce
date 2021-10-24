@@ -17,7 +17,7 @@ class AdminUpdateCartRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::user()->role == Role::ADMIN() || Auth::user()->role == Role::WRITER();
+        return Auth::user()->role != Role::USER();
     }
 
     /**

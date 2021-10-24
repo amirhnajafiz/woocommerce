@@ -20,35 +20,77 @@ use Illuminate\Support\Facades\Gate;
 class PaymentController extends Controller
 {
     /**
-     * The index page is the payment page.
+     * Managing the user old payments.
      *
-     * @param Cart $cart the current cart for payment
+     */
+    public function index()
+    {
+        $payments = Payment::all()
+            ->filter(function ($payment) {
+                $cart = $payment->cart;
+                return $cart->user_id == Auth::id();
+            });
+
+        return view('utils.payment.index')
+            ->with('user', Auth::user())
+            ->with('payments', $payments);
+    }
+
+    /**
+     * Handling the creation page view.
+     *
+     * @param $id
      * @return View|RedirectResponse
      */
-    public function index(Cart $cart)
+    public function create($id)
     {
-        if (!Gate::check('payable-item', [$cart])) {
-            return redirect()->route('carts.index');
+        $cart = Cart::query()
+            ->where('id', '=', $id)
+            ->first();
+
+        if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
+            return redirect()
+                ->route('carts.index');
         }
 
         $addresses = Auth::user()->addresses;
 
-        return view('utils.payment.index')
+        return view('utils.payment.create')
             ->with('addresses', $addresses)
             ->with('cart', $cart)
             ->with('user', Auth::user());
     }
 
     /**
+     * The index page is the payment page.
+     *
+     * @param Payment $payment
+     * @return View|RedirectResponse
+     */
+    public function show(Payment $payment)
+    {
+        return view('utils.payment.show')
+            ->with('payment', $payment);
+    }
+
+    /**
      * The pay method for handling the payment functionality.
      *
      * @param PaymentRequest $request
-     * @param Cart $cart the current cart
      * @return RedirectResponse
      */
-    public function pay(PaymentRequest $request, Cart $cart): RedirectResponse
+    public function store(PaymentRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+
+        $cart = Cart::query()
+            ->findOrFail($validated['cart_id']);
+
+        if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
+            return redirect()
+                ->route('carts.index');
+        }
+
         $status = true;
         $total = 0;
 
@@ -61,36 +103,37 @@ class PaymentController extends Controller
 
         DB::transaction(function () use ($validated, $cart, $status, $total) {
             if ($status) {
-                Payment::query()
-                    ->create([
-                        'cart_id' => $cart->id,
-                        'amount' => $total,
-                        'bank' => $validated['bank']
-                    ]);
+                $response = rand(0, 100) % 5 == 1 ? Status::FAILED() : Status::SEND(); // Chance to connect to portal
 
-                foreach ($cart->orders as $order) {
-                    $order->item
-                        ->update([
-                            'number' => $order->item->number - $order->number
+                if ($response->equals(Status::SEND())) {
+                    Payment::query()
+                        ->create([
+                            'cart_id' => $cart->id,
+                            'amount' => $total,
+                            'bank' => $validated['bank']
                         ]);
-                    $order->save();
+
+                    foreach ($cart->orders as $order) {
+                        $order->item
+                            ->update([
+                                'number' => $order->item->number - $order->number
+                            ]);
+                        $order->save();
+                    }
                 }
 
-                $cart->update([
-                    'status' => Status::READY()
-                ]);
-                $cart->save();
             } else {
-                $cart->update([
-                    'status' => Status::STORE_FAIL()
-                ]);
-                $cart->save();
+                $response = Status::STORE_FAIL();
             }
+
+            $cart->update([
+                'status' => $response
+            ]);
+            $cart->save();
 
             Auth::user()->update([
                'cart_id' => null
             ]);
-
             Auth::user()->save();
         });
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SuperAdmin\AdminCartController;
-use App\Http\Controllers\SuperAdmin\AdminController;
+use App\Http\Controllers\SuperAdmin\UserController;
 use App\Http\Controllers\SuperAdmin\AdminPaymentController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
@@ -32,44 +32,64 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('/special-items', [HomeController::class, 'specials'])
     ->name('special-items');
 
-Route::middleware(['auth', 'can:super-admin'])->group(function () {
-    // Admin routes
+Route::middleware(['auth'])->group(function () {
+    // Super admin
+    Route::middleware(['can:super-admin'])->group(function () {
+        // User resource controller
+        Route::resource('user', UserController::class)
+            ->only('index', 'update', 'destroy');
+    });
+
+    // Admin panel
     Route::view('/super-admin', 'admin.welcome')
+        ->middleware(['role'])
         ->name('super.admin');
 
-    // Admin resource controller
-    Route::resource('admin', AdminController::class);
+    // Admin
+    Route::middleware(['admin'])->group(function () {
+        // Payments resource controller
+        Route::resource('admin-payment', AdminPaymentController::class)
+            ->only(['index', 'destroy']);
 
-    // Item resource controller
-    Route::resource('item', ItemController::class)
-        ->except(['show']);
+        // Orders resource controller
+        Route::resource('admin-cart', AdminCartController::class)
+            ->only(['index', 'update', 'destroy']);
+    });
 
-    Route::resource('special', SpecialItemController::class)
-        ->only(['index', 'store', 'destroy']);
+    // Writer
+    Route::middleware(['role'])->group(function () {
+        // Item resource controller
+        Route::resource('item', ItemController::class)
+            ->except(['show']);
 
-    // Brand resource controller
-    Route::resource('brand', BrandController::class);
+        // Special items
+        Route::resource('special', SpecialItemController::class)
+            ->only(['index', 'store', 'destroy']);
 
-    // Category resource controller
-    Route::resource('category', CategoryController::class);
+        // Brand resource controller
+        Route::resource('brand', BrandController::class)
+            ->except(['show']);
 
-    // Payments resource controller
-    Route::resource('admin-payment', AdminPaymentController::class)
-        ->only(['index', 'destroy']);
+        // Category resource controller
+        Route::resource('category', CategoryController::class)
+            ->except(['show']);
+    });
 
-    // Orders resource controller
-    Route::resource('admin-cart', AdminCartController::class)
-        ->only(['index', 'update', 'destroy']);
-});
-
-// User routes
-Route::middleware(['auth'])->group(function () {
+    // User routes
     // User dashboard
     Route::view('/dashboard', 'utils.user.index')
         ->name('dashboard');
 
     // User view of an item
     Route::resource('item', ItemController::class)
+        ->only(['show']);
+
+    // Brand resource controller
+    Route::resource('brand', BrandController::class)
+        ->only(['show']);
+
+    // Category resource controller
+    Route::resource('category', CategoryController::class)
         ->only(['show']);
 
     // User carts
@@ -84,12 +104,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('address', AddressController::class)
         ->except(['show']);
 
-    // Payment
-    Route::get('/payment/{cart}', [PaymentController::class, 'index'])
-        ->name('payment.index');
+    // Payment controller
+    Route::get('/payment/create/{id}', [PaymentController::class, 'create'])
+        ->name('payment.create');
 
-    Route::post('/payment/{cart}', [PaymentController::class, 'pay'])
-        ->name('payment.store');
+    Route::resource('payment', PaymentController::class)
+        ->only(['index', 'store', 'show']);
 });
 
 require __DIR__ . '/auth.php';
