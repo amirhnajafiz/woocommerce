@@ -6,6 +6,8 @@ use App\Enums\Status;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Cart;
 use App\Models\Payment;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -20,12 +22,12 @@ use Illuminate\Support\Facades\Gate;
 class PaymentController extends Controller
 {
     /**
-     * The index page is the payment page.
+     * Handling the creation page view.
      *
-     * @param Cart $cart the current cart for payment
+     * @param Cart $cart
      * @return View|RedirectResponse
      */
-    public function index(Cart $cart)
+    public function create(Cart $cart)
     {
         if (!Gate::check('payable-item', [$cart])) {
             return redirect()->route('carts.index');
@@ -40,13 +42,25 @@ class PaymentController extends Controller
     }
 
     /**
+     * The index page is the payment page.
+     *
+     * @param Cart $cart the current cart for payment
+     * @return View|RedirectResponse
+     */
+    public function show(Cart $cart)
+    {
+        return view('utils.payment.show')
+            ->with('cart', $cart);
+    }
+
+    /**
      * The pay method for handling the payment functionality.
      *
      * @param PaymentRequest $request
      * @param Cart $cart the current cart
      * @return RedirectResponse
      */
-    public function pay(PaymentRequest $request, Cart $cart): RedirectResponse
+    public function store(PaymentRequest $request, Cart $cart): RedirectResponse
     {
         $validated = $request->validated();
         $status = true;
