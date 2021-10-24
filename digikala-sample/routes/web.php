@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SuperAdmin\AdminCartController;
-use App\Http\Controllers\SuperAdmin\AdminController;
+use App\Http\Controllers\SuperAdmin\UserController;
 use App\Http\Controllers\SuperAdmin\AdminPaymentController;
 use App\Http\Controllers\SuperAdmin\BrandController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
@@ -35,8 +35,9 @@ Route::get('/special-items', [HomeController::class, 'specials'])
 Route::middleware(['auth'])->group(function () {
     // Super admin
     Route::middleware(['can:super-admin'])->group(function () {
-        // Admin resource controller
-        Route::resource('admin', AdminController::class);
+        // User resource controller
+        Route::resource('user', UserController::class)
+            ->only('index', 'update', 'destroy');
     });
 
     // Admin panel

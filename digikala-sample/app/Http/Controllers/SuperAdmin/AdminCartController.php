@@ -38,12 +38,12 @@ class AdminCartController extends Controller
     public function update(AdminUpdateCartRequest $request, $id): RedirectResponse
     {
         $validated = $request->validated();
-        $cart = Cart::query()->findOrFail($id);
+        $cart = Cart::query()
+            ->findOrFail($id);
 
         $cart->update([
             'status' => $validated['status']
         ]);
-
         $cart->save();
 
         return back();
@@ -58,7 +58,6 @@ class AdminCartController extends Controller
     public function destroy(Cart $cart): RedirectResponse
     {
         $cart->delete();
-
         return redirect()
             ->route('admin-cart.index');
     }

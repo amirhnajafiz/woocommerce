@@ -9,11 +9,11 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 /**
- * Class AdminController for admin user CRUD.
+ * Class UserController for admin user CRUD.
  *
  * @package App\Http\Controllers\SuperAdmin
  */
-class AdminController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,9 @@ class AdminController extends Controller
     public function update(SuperAdminUpdateRequest $request, $id): RedirectResponse
     {
         $validated = $request->validated();
-        $user = User::query()->where('id', '=', $id)->first();
+        $user = User::query()
+            ->where('id', '=', $id)
+            ->first();
 
         $user->update([
             'role' => $validated['role']
@@ -57,7 +59,9 @@ class AdminController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        User::query()->findOrFail($id)->delete();
+        User::query()
+            ->findOrFail($id)
+            ->delete();
         return back();
     }
 }

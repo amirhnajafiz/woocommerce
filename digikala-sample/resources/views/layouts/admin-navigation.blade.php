@@ -15,8 +15,8 @@
        class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('special.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
         Special Items
     </a>
-    <a href="{{ route('admin.index') }}"
-       class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('admin.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
+    <a href="{{ route('user.index') }}"
+       class="list-group-item list-group-item-action px-5 py-3 {{ request()->routeIs('user.index') ? 'bg-primary text-white' : 'bg-dark text-light' }}">
         Users
     </a>
     <a href="{{ route('admin-cart.index') }}"
