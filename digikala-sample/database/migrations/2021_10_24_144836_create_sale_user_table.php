@@ -16,6 +16,7 @@ class CreateSaleUserTable extends Migration
         Schema::create('sale_user', function (Blueprint $table) {
             $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Sale::class);
+            $table->timestamps();
         });
     }
 

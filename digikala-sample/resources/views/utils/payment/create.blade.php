@@ -75,9 +75,11 @@
                         <a href="{{ route('cart.index') }}" class="btn btn-danger">
                             Back
                         </a>
-                        <button type="submit" class="btn btn-success">
-                            Pay
-                        </button>
+                        @if($cart->orders->count() > 0)
+                            <button type="submit" class="btn btn-success">
+                                Pay
+                            </button>
+                        @endif
                     </div>
                 </form>
             </div>

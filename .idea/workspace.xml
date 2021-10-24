@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Http/Requests/PaymentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/components/application-logo.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/resources/views/utils/payment/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +235,7 @@
       <workItem from="1634983600703" duration="4491000" />
       <workItem from="1634999380576" duration="10489000" />
       <workItem from="1635063886895" duration="8981000" />
-      <workItem from="1635086333969" duration="2792000" />
+      <workItem from="1635086333969" duration="3095000" />
     </task>
     <servers />
   </component>

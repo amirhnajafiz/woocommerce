@@ -88,6 +88,11 @@ class PaymentController extends Controller
         $cart = Cart::query()
             ->findOrFail($validated['cart_id']);
 
+        if ($cart->orders->count() == 0) {
+            return back()
+                ->withErrors(['message' => 'Your cart is empty.']);
+        }
+
         if ($validated['discount']) {
             $sale = Sale::query()
                 ->where('code', '=', $validated['discount'])
