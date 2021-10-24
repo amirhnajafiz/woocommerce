@@ -8,8 +8,10 @@ use App\Models\Sale;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 /**
  * Class SaleController for managing sales.
@@ -35,11 +37,16 @@ class SaleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param CreateUpdateSaleRequest $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function store(CreateUpdateSaleRequest $request)
+    public function store(CreateUpdateSaleRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $validated['code'] = Str::random(10);
+
+        Sale::query()->create($validated);
+
+        return back();
     }
 
     /**
@@ -47,21 +54,27 @@ class SaleController extends Controller
      *
      * @param CreateUpdateSaleRequest $request
      * @param Sale $sale
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(CreateUpdateSaleRequest $request, Sale $sale)
+    public function update(CreateUpdateSaleRequest $request, Sale $sale): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $sale->update($validated);
+        $sale->save();
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Sale $sale
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Sale $sale)
+    public function destroy(Sale $sale): RedirectResponse
     {
-        //
+        $sale->delete();
+        return back();
     }
 }
