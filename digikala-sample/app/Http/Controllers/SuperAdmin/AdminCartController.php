@@ -22,7 +22,7 @@ class AdminCartController extends Controller
      */
     public function index(): View
     {
-        $carts = Cart::paginate(6);
+        $carts = Cart::paginate(4);
 
         return view('admin.cart.index')
             ->with('carts', $carts);
@@ -52,12 +52,12 @@ class AdminCartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Cart $cart
+     * @param $id
      * @return RedirectResponse
      */
-    public function destroy(Cart $cart): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
-        $cart->delete();
+        Cart::query()->findOrFail($id)->delete();
         return redirect()
             ->route('admin-cart.index');
     }

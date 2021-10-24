@@ -30,12 +30,12 @@ class AdminPaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Payment $payment
+     * @param $id
      * @return RedirectResponse
      */
-    public function destroy(Payment $payment): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
-        $payment->delete();
+        Payment::query()->findOrFail($id)->delete();
 
         return redirect()
             ->route('admin-payment.index');

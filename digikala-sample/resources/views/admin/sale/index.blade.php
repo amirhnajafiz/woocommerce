@@ -56,6 +56,9 @@
             <form action="{{ route('sale.store') }}" method="post">
                 <div class="flex flex-col">
                     @csrf
+                    <div class="h4">
+                        Create a new sale
+                    </div>
                     <label for="discount">
                         Discount:
                     </label>
@@ -69,7 +72,7 @@
                         max="99"
                     />
                     <button type="submit" class="btn btn-success mt-3">
-                        Create
+                        Create now
                     </button>
                 </div>
             </form>

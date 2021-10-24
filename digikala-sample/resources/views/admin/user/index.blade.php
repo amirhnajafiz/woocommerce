@@ -4,6 +4,9 @@
 
 @section('content')
     <div class="row m-0 p-3">
+        <div class="h3 text-white">
+            Users
+        </div>
         <table class="table table-dark">
             <thead>
                 <tr>

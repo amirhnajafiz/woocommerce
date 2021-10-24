@@ -19,9 +19,6 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap justify-evenly p-3">
-                            <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary my-2">
-                                View Cart
-                            </a>
                             <form action="{{ route('admin-cart.update', $cart->id) }}" method="post" class="my-2">
                                 @csrf
                                 @method('put')
@@ -88,6 +85,9 @@
                                 <button type="submit" class="btn btn-danger">
                                     Delete
                                 </button>
+                                <a href="{{ route('cart.show', $cart->id) }}" class="btn btn-primary my-2">
+                                    View Cart
+                                </a>
                             </form>
                         </div>
                     </div>
