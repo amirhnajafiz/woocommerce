@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="p-12">
-        @forelse($payments as $payment)
+        @forelse($payments->sortBy('updated_at') as $payment)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-1 py-2 shadow">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="row m-0 py-2">

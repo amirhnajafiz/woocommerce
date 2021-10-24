@@ -32,38 +32,47 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('/special-items', [HomeController::class, 'specials'])
     ->name('special-items');
 
-Route::middleware(['auth', 'can:super-admin'])->group(function () {
-    // Admin routes
+Route::middleware(['auth'])->group(function () {
+    // Super admin
+    Route::middleware(['can:super-admin'])->group(function () {
+        // Admin resource controller
+        Route::resource('admin', AdminController::class);
+    });
+
+    // Admin panel
     Route::view('/super-admin', 'admin.welcome')
+        ->middleware(['can:admin-access'])
         ->name('super.admin');
 
-    // Admin resource controller
-    Route::resource('admin', AdminController::class);
+    // Admin
+    Route::middleware(['can:admin'])->group(function () {
+        // Payments resource controller
+        Route::resource('admin-payment', AdminPaymentController::class)
+            ->only(['index', 'destroy']);
 
-    // Item resource controller
-    Route::resource('item', ItemController::class)
-        ->except(['show']);
+        // Orders resource controller
+        Route::resource('admin-cart', AdminCartController::class)
+            ->only(['index', 'update', 'destroy']);
+    });
 
-    Route::resource('special', SpecialItemController::class)
-        ->only(['index', 'store', 'destroy']);
+    // Writer
+    Route::middleware(['can:write'])->group(function () {
+        // Item resource controller
+        Route::resource('item', ItemController::class)
+            ->except(['show']);
 
-    // Brand resource controller
-    Route::resource('brand', BrandController::class);
+        // Special items
+        Route::resource('special', SpecialItemController::class)
+            ->only(['index', 'store', 'destroy']);
 
-    // Category resource controller
-    Route::resource('category', CategoryController::class);
+        // Brand resource controller
+        Route::resource('brand', BrandController::class);
 
-    // Payments resource controller
-    Route::resource('admin-payment', AdminPaymentController::class)
-        ->only(['index', 'destroy']);
+        // Category resource controller
+        Route::resource('category', CategoryController::class);
+    });
 
-    // Orders resource controller
-    Route::resource('admin-cart', AdminCartController::class)
-        ->only(['index', 'update', 'destroy']);
-});
-
-// User routes
-Route::middleware(['auth'])->group(function () {
+    // User routes
     // User dashboard
     Route::view('/dashboard', 'utils.user.index')
         ->name('dashboard');
@@ -89,7 +98,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('payment.create');
 
     Route::resource('payment', PaymentController::class)
-        ->only(['index','store','show']);
+        ->only(['index', 'store', 'show']);
 });
 
 require __DIR__ . '/auth.php';

@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Enums\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use const http\Client\Curl\AUTH_ANY;
 
 /**
  * Class MakeSpecialItemRequest handles the item special modification request.
@@ -21,7 +22,7 @@ class MakeSpecialItemRequest extends FormRequest
     public function authorize(): bool
     {
         if (!empty(Auth::user()->role)) {
-            return Auth::user()->role == Role::ADMIN();
+            return Auth::user()->role == Role::ADMIN() || Auth::user()->role == Role::SUPER_ADMIN();
         }
         return false;
     }
