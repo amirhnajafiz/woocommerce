@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Sale for sale making.
  *
  * @package App\Models
+ * @method static paginate(int $int)
  */
 class Sale extends Model
 {
