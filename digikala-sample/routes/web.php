@@ -85,7 +85,7 @@ Route::middleware(['auth'])->group(function () {
         ->except(['show']);
 
     Route::resource('payment', PaymentController::class)
-        ->only(['create','store','show']);
+        ->only(['index','create','store','show']);
 
     // Payment
     Route::get('/payment/{cart}', [PaymentController::class, 'index'])

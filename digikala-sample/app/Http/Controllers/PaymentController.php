@@ -22,6 +22,22 @@ use Illuminate\Support\Facades\Gate;
 class PaymentController extends Controller
 {
     /**
+     * Managing the user old payments.
+     *
+     */
+    public function index()
+    {
+        $payments = Payment::all()->filter(function ($payment) {
+            $cart = $payment->cart;
+            return $cart->user_id == Auth::id();
+        });
+
+        return view('utils.payments.index')
+            ->with('user', Auth::user())
+            ->with('payments', $payments);
+    }
+
+    /**
      * Handling the creation page view.
      *
      * @param Cart $cart
@@ -35,7 +51,7 @@ class PaymentController extends Controller
 
         $addresses = Auth::user()->addresses;
 
-        return view('utils.payment.index')
+        return view('utils.payment.create')
             ->with('addresses', $addresses)
             ->with('cart', $cart)
             ->with('user', Auth::user());
