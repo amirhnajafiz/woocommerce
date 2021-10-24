@@ -55,9 +55,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         // Payable item check gate
-        // TODO: Separate these two
-        Gate::define('payable-item', function (User $user, Cart $cart) {
-            return $user->id == $cart->user_id && $cart->status == Status::ORDER();
+        Gate::define('payable-cart', function (User $user, Cart $cart) {
+            return $cart->status == Status::ORDER();
+        });
+
+        // User of the cart check
+        Gate::define('own-cart', function (User $user, Cart $cart) {
+            return  $user->id == $cart->user_id;
         });
     }
 }

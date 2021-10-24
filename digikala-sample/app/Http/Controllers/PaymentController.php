@@ -46,7 +46,7 @@ class PaymentController extends Controller
     public function create($id)
     {
         $cart = Cart::query()->where('id', '=', $id)->first();
-        if (!Gate::check('payable-item', [$cart])) {
+        if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
             return redirect()->route('carts.index');
         }
 
@@ -81,6 +81,11 @@ class PaymentController extends Controller
         $validated = $request->validated();
 
         $cart = Cart::query()->findOrFail($validated['cart_id']);
+
+        if (!Gate::check('payable-cart', [$cart]) || !Gate::check('own-cart', [$cart])) {
+            return redirect()->route('carts.index');
+        }
+
         $status = true;
         $total = 0;
 
