@@ -32,7 +32,7 @@ class PaymentController extends Controller
             return $cart->user_id == Auth::id();
         });
 
-        return view('utils.payments.index')
+        return view('utils.payment.index')
             ->with('user', Auth::user())
             ->with('payments', $payments);
     }
@@ -40,11 +40,12 @@ class PaymentController extends Controller
     /**
      * Handling the creation page view.
      *
-     * @param Cart $cart
+     * @param $id
      * @return View|RedirectResponse
      */
-    public function create(Cart $cart)
+    public function create($id)
     {
+        $cart = Cart::query()->where('id', '=', $id)->first();
         if (!Gate::check('payable-item', [$cart])) {
             return redirect()->route('carts.index');
         }

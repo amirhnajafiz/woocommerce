@@ -84,15 +84,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('address', AddressController::class)
         ->except(['show']);
 
+    // Payment controller
+    Route::get('/payment/create/{id}', [PaymentController::class, 'create'])
+        ->name('payment.create');
+
     Route::resource('payment', PaymentController::class)
-        ->only(['index','create','store','show']);
-
-    // Payment
-    Route::get('/payment/{cart}', [PaymentController::class, 'index'])
-        ->name('payment.index');
-
-    Route::post('/payment/{cart}', [PaymentController::class, 'pay'])
-        ->name('payment.store');
+        ->only(['index','store','show']);
 });
 
 require __DIR__ . '/auth.php';
