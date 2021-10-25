@@ -8,11 +8,13 @@ use App\Models\Cart;
 use App\Models\Payment;
 use App\Models\Sale;
 use App\Models\SaleUser;
+use App\Notifications\InvoicePaid;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
 
 /**
  * Class PaymentController for handling the user payment.
@@ -156,7 +158,7 @@ class PaymentController extends Controller
                 $response = Status::SEND(); // Chance to connect to portal
 
                 if ($response->equals(Status::SEND())) {
-                    Payment::query()
+                    $payment = Payment::query()
                         ->create([
                             'cart_id' => $cart->id,
                             'amount' => $total,
@@ -170,6 +172,9 @@ class PaymentController extends Controller
                             ]);
                         $order->save();
                     }
+
+                    // Sending mail notification
+                    Notification::send(Auth::user(), new InvoicePaid($payment));
                 }
 
             } else {
