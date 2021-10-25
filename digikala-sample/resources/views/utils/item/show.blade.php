@@ -75,10 +75,23 @@
                                 {{ $comment->user->name }}
                             </div>
                         </div>
-                        <div class="col-10 p-2 border-b border-gray-200">
-                            <p>
-                                {{ $comment->content }}
-                            </p>
+                        <div class="col-10 row m-o p-2 border-b border-gray-200">
+                            @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::ADMIN() || \Illuminate\Support\Facades\Auth::user()->role == \App\Enums\Role::SUPER_ADMIN())
+                                <p class="col-11">
+                                    {{ $comment->content }}
+                                </p>
+                                <form class="col-1" action="{{ route('comment.destroy', $comment->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            @else
+                                <p class="col-12">
+                                    {{ $comment->content }}
+                                </p>
+                            @endif
                         </div>
                         <div class="col-12">
                             <small>
