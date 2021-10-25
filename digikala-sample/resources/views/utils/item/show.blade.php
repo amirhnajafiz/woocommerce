@@ -50,5 +50,48 @@
                 </div>
             </div>
         </div>
+        <div class="row m-0 py-3 border-t border-gray-200">
+            <div class="col-12">
+                <form action="{{ route('comment.store') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="item_id" value="{{ $item->id }}" />
+                    <label class="h4" for="comment">
+                        Comment on this item
+                    </label><br />
+                    <textarea id="comment" class="rounded p-2 w-100 my-2" name="content" placeholder="Comment ..."></textarea><br />
+                    <button type="submit" class="btn btn-success">
+                        Commit
+                    </button>
+                </form>
+            </div>
+            <div class="col-12 h5 mt-3">
+                Comments
+            </div>
+            <div class="col-12">
+                @forelse($item->comments->sortBy('created_at') as $comment)
+                    <div class="row m-0 my-4">
+                        <div class="col-2">
+                            <div class="h5 bg-dark text-white p-2 rounded">
+                                {{ $comment->user->name }}
+                            </div>
+                        </div>
+                        <div class="col-10 p-2 border-b border-gray-200">
+                            <p>
+                                {{ $comment->content }}
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <small>
+                                Commented at: {{ $comment->created_at }}
+                            </small>
+                        </div>
+                    </div>
+                @empty
+                    <div>
+                        No comments yet!
+                    </div>
+                @endforelse
+            </div>
+        </div>
     </div>
 </x-app-layout>
