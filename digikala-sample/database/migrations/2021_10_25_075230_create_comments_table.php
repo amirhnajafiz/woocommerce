@@ -25,7 +25,7 @@ class CreateCommentsTable extends Migration
 
             $table->foreignId('item_id')
                 ->references('id')
-                ->on('item')
+                ->on('items')
                 ->cascadeOnDelete();
 
             $table->timestamps();
