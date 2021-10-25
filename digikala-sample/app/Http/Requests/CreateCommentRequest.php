@@ -11,9 +11,9 @@ class CreateCommentRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,11 @@ class CreateCommentRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'content' => 'min:5|max:1024',
+            'item_id' => 'exists:items,id'
         ];
     }
 }
