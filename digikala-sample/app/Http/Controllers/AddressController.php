@@ -51,6 +51,9 @@ class AddressController extends Controller
         Address::query()
             ->create($validated);
 
+        (new MessageController())
+            ->store('New address created.', Auth::id(), 'success');
+
         return redirect()
             ->route('address.index');
     }
