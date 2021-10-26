@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_10_26_165529_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/database/migrations/2021_10_26_165529_create_messages_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,7 @@
       <workItem from="1635086333969" duration="9496000" />
       <workItem from="1635148022935" duration="4865000" />
       <workItem from="1635162073943" duration="2585000" />
-      <workItem from="1635266598069" duration="601000" />
+      <workItem from="1635266598069" duration="1023000" />
     </task>
     <servers />
   </component>
