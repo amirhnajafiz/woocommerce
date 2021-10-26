@@ -18,7 +18,7 @@ class Messenger extends Component
      */
     public function __construct()
     {
-        $this->messages = Auth::user()->messages;
+        $this->messages = Auth::user()->messages ?? [];
     }
 
     /**

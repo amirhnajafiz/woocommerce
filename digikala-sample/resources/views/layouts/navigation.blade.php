@@ -104,6 +104,9 @@
                             </button>
                         </x-slot>
                         <x-slot name="content">
+                            <x-dropdown-link onclick="messenger()">
+                                Messages
+                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -196,10 +199,27 @@
     <x-category-nav class="m-auto w-75" id="categories-nav" style="display: none;"></x-category-nav>
 </nav>
 
+<x-messenger
+    id="messenger"
+    class="p-3 rounded"
+    style="display: none; z-index: 1000; position: fixed; right: 20px; top: 80px; width: 400px;"
+></x-messenger>
+
 @section('script')
     <script>
+        function read_message(url, id) {
+            axios.delete(url).then(
+              document.getElementById(id).remove()
+            );
+        }
+
         function display() {
             const el = document.getElementById('categories-nav');
+            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function messenger() {
+            const el = document.getElementById('messenger');
             el.style.display = el.style.display === 'block' ? 'none' : 'block';
         }
     </script>

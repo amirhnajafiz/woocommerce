@@ -4,6 +4,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SuperAdmin\AdminCartController;
@@ -124,6 +125,9 @@ Route::middleware(['auth'])->group(function () {
     // Comment controller
     Route::resource('comment', CommentController::class)
         ->only(['store']);
+
+    Route::resource('message', MessageController::class)
+        ->only(['destroy']);
 });
 
 require __DIR__ . '/auth.php';
