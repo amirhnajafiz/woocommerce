@@ -105,7 +105,7 @@
                         </x-slot>
                         <x-slot name="content">
                             <x-dropdown-link onclick="messenger()">
-                                Messages
+                                Messages <span class="rounded px-1 bg-dark text-white"> {{ \Illuminate\Support\Facades\Auth::user()->messages != null ? \Illuminate\Support\Facades\Auth::user()->messages->count() : 0 }} </span>
                             </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
