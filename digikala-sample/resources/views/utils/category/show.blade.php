@@ -16,7 +16,7 @@
 
 <x-app-layout>
     <div class="mx-auto w-75" style="margin-top: 150px;">
-        <div class="h2 py-4">
+        <div class="h2 mb-5 py-4 border-gray-200 border-b">
             Category {{ $category->name }}
         </div>
         <div class="row m-0">

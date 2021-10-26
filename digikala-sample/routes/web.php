@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
@@ -59,6 +60,10 @@ Route::middleware(['auth'])->group(function () {
         // Sales resource controller
         Route::resource('sale', SaleController::class)
             ->only(['index', 'store', 'update', 'destroy']);
+
+        // Comment controller
+        Route::resource('comment', CommentController::class)
+            ->only('destroy');
     });
 
     // Writer
@@ -115,6 +120,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('payment', PaymentController::class)
         ->only(['index', 'store', 'show']);
+
+    // Comment controller
+    Route::resource('comment', CommentController::class)
+        ->only(['store']);
 });
 
 require __DIR__ . '/auth.php';

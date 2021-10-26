@@ -16,8 +16,18 @@
 
 <x-app-layout>
     <div class="mx-auto w-75" style="margin-top: 150px;">
-        <div class="h2 py-4">
-            Brand {{ $brand->name }}
+        <div class="flex justify-between m-0 mb-5 py-4 border-gray-200 border-b">
+            <div class="flex flex-col">
+                <div class="h2">
+                    Brand {{ $brand->name }}
+                </div>
+                <small>
+                    {{ $brand->description }}
+                </small>
+            </div>
+            <div>
+                <img src="{{ asset($brand->image->path) }}" alt="{{ $brand->image->alt }}" width="100px" />
+            </div>
         </div>
         <div class="row m-0">
             @forelse($brand->items as $item)

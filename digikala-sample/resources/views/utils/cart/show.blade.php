@@ -2,6 +2,15 @@
 
 <x-app-layout>
     <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="row m-0 p-6 bg-white border-b border-gray-200">
+                    {{ \Illuminate\Support\Str::ucfirst($cart->status) }}<br />
+                    Orders: {{ $cart->orders->count() }}<br />
+                    Last Update: {{ $cart->updated_at }}
+                </div>
+            </div>
+        </div>
         @forelse($cart->orders as $order)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
