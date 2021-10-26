@@ -40,6 +40,9 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment): RedirectResponse
     {
+        (new MessageController())
+            ->store('Sorry but due to admin opinion, your comment was deleted.', $comment->user->id, 'warning');
+
         $comment->delete();
         return redirect()
             ->back();

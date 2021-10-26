@@ -175,10 +175,15 @@ class PaymentController extends Controller
 
                     // Sending mail notification
                     Notification::send(Auth::user(), new InvoicePaid($payment));
+
+                    (new MessageController())
+                        ->store('Your order has been sent.', Auth::id(), 'success');
                 }
 
             } else {
                 $response = Status::STORE_FAIL();
+                (new MessageController())
+                    ->store('Failed order, because of lack of an item.', Auth::id(), 'danger');
             }
 
             $cart->update([

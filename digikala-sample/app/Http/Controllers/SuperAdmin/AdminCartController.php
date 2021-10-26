@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Http\Controllers\MessageController;
 use App\Http\Requests\AdminUpdateCartRequest;
 use App\Models\Cart;
 use Illuminate\Contracts\View\View;
@@ -45,6 +46,9 @@ class AdminCartController extends Controller
             'status' => $validated['status']
         ]);
         $cart->save();
+
+        (new MessageController())
+            ->store('Your cart status has been changed.', $cart->user->id, 'primary');
 
         return back();
     }
