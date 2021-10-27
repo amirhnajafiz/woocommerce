@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3cec098-9273-49a0-8933-b1e16eeadc8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Notifications/InvoicePaid.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Notifications/InvoicePaid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/digikala-sample/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +239,7 @@
       <workItem from="1635148022935" duration="4865000" />
       <workItem from="1635162073943" duration="2585000" />
       <workItem from="1635266598069" duration="3880000" />
-      <workItem from="1635355140060" duration="656000" />
+      <workItem from="1635355140060" duration="1934000" />
     </task>
     <servers />
   </component>
