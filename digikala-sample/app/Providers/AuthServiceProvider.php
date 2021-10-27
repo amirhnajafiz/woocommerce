@@ -39,16 +39,6 @@ class AuthServiceProvider extends ServiceProvider
            return $user->role == Role::SUPER_ADMIN();
         });
 
-        // Admin panel access gate
-        Gate::define('admin', function (User $user) {
-            return $user->role == Role::ADMIN();
-        });
-
-        // Writer gate
-        Gate::define('write',function (User $user) {
-            return $user->role != Role::USER();
-        });
-
         // Payable item check gate
         Gate::define('payable-cart', function (User $user, Cart $cart) {
             return $cart->status == Status::ORDER();
