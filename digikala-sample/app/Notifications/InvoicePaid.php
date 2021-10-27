@@ -4,18 +4,13 @@ namespace App\Notifications;
 
 use App\Models\Payment;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 
-class InvoicePaid extends Notification implements ShouldQueue
+class InvoicePaid extends Notification
 {
     // Traits
     use Queueable;
-
-    // After commit
-    public $afterCommit = true;
 
     /**
      * User payment.
@@ -42,20 +37,17 @@ class InvoicePaid extends Notification implements ShouldQueue
      */
     public function via($notifiable): array
     {
-        return ['mail'];
+        return [];
     }
 
     /**
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return MailMessage
      */
-    public function toMail($notifiable): MailMessage
+    public function toMail($notifiable)
     {
         Log::info('Payment: ' . $this->payment->cart->user->name);
-        return (new MailMessage())
-            ->subject('Invoice Paid');
     }
 
     /**
