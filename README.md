@@ -1,9 +1,14 @@
-# Online Shop
+<h1 align="center">
+  Online Shop
+</h1>
 
-M-54 Bootcamp final project.<br />
+<br />
+
+M-54 Bootcamp final project.
 Modeling digikala website with PHP/Laravel. 
-
 Creating a simple WooComers website with Laravel and Blade.
+
+<br />
 
 <p align="center">
 
